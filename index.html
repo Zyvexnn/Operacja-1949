@@ -118,14 +118,13 @@
       background: rgba(16, 185, 129, 0.6);
     }
 
-    /* ==================== STANDEE CHARACTERS UNIFORM SCALING ==================== */
-    /* All character standees sit submerged ~10-15% beneath the green CRT console to mask bottom cuts */
+    /* ==================== STANDEE CHARACTERS & STAGE VIEWPORT ==================== */
     .standee-wrapper {
       position: absolute;
-      bottom: -32px;
+      bottom: 125px;
       z-index: 20;
       pointer-events: none;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -133,117 +132,159 @@
     }
 
     .standee-left {
-      left: 3%;
+      left: 5%;
     }
 
     .standee-right {
-      right: 3%;
+      right: 5%;
     }
 
-    /* NORMALIZED PROPORTIONS (Every character has identical head & chest size on screen regardless of resolution) */
-    /* Group 1: Waist-Up Busts (~432x578) - Carlo, Kruk, Przemo */
-    #img-carlo, #img-kruk, #img-przemo {
-      max-height: 58vh;
-      transform: translateY(10%) scale(1.18);
-      filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.9));
+    .standee-active {
+      opacity: 1 !important;
+      filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.45)) brightness(1.05) !important;
+      transform: scale(1.04) !important;
+      z-index: 22 !important;
     }
 
-    /* Group 2: Half-to-Three-Quarter Body (~375x666) - Kalina, Łysy, Morozow */
-    #img-kalina, #img-lysy, #img-morozow {
-      max-height: 68vh;
-      transform: translateY(14%) scale(1.36);
+    .standee-inactive {
+      opacity: 0.72 !important;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9)) brightness(0.78) !important;
+      transform: scale(0.96) !important;
+      z-index: 20 !important;
+    }
+
+    .standee-hidden {
+      display: none !important;
+    }
+
+    /* Standee Character Proportions (Full torso & head clearly visible above dialogue box) */
+    #img-carlo, #img-kruk, #img-przemo, #img-wasyl {
+      height: 220px;
+      max-height: 52vh;
+      object-fit: contain;
       filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.95));
     }
 
-    /* Group 3: Standing / Full Body (~308x810) - Helena, Saper, Rusek, Woronow */
+    #img-kalina, #img-lysy, #img-morozow {
+      height: 250px;
+      max-height: 58vh;
+      object-fit: contain;
+      filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.95));
+    }
+
     #img-helena, #img-saper, #img-rusek, #img-woronow {
-      max-height: 82vh;
-      transform: translateY(22%) scale(1.68);
+      height: 280px;
+      max-height: 64vh;
+      object-fit: contain;
       filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.95));
     }
 
-    /* Andrij SVG standee */
     #img-andrij {
-      max-height: 68vh;
-      transform: translateY(14%) scale(1.36);
+      height: 250px;
+      max-height: 58vh;
       filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.9));
+    }
+
+    /* Soft vignette that does NOT darken the entire stage */
+    .vignette {
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.45);
+      pointer-events: none;
     }
 
     /* ==================== ULTRA-RESPONSIVE MOBILE LANDSCAPE CSS (< 520px HEIGHT) ==================== */
     @media screen and (max-height: 520px) {
       #hud {
-        padding-top: 3px !important;
-        padding-bottom: 3px !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
         padding-left: 8px !important;
         padding-right: 8px !important;
-        height: 33px !important;
+        height: 30px !important;
       }
       #hud-location {
         max-width: 125px !important;
-        font-size: 11px !important;
+        font-size: 10.5px !important;
       }
       .hud-tag {
-        font-size: 10px !important;
-        padding: 1.5px 5px !important;
+        font-size: 9.5px !important;
+        padding: 1px 4px !important;
       }
 
-      /* Scale down character standees so heads are completely visible and not covered */
+      /* Position standees on mobile landscape so their torso, face & badge are 100% visible */
       .standee-wrapper {
-        bottom: -14px !important;
+        bottom: 90px !important;
       }
+      .standee-left {
+        left: 4% !important;
+      }
+      .standee-right {
+        right: 4% !important;
+      }
+
       .standee-wrapper > div:first-child {
-        font-size: 9px !important;
-        padding: 1px 5px !important;
+        font-size: 8.5px !important;
+        padding: 1px 4px !important;
         margin-bottom: 2px !important;
       }
-      #img-carlo, #img-kruk, #img-przemo {
-        max-height: 50vh !important;
-        transform: translateY(6%) scale(1.12) !important;
-      }
-      #img-kalina, #img-lysy, #img-morozow, #img-andrij, #img-wasyl {
-        max-height: 56vh !important;
-        transform: translateY(8%) scale(1.24) !important;
-      }
-      #img-helena, #img-saper, #img-rusek, #img-woronow {
-        max-height: 64vh !important;
-        transform: translateY(12%) scale(1.4) !important;
+
+      #img-carlo, #img-kruk, #img-przemo, #img-wasyl {
+        height: 155px !important;
+        max-height: 54vh !important;
+        transform: none !important;
       }
 
-      /* Compact CRT Console (+5% UI size increase for mobile phone readability) */
+      #img-kalina, #img-lysy, #img-morozow {
+        height: 170px !important;
+        max-height: 58vh !important;
+        transform: none !important;
+      }
+
+      #img-helena, #img-saper, #img-rusek, #img-woronow {
+        height: 185px !important;
+        max-height: 62vh !important;
+        transform: none !important;
+      }
+
+      #img-andrij {
+        height: 170px !important;
+        max-height: 58vh !important;
+        transform: none !important;
+      }
+
+      /* Compact CRT Console on phone landscape: fits neatly in bottom ~100px */
       footer {
-        padding-bottom: 3px !important;
+        padding-bottom: 2px !important;
         padding-left: 6px !important;
         padding-right: 6px !important;
       }
       .crt-dialog-box {
-        padding: 6px 10px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 0 14px var(--crt-green-glow), inset 0 0 10px rgba(0, 0, 0, 0.85) !important;
+        padding: 4px 8px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 0 12px var(--crt-green-glow), inset 0 0 10px rgba(0, 0, 0, 0.85) !important;
       }
       #crt-header-title {
-        font-size: 10.5px !important;
+        font-size: 9.5px !important;
         letter-spacing: 0.05em !important;
       }
       #crt-text-container {
-        min-height: 34px !important;
-        max-height: 58px !important;
+        min-height: 28px !important;
+        max-height: 48px !important;
         padding-top: 1px !important;
         padding-bottom: 1px !important;
       }
       #crt-dialogue-text {
-        font-size: 11px !important;
-        line-height: 1.32 !important;
+        font-size: 10.5px !important;
+        line-height: 1.25 !important;
       }
       #crt-choices-container {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 5px !important;
+        gap: 4px !important;
       }
       .crt-btn, .crt-btn-charisma-unlocked, .crt-btn-charisma-locked {
-        padding: 4px 7px !important;
-        font-size: 10.5px !important;
-        min-height: 32px !important;
-        line-height: 1.2 !important;
+        padding: 3px 6px !important;
+        font-size: 10px !important;
+        min-height: 28px !important;
+        line-height: 1.15 !important;
       }
 
       /* Main Menu Modal in mobile phone landscape: compact 2-column dossier */
@@ -403,10 +444,10 @@
   </div>
 
   <!-- ==================== MAIN GAME APPLICATION ==================== -->
-  <div id="game-app" class="relative w-full h-full flex flex-col justify-between overflow-hidden">
+  <div id="game-app" class="relative w-full h-full overflow-hidden select-none">
 
     <!-- Top Compact HUD (Mobile Landscape Optimized) -->
-    <header id="hud" class="z-30 flex items-center justify-between px-2 sm:px-3 py-1 bg-neutral-950/90 border-b border-neutral-800 text-xs shadow-lg backdrop-blur-sm shrink-0">
+    <header id="hud" class="absolute top-0 left-0 right-0 z-40 flex items-center justify-between px-2 sm:px-3 py-1 bg-black/80 border-b border-neutral-800 text-xs shadow-lg backdrop-blur-sm">
       <div class="flex items-center space-x-1.5 sm:space-x-2">
         <span class="px-1.5 py-0.5 bg-red-950/80 border border-red-700 text-red-300 font-bold rounded text-[9px] sm:text-[10px] shrink-0">
           1949
@@ -476,17 +517,16 @@
     </header>
 
     <!-- ==================== MAIN 2D STAGE (BACKGROUND & CHARACTER STANDEES) ==================== -->
-    <main id="game-stage" class="relative flex-1 w-full h-full overflow-visible select-none">
+    <main id="game-stage" class="absolute inset-0 w-full h-full select-none overflow-hidden z-10">
       
       <!-- Zone Background Graphic (Tla/tlo1.png - Tla/tlo7.png) -->
       <img id="stage-bg" src="Tla/tlo1.png" alt="Tło strefy" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none transition-all duration-700">
       
-      <!-- Scanlines & Vignette retro 1949 effects -->
-      <div class="scanlines absolute inset-0 pointer-events-none z-10"></div>
+      <!-- Subtle scanlines and vignette (bright background visible) -->
+      <div class="scanlines absolute inset-0 pointer-events-none z-10 opacity-20"></div>
       <div class="vignette absolute inset-0 pointer-events-none z-10"></div>
-
-      <!-- Atmospheric Fog Gradient -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/25 pointer-events-none z-10"></div>
+      <!-- Soft gradient only behind bottom console to preserve readability -->
+      <div class="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none z-10"></div>
 
       <!-- ==================== REAL CHARACTER STANDEES (BEHIND DIALOGUE CONSOLE) ==================== -->
       
@@ -588,23 +628,7 @@
         <div id="badge-wasyl" class="mb-1 px-2 py-0.5 bg-black/80 border border-amber-500 text-amber-300 text-[10px] md:text-xs font-bold rounded shadow-lg uppercase font-vintage flex items-center">
           <i class="fa-solid fa-scale-balanced mr-1.5 text-amber-400"></i> Paser Wasyl (Szmugler nad Dnieprem)
         </div>
-        <svg id="img-wasyl" class="object-contain drop-shadow-2xl" viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Heavy sheepskin coat (kożuch) -->
-          <path d="M50 85 Q100 40 150 85 L165 240 L35 240 Z" fill="#78350f" />
-          <path d="M65 110 L135 110 L130 235 L70 235 Z" fill="#92400e" />
-          <!-- Wool collar -->
-          <ellipse cx="100" cy="95" rx="36" ry="14" fill="#d97706" />
-          <circle cx="100" cy="65" r="28" fill="#fed7aa" />
-          <!-- Newsboy flat cap (kaszkiet) -->
-          <ellipse cx="100" cy="46" rx="34" ry="12" fill="#1c1917" />
-          <path d="M68 46 Q100 24 132 46 Z" fill="#292524" />
-          <!-- Cigarette in mouth -->
-          <line x1="94" y1="74" x2="80" y2="78" stroke="#ffffff" stroke-width="3" />
-          <circle cx="78" cy="79" r="2" fill="#ef4444" />
-          <!-- Bottle of Moonshine in hand -->
-          <rect x="25" y="160" width="16" height="30" fill="#047857" rx="3" />
-          <rect x="30" y="152" width="6" height="10" fill="#a7f3d0" />
-        </svg>
+        <img id="img-wasyl" src="Postacie/PostacWasyl.png" alt="Paser Wasyl" class="object-contain">
       </div>
 
       <!-- Standee Right: Oficer Przemo (Postacie/PostacPrzemo.png) -->
@@ -619,7 +643,7 @@
 
     <!-- ==================== SIGNATURE GREEN CRT DIALOGUE & DECISION CONSOLE ==================== -->
     <!-- Positioned with z-30 at the bottom, overlapping and naturally masking the cut of the sprites -->
-    <footer class="relative z-30 w-full px-1.5 sm:px-4 md:px-6 pb-1 sm:pb-2 pt-0 shrink-0">
+    <footer class="absolute bottom-0 left-0 right-0 z-30 w-full px-1.5 sm:px-4 md:px-6 pb-1 sm:pb-2 pt-0 pointer-events-auto">
       <div id="crt-dialogue-panel" class="crt-dialog-box p-2 sm:p-2.5 md:p-3 flex flex-col space-y-1 sm:space-y-1.5">
         
         <!-- Header Row (Screenshot Style: NADAJNIK UKF - KANAŁ SZYFROWANY ...) -->
@@ -4168,44 +4192,70 @@
     }
 
     function updateStandees(activeSpeaker) {
-      const isRightSpeaker = (k) => k === 'rusek' || k === 'woronow' || k === 'morozow' || k === 'lysy' || k === 'przemo' || k === 'wasyl';
-      const allies = ['carlo', 'helena', 'saper', 'kruk', 'kalina', 'andrij'];
+      let leftChar = 'carlo';
+      let rightChar = null;
+
       const enemies = ['rusek', 'woronow', 'morozow', 'lysy', 'przemo', 'wasyl'];
+      const allies = ['helena', 'saper', 'kruk', 'kalina', 'andrij'];
 
-      let leftSpeaker = 'carlo';
-      if (allies.includes(activeSpeaker)) {
-        leftSpeaker = activeSpeaker;
-      }
-
-      let rightSpeaker = null;
       if (enemies.includes(activeSpeaker)) {
-        rightSpeaker = activeSpeaker;
-      } else if (currentNodeKey.includes('corridor') || currentNodeKey.includes('brawl') || currentNodeKey.includes('subterfuge')) {
-        rightSpeaker = 'lysy';
-      } else if (currentNodeKey.includes('wasyl') || currentNodeKey.includes('bazar')) {
-        rightSpeaker = 'wasyl';
-      } else if (currentNodeKey.includes('sewers') || currentNodeKey.includes('factory')) {
-        rightSpeaker = 'rusek';
-      } else if (currentNodeKey.includes('woronow') || currentNodeKey.includes('hq') || currentNodeKey.includes('safe')) {
-        rightSpeaker = 'woronow';
-      } else if (currentNodeKey.includes('depot') || currentNodeKey.includes('tank') || currentNodeKey.includes('rail')) {
-        rightSpeaker = !gameState.bridgeBlown ? 'morozow' : 'rusek';
+        rightChar = activeSpeaker;
+        leftChar = 'carlo';
+      } else if (allies.includes(activeSpeaker)) {
+        leftChar = activeSpeaker;
+        rightChar = 'carlo';
+      } else {
+        // activeSpeaker is carlo
+        leftChar = 'carlo';
+        // Pick appropriate conversation partner on right based on current story sector
+        if (currentNodeKey.includes('corridor')) {
+          rightChar = (currentNodeKey.includes('przemo') || currentNodeKey.includes('retaliation')) ? 'przemo' : 'lysy';
+        } else if (currentNodeKey.includes('wasyl') || currentNodeKey.includes('bazar')) {
+          rightChar = 'wasyl';
+        } else if (currentNodeKey.includes('office_intro')) {
+          if (currentNodeKey.includes('kruk')) rightChar = 'kruk';
+          else if (currentNodeKey.includes('kalina')) rightChar = 'kalina';
+          else if (currentNodeKey.includes('3')) rightChar = 'saper';
+          else rightChar = 'helena';
+        } else if (currentNodeKey.includes('sewers') || currentNodeKey.includes('factory')) {
+          rightChar = 'rusek';
+        } else if (currentNodeKey.includes('bridge')) {
+          rightChar = currentNodeKey.includes('morozow') ? 'morozow' : 'rusek';
+        } else if (currentNodeKey.includes('depot') || currentNodeKey.includes('rail')) {
+          rightChar = !gameState.bridgeBlown ? 'morozow' : 'rusek';
+        } else if (currentNodeKey.includes('forest')) {
+          rightChar = 'rusek';
+        } else if (currentNodeKey.includes('podil')) {
+          rightChar = currentNodeKey.includes('wasyl') ? 'wasyl' : 'rusek';
+        } else if (currentNodeKey.includes('radio') || currentNodeKey.includes('outpost')) {
+          rightChar = currentNodeKey.includes('morozow') ? 'morozow' : 'rusek';
+        } else if (currentNodeKey.includes('hq') || currentNodeKey.includes('headquarters')) {
+          rightChar = 'woronow';
+        } else if (currentNodeKey.includes('ending')) {
+          rightChar = 'helena';
+        } else {
+          rightChar = 'helena';
+        }
       }
 
+      // If leftChar and rightChar ever match, assign a partner
+      if (leftChar === rightChar) {
+        rightChar = leftChar === 'carlo' ? 'helena' : 'carlo';
+      }
+
+      // Update all standees classes
       Object.keys(standees).forEach(key => {
         const el = standees[key];
         if (!el) return;
 
-        const sideClass = isRightSpeaker(key) ? 'standee-right' : 'standee-left';
-
-        if (key === activeSpeaker) {
-          el.className = `standee-wrapper ${sideClass} standee-active`;
-        } else if (isRightSpeaker(activeSpeaker) && key === leftSpeaker) {
-          el.className = `standee-wrapper standee-left standee-inactive`;
-        } else if (!isRightSpeaker(activeSpeaker) && key === rightSpeaker) {
-          el.className = `standee-wrapper standee-right standee-inactive`;
+        if (key === leftChar) {
+          const isActive = (key === activeSpeaker);
+          el.className = `standee-wrapper standee-left ${isActive ? 'standee-active' : 'standee-inactive'}`;
+        } else if (key === rightChar) {
+          const isActive = (key === activeSpeaker);
+          el.className = `standee-wrapper standee-right ${isActive ? 'standee-active' : 'standee-inactive'}`;
         } else {
-          el.className = `standee-wrapper ${sideClass} standee-hidden`;
+          el.className = `standee-wrapper standee-hidden`;
         }
       });
     }
