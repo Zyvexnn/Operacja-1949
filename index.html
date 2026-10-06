@@ -174,76 +174,90 @@
       #hud {
         padding-top: 3px !important;
         padding-bottom: 3px !important;
-        padding-left: 6px !important;
-        padding-right: 6px !important;
-        height: 30px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        height: 33px !important;
       }
       #hud-location {
-        max-width: 110px !important;
-        font-size: 10px !important;
+        max-width: 125px !important;
+        font-size: 11px !important;
       }
       .hud-tag {
-        font-size: 9px !important;
-        padding: 1px 4px !important;
+        font-size: 10px !important;
+        padding: 1.5px 5px !important;
       }
 
       /* Scale down character standees so heads are completely visible and not covered */
       .standee-wrapper {
-        bottom: -16px !important;
+        bottom: -14px !important;
       }
       .standee-wrapper > div:first-child {
-        font-size: 8px !important;
-        padding: 0.5px 4px !important;
-        margin-bottom: 1px !important;
+        font-size: 9px !important;
+        padding: 1px 5px !important;
+        margin-bottom: 2px !important;
       }
       #img-carlo, #img-kruk, #img-przemo {
-        max-height: 48vh !important;
-        transform: translateY(6%) scale(1.1) !important;
+        max-height: 50vh !important;
+        transform: translateY(6%) scale(1.12) !important;
       }
       #img-kalina, #img-lysy, #img-morozow, #img-andrij, #img-wasyl {
-        max-height: 54vh !important;
-        transform: translateY(8%) scale(1.22) !important;
+        max-height: 56vh !important;
+        transform: translateY(8%) scale(1.24) !important;
       }
       #img-helena, #img-saper, #img-rusek, #img-woronow {
-        max-height: 62vh !important;
-        transform: translateY(12%) scale(1.38) !important;
+        max-height: 64vh !important;
+        transform: translateY(12%) scale(1.4) !important;
       }
 
-      /* Compact CRT Console */
+      /* Compact CRT Console (+5% UI size increase for mobile phone readability) */
       footer {
-        padding-bottom: 2px !important;
-        padding-left: 4px !important;
-        padding-right: 4px !important;
+        padding-bottom: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
       }
       .crt-dialog-box {
-        padding: 5px 8px !important;
-        border-radius: 10px !important;
-        box-shadow: 0 0 12px var(--crt-green-glow), inset 0 0 10px rgba(0, 0, 0, 0.85) !important;
+        padding: 6px 10px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 14px var(--crt-green-glow), inset 0 0 10px rgba(0, 0, 0, 0.85) !important;
       }
       #crt-header-title {
-        font-size: 9.5px !important;
+        font-size: 10.5px !important;
         letter-spacing: 0.05em !important;
       }
       #crt-text-container {
-        min-height: 32px !important;
-        max-height: 52px !important;
+        min-height: 34px !important;
+        max-height: 58px !important;
         padding-top: 1px !important;
         padding-bottom: 1px !important;
       }
       #crt-dialogue-text {
-        font-size: 10px !important;
-        line-height: 1.25 !important;
+        font-size: 11px !important;
+        line-height: 1.32 !important;
       }
       #crt-choices-container {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 4px !important;
+        gap: 5px !important;
       }
       .crt-btn, .crt-btn-charisma-unlocked, .crt-btn-charisma-locked {
-        padding: 3px 6px !important;
-        font-size: 9.5px !important;
-        min-height: 28px !important;
-        line-height: 1.15 !important;
+        padding: 4px 7px !important;
+        font-size: 10.5px !important;
+        min-height: 32px !important;
+        line-height: 1.2 !important;
+      }
+
+      /* Main Menu Modal in mobile phone landscape: compact 2-column dossier */
+      #main-menu-modal {
+        padding: 6px !important;
+      }
+      #main-menu-modal > div {
+        max-height: 96dvh !important;
+        padding: 8px 12px !important;
+      }
+      #main-menu-modal .menu-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
       }
     }
 
@@ -735,96 +749,111 @@
   </div>
 
   <!-- ==================== MAIN MENU MODAL ==================== -->
-  <div id="main-menu-modal" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-3 md:p-6 backdrop-blur-md">
-    <div class="bg-gradient-to-b from-[#06140e] via-[#040d09] to-black border-2 border-emerald-500 max-w-xl w-full rounded-2xl shadow-[0_0_50px_rgba(16,185,129,0.35)] p-5 md:p-7 text-center relative overflow-hidden flex flex-col justify-between">
+  <div id="main-menu-modal" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-2 sm:p-4 md:p-6 backdrop-blur-md">
+    <div class="bg-gradient-to-b from-[#06140e] via-[#040d09] to-black border-2 border-emerald-500 max-w-2xl w-full max-h-[96dvh] rounded-2xl shadow-[0_0_50px_rgba(16,185,129,0.35)] p-3 sm:p-5 md:p-6 text-center relative overflow-hidden flex flex-col justify-between">
       <div class="scanlines absolute inset-0 opacity-40"></div>
       
-      <!-- Top Secret Military Stamp -->
-      <div class="relative z-10 flex justify-between items-start mb-3">
-        <div class="text-left">
-          <span class="inline-block px-2.5 py-1 bg-red-950/80 border border-red-600 text-red-400 text-[10px] md:text-xs font-vintage font-bold uppercase tracking-widest rotate-[-2deg] shadow-lg">
-            ★ ŚCIŚLE TAJNE • 1949 ★
-          </span>
-          <div class="text-[10px] text-neutral-400 font-mono mt-1">DOWÓDZTWO DYWERSJI „ŚWIT” • KIJÓW</div>
-        </div>
+      <!-- Scrollable content container for mobile phone landscape -->
+      <div class="relative z-10 overflow-y-auto max-h-[calc(96dvh-20px)] pr-1 custom-scrollbar flex flex-col justify-between">
+        
+        <!-- Header: Stamp + Status -->
+        <div class="flex justify-between items-center mb-1.5 sm:mb-2">
+          <div class="text-left">
+            <span class="inline-block px-2 py-0.5 bg-red-950/80 border border-red-600 text-red-400 text-[9px] sm:text-[10px] md:text-xs font-vintage font-bold uppercase tracking-widest rotate-[-1deg] shadow-lg">
+              ★ ŚCIŚLE TAJNE • 1949 ★
+            </span>
+            <span class="text-[9px] sm:text-[10px] text-neutral-400 font-mono ml-2 hidden sm:inline">DOWÓDZTWO DYWERSJI „ŚWIT” • KIJÓW</span>
+          </div>
 
-        <div class="flex items-center space-x-1.5 px-2.5 py-1 bg-emerald-950/60 border border-emerald-700/60 rounded text-[11px] font-mono text-emerald-300">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>SYSTEM SPRAWNY</span>
-        </div>
-      </div>
-
-      <!-- Main Title -->
-      <div class="relative z-10 mb-4">
-        <h1 class="font-vintage text-3xl md:text-4xl text-amber-400 font-extrabold tracking-wider drop-shadow-[0_2px_12px_rgba(245,158,11,0.5)]">
-          OPERACJA 1949
-        </h1>
-        <p class="text-xs md:text-sm text-emerald-300 font-mono tracking-wide mt-1">
-          PORUCZNIK KAROL MARCINIAK • BITWA O KIJÓW
-        </p>
-      </div>
-
-      <!-- Live Campaign Dossier Progress Box -->
-      <div class="relative z-10 mb-3 bg-neutral-900/95 border border-emerald-800/80 rounded-xl p-3 text-left font-mono shadow-xl">
-        <div class="flex items-center space-x-3 mb-2 pb-2 border-b border-neutral-800">
-          <img src="Postacie/PostacCarlo.png" alt="Marciniak" class="w-12 h-12 object-cover object-top rounded-lg border border-emerald-500/80 shrink-0 bg-black/60">
-          <div class="flex-1 min-w-0">
-            <div class="text-[10px] text-emerald-400 uppercase tracking-widest font-bold">AKTA DOWÓDCY AK / WIN</div>
-            <div class="text-xs md:text-sm font-vintage font-bold text-white truncate">POR. KAROL MARCINIAK</div>
-            <div class="flex items-center space-x-2 text-[10px] text-amber-300 mt-0.5">
-              <span id="menu-charisma-stat" class="px-1.5 py-0.2 bg-amber-950/70 border border-amber-600 rounded">
-                ✨ CHARYZMA: POZ. 0
-              </span>
-              <span class="text-neutral-400">STATUS: W BOJU</span>
-            </div>
+          <div class="flex items-center space-x-1.5 px-2 py-0.5 bg-emerald-950/60 border border-emerald-700/60 rounded text-[9px] sm:text-[11px] font-mono text-emerald-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>SYSTEM SPRAWNY</span>
           </div>
         </div>
 
-        <div class="flex justify-between items-center text-xs mb-1.5">
-          <span class="text-neutral-300 font-bold flex items-center">
-            <i class="fa-solid fa-trophy text-amber-400 mr-1.5"></i> POSTĘP ZAKOŃCZEŃ:
-          </span>
-          <span id="menu-endings-counter" class="text-amber-400 font-bold px-2 py-0.5 bg-black/60 rounded border border-amber-800 text-[11px]">
-            0 / 4 ZAKOŃCZEŃ
-          </span>
+        <!-- Main Title -->
+        <div class="mb-2 sm:mb-2.5">
+          <h1 class="font-vintage text-2xl sm:text-3xl md:text-4xl text-amber-400 font-extrabold tracking-wider drop-shadow-[0_2px_12px_rgba(245,158,11,0.5)] leading-tight">
+            OPERACJA 1949
+          </h1>
+          <p class="text-[10px] sm:text-xs md:text-sm text-emerald-300 font-mono tracking-wide">
+            PORUCZNIK KAROL MARCINIAK • BITWA O KIJÓW
+          </p>
         </div>
 
-        <!-- 4 Endings Status Dots -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-1.5 text-center text-[10px] pt-1">
-          <div id="dot-ending-1" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500">I: Wolny Kijów</div>
-          <div id="dot-ending-2" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500">II: Cichy Zmierzch</div>
-          <div id="dot-ending-3" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500">III: Żelazna Osłona</div>
-          <div id="dot-ending-4" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500">IV: Czyste Szeregi</div>
+        <!-- Responsive Split Layout: Left Dossier, Right Buttons -->
+        <div class="menu-grid grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3 items-stretch text-left">
+          
+          <!-- Column 1: Live Campaign Dossier Progress Box -->
+          <div class="bg-neutral-900/95 border border-emerald-800/80 rounded-xl p-2.5 sm:p-3 font-mono shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2.5 mb-2 pb-2 border-b border-neutral-800">
+                <img src="Postacie/PostacCarlo.png" alt="Marciniak" class="w-11 h-11 sm:w-12 sm:h-12 object-cover object-top rounded-lg border border-emerald-500/80 shrink-0 bg-black/60">
+                <div class="flex-1 min-w-0">
+                  <div class="text-[9px] sm:text-[10px] text-emerald-400 uppercase tracking-widest font-bold">AKTA DOWÓDCY AK / WIN</div>
+                  <div class="text-xs sm:text-sm font-vintage font-bold text-white truncate">POR. KAROL MARCINIAK</div>
+                  <div class="flex items-center space-x-2 text-[9px] sm:text-[10px] text-amber-300 mt-0.5">
+                    <span id="menu-charisma-stat" class="px-1.5 py-0.2 bg-amber-950/70 border border-amber-600 rounded">
+                      ✨ CHARYZMA: POZ. 0
+                    </span>
+                    <span class="text-neutral-400">W BOJU</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center text-[10.5px] sm:text-xs mb-1">
+                <span class="text-neutral-300 font-bold flex items-center">
+                  <i class="fa-solid fa-trophy text-amber-400 mr-1.5"></i> POSTĘP ZAKOŃCZEŃ:
+                </span>
+                <span id="menu-endings-counter" class="text-amber-400 font-bold px-1.5 py-0.5 bg-black/60 rounded border border-amber-800 text-[10px] sm:text-[11px]">
+                  0 / 4 ZAKOŃCZEŃ
+                </span>
+              </div>
+
+              <!-- 4 Endings Status Dots -->
+              <div class="grid grid-cols-2 gap-1 text-center text-[9px] sm:text-[10px] pt-1">
+                <div id="dot-ending-1" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500 truncate">I: Wolny Kijów</div>
+                <div id="dot-ending-2" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500 truncate">II: Cichy Zmierzch</div>
+                <div id="dot-ending-3" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500 truncate">III: Żelazna Osłona</div>
+                <div id="dot-ending-4" class="p-1 rounded bg-black/60 border border-neutral-800 text-neutral-500 truncate">IV: Czyste Szeregi</div>
+              </div>
+            </div>
+
+            <div class="text-[9px] sm:text-[10px] text-emerald-400/80 border-t border-neutral-800 pt-1.5 mt-2 flex items-center justify-between">
+              <span><i class="fa-solid fa-volume-high mr-1 text-amber-400"></i> 73 DEDYKOWANE GŁOSY</span>
+              <span class="text-neutral-400">10 SEKTORÓW</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Main Action Buttons -->
+          <div class="flex flex-col justify-center space-y-1.5 sm:space-y-2">
+            <button onclick="startNewGameFromMenu()" class="w-full py-2.5 sm:py-3 crt-btn font-bold rounded-xl tracking-wider text-[11px] sm:text-xs md:text-sm flex items-center justify-center shadow-lg active:scale-95 transition">
+              <i class="fa-solid fa-play mr-2 text-sm text-emerald-400"></i> ROZPOCZNIJ MISJĘ (BIURO BUNKRA)
+            </button>
+
+            <button onclick="closeMainMenu(); openMapModal();" class="w-full py-2 sm:py-2.5 bg-neutral-900/90 hover:bg-neutral-800 text-amber-300 font-bold rounded-xl border border-amber-900/60 transition flex items-center justify-center text-[10.5px] sm:text-xs">
+              <i class="fa-solid fa-map-marked-alt mr-2 text-amber-400"></i> MAPA SZTABOWA (10 SEKTORÓW)
+            </button>
+
+            <button onclick="closeMainMenu(); openAchievementsModal();" class="w-full py-2 sm:py-2.5 bg-neutral-900/90 hover:bg-neutral-800 text-amber-400 font-bold rounded-xl border border-neutral-700 transition flex items-center justify-center text-[10.5px] sm:text-xs">
+              <i class="fa-solid fa-award mr-2 text-amber-500"></i> OSIĄGNIĘCIA & 4 ZAKOŃCZENIA
+            </button>
+
+            <button onclick="closeMainMenu(); openAudioStudioModal();" class="w-full py-2 sm:py-2.5 bg-neutral-900/90 hover:bg-neutral-800 text-emerald-400 font-bold rounded-xl border border-neutral-700 transition flex items-center justify-center text-[10.5px] sm:text-xs">
+              <i class="fa-solid fa-microphone-lines mr-2"></i> ARCHIWUM POSTACI & AUDIO
+            </button>
+
+            <button onclick="requestLandscapeMode()" class="w-full py-1.5 sm:py-2 bg-neutral-950/80 hover:bg-neutral-800 text-sky-400 font-bold rounded-xl border border-neutral-800 transition flex items-center justify-center text-[10px] sm:text-[11px]">
+              <i class="fa-solid fa-mobile-screen mr-2"></i> PEŁNY EKRAN (POZIOM TELEFONU)
+            </button>
+          </div>
         </div>
-      </div>
 
-      <!-- Main Action Buttons -->
-      <div class="relative z-10 space-y-2.5 my-2">
-        <button onclick="startNewGameFromMenu()" class="w-full py-3.5 crt-btn font-bold rounded-xl tracking-wider text-xs md:text-sm flex items-center justify-center shadow-lg active:scale-95 transition">
-          <i class="fa-solid fa-play mr-2 text-base text-emerald-400"></i> ROZPOCZNIJ MISJĘ (BIURO BUNKRA)
-        </button>
-
-        <button onclick="closeMainMenu(); openMapModal();" class="w-full py-2.5 bg-neutral-900/90 hover:bg-neutral-800 text-amber-300 font-bold rounded-xl border border-amber-900/60 transition flex items-center justify-center text-xs md:text-sm">
-          <i class="fa-solid fa-map-marked-alt mr-2 text-amber-400"></i> MAPA SZTABOWA (10 SEKTORÓW KIJOWA)
-        </button>
-
-        <button onclick="closeMainMenu(); openAchievementsModal();" class="w-full py-2.5 bg-neutral-900/90 hover:bg-neutral-800 text-amber-400 font-bold rounded-xl border border-neutral-700 transition flex items-center justify-center text-xs md:text-sm">
-          <i class="fa-solid fa-award mr-2 text-amber-500"></i> GABLOTA OSIĄGNIĘĆ & PUCHARY ZAKOŃCZEŃ
-        </button>
-
-        <button onclick="closeMainMenu(); openAudioStudioModal();" class="w-full py-2.5 bg-neutral-900/90 hover:bg-neutral-800 text-emerald-400 font-bold rounded-xl border border-neutral-700 transition flex items-center justify-center text-xs md:text-sm">
-          <i class="fa-solid fa-microphone-lines mr-2"></i> ARCHIWUM POSTACI & DIALOGI AUDIO
-        </button>
-
-        <button onclick="requestLandscapeMode()" class="w-full py-2 bg-neutral-950/80 hover:bg-neutral-800 text-sky-400 font-bold rounded-xl border border-neutral-800 transition flex items-center justify-center text-xs">
-          <i class="fa-solid fa-mobile-screen mr-2"></i> TRYB PEŁNOEKRANOWY (POZIOM TELEFONU)
-        </button>
-      </div>
-
-      <!-- Footer Info -->
-      <div class="relative z-10 pt-3 border-t border-emerald-950 text-[11px] text-neutral-400 font-mono flex justify-between items-center">
-        <span>Każdy dialog posiada 2 taktyczne opcje wyboru</span>
-        <button onclick="closeMainMenu()" class="text-emerald-400 hover:underline font-bold">Zamknij Menu</button>
+        <!-- Footer Info -->
+        <div class="mt-2 pt-1.5 border-t border-emerald-950/80 text-[10px] sm:text-[11px] text-neutral-400 font-mono flex justify-between items-center">
+          <span>Taktyczny visual novel wojenny • 1949 r.</span>
+          <button onclick="closeMainMenu()" class="text-emerald-400 hover:text-emerald-300 hover:underline font-bold px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800">Zamknij Menu [✕]</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1901,7 +1930,7 @@
         try {
           const osc = this.ctx.createOscillator();
           const gain = this.ctx.createGain();
-          osc.type = 'triangle';
+          osc.type = type = 'triangle';
           osc.frequency.setValueAtTime(170, this.ctx.currentTime);
           osc.frequency.exponentialRampToValueAtTime(40, this.ctx.currentTime + 0.14);
           gain.gain.setValueAtTime(0.26, this.ctx.currentTime);
@@ -1920,10 +1949,10 @@
         });
       }
 
-      playVoice(audioFilename, fallbackText, lang = 'pl-PL', force = false) {
+      playVoice(audioFilename, fallbackText, lang = 'pl-PL', force = true) {
         this.init();
         const now = Date.now();
-        if (!force && this.lastAudioFile === audioFilename && (now - this.lastPlayedAudioTime) < 8000) {
+        if (!force && this.lastAudioFile === audioFilename && (now - this.lastPlayedAudioTime) < 3000) {
           return;
         }
 
@@ -1931,8 +1960,16 @@
         this.lastAudioFile = audioFilename;
 
         if (this.currentAudio) {
-          this.currentAudio.pause();
+          try {
+            this.currentAudio.pause();
+            this.currentAudio.currentTime = 0;
+          } catch(e) {}
           this.currentAudio = null;
+        }
+
+        // Cancel any lingering robot speech synthesis so user's real voice is purely heard
+        if (this.speechSynth) {
+          this.speechSynth.cancel();
         }
 
         // Handle compatibility for Mrozow vs Morozow filenames
@@ -1947,19 +1984,16 @@
         audio.oncanplaythrough = () => {
           if (!played) {
             played = true;
-            audio.play().catch(() => this.speakFallback(fallbackText, lang));
+            audio.play().catch(e => {
+              console.warn("Audio play blocked by browser policy:", e);
+            });
           }
         };
 
         audio.onerror = () => {
+          console.warn("Audio file missing or failed to load:", audioPath);
           this.speakFallback(fallbackText, lang);
         };
-
-        setTimeout(() => {
-          if (!played && audio.readyState < 2) {
-            this.speakFallback(fallbackText, lang);
-          }
-        }, 350);
       }
 
       speakFallback(text, lang) {
@@ -1978,1263 +2012,2071 @@
 
     // --- 6. EXPANDED STORY TREE (ALWAYS TWO CHOICES A / B WITH REAL CONSEQUENCES) ---
     const STORY_NODES = {
-      // ==================== AKT I: ODPRAWA W BUNKROWEJ RADIOROZGŁOŚNI (SEKTOR 01) ====================
-      office_intro_1: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: "Carlo1.mp3",
-        header: "NADAJNIK UKF - GŁÓWNA RADIOROZGŁOŚNIA PODZIEMIA",
-        footer: "Biuro Dowódcy • Bunkier Peczersk • 14 października 1949 r.",
-        text: "Do wszystkich radiowni, do wszystkich oddziałów dywersyjnych w Kijowie! Tu Marciniak, nadaję z głównego bunkra dowodzenia. Zbieram zespół do natychmiastowej dywersji. Kaczki ruszyły w dół rzeki, kryptonim 'Świt-49'. Pełna gotowość bojowa! Odbiór.",
-        choices: [
-          { label: "„Heleno, jaki jest aktualny meldunek wywiadowczy z Podola?”", node: "office_intro_2", badge: "OPCJA A", icon: "fa-solid fa-envelope" },
-          { label: "„Stalowy, zamelduj stan przygotowania ładunków minerskich!”", node: "office_intro_3", badge: "OPCJA B", icon: "fa-solid fa-bomb" }
-        ],
-        onEnter: () => unlockAchievement("medal_radio")
-      },
-      office_intro_2: {
-        sectorId: 1,
-        speaker: "helena",
-        audio: "Wisla1.mp3",
-        header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • MELDUNEK Z MIASTA",
-        footer: "Kwatera Sztabu • Biuro Marciniaka",
-        text: "Tu Helena. Melduję gotowość siatki na Podolu. Komisarz Woronow zarządził obławę. Wiem, gdzie przetrzymują aresztowanych. NKWD ściąga posiłki pod stację kolejową i zakłady Arsenał!",
-        choices: [
-          { 
-            label: "„Heleno, twoje poświęcenie ratuje setki ludzi. Wszyscy wrócimy z tego żywi!”", 
-            node: "office_intro_kruk", 
-            badge: "PERSWAZJA", 
-            icon: "fa-solid fa-heart",
-            action: () => gainCharisma(1, "Wsparcie moralne dla łączniczki Heleny")
-          },
-          { label: "„Poruczniku Kruk, bierz karabin wyborowy i ubezpieczaj nas z góry!”", node: "office_intro_kruk", badge: "OPCJA B", icon: "fa-solid fa-crosshairs" }
-        ],
-        onEnter: () => unlockAchievement("medal_courier")
-      },
-      office_intro_kruk: {
-        sectorId: 1,
-        speaker: "kruk",
-        audio: "Kruk1.mp3",
-        header: "PORUCZNIK „KRUK” (SNAJPER) [PL] • ODPRAWA",
-        footer: "Kwatera Sztabu • Stanowisko zwiadu",
-        text: "Cel w celowniku optycznym. Znam pozycje reflektorów nad Dnieprem. Mogę zdjąć operatorów jednym strzałem bez wywołania alarmu w garnizonie.",
-        choices: [
-          { label: "„Sanitariuszko Kalina, przygotuj opatrunki i morfinę dla rannych!”", node: "office_intro_kalina", badge: "OPCJA A", icon: "fa-solid fa-notes-medical" },
-          { label: "„Stalowy, dołącz do nas – bierzemy zapalniki i ruszamy!”", node: "office_intro_3", badge: "OPCJA B", icon: "fa-solid fa-arrow-right" }
-        ]
-      },
-      office_intro_kalina: {
-        sectorId: 1,
-        speaker: "kalina",
-        audio: "Kalina1.mp3",
-        header: "SANITARIUSZKA „KALINA” [PL] • PUNKT SANITARNY",
-        footer: "Kwatera Sztabu • Apteczka polowa",
-        text: "Opatrunki, szyny i ampułki morfiny przygotowane. Jeśli nasi ludzie zostaną ranni podczas szturmu na areszt, odbiorę ich w punkcie zbornym i ustabilizuję przed ewakuacją.",
-        choices: [
-          { label: "„Doskonale. Stalowy, melduj stan ładunków wybuchowych!”", node: "office_intro_3", badge: "OPCJA A", icon: "fa-solid fa-bomb" },
-          { label: "„Rozłóżcie mapę operacyjną Kijowa – wybieramy punkt wejścia!”", node: "office_intro_4", badge: "OPCJA B", icon: "fa-solid fa-map-location-dot" }
-        ]
-      },
-      office_intro_3: {
-        sectorId: 1,
-        speaker: "saper",
-        audio: "Saper1.mp3",
-        header: "SAPER „STALOWY” [PL] • RAPORT MINERSKI",
-        footer: "Kwatera Sztabu • Biuro Marciniaka",
-        text: "Spokojnie, Marciniak. Znam te tory jak własną kieszeń. Skrzynie z trotylem przygotowane, zapalniki sprawdzone. Zwrotnice i filary mostu Darnickiego są w naszym zasięgu.",
-        choices: [
-          { label: "„Rozłóżcie mapę operacyjną – wybieramy priorytetowy punkt uderzenia!”", node: "office_intro_4", badge: "OPCJA A", icon: "fa-solid fa-map-location-dot" },
-          { label: "„Zamykamy biuro i ruszamy korytarzem technicznym ku wyjściu!”", node: "corridor_ambush_lysy", badge: "OPCJA B", icon: "fa-solid fa-door-open" }
-        ]
-      },
-      office_intro_4: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: null,
-        header: "SZTAB DOWODZENIA • PLAN DZIAŁANIA NA MAPIE KIJOWA",
-        footer: "Mapa Sztabowa Kijowa • 10 Sektorów Taktycznych",
-        text: "Mamy dziesięć kluczowych celów na mapie Kijowa. Każda nasza decyzja zaważy na losach całej operacji: wysadzenie Mostu Darnickiego odetnie pociągi pancerne wroga, ale zamknie drogę odwrotu. Oszczędzenie mostu ściągnie na nas czołgi, lecz pozwoli ewakuować ocalałych! Ruszajmy korytarzem ku wyjściu!",
-        choices: [
-          { label: "„Wychodzimy z bunkra korytarzem technicznym ku wyjściu!”", node: "corridor_ambush_lysy", badge: "OPCJA A", icon: "fa-solid fa-door-open" },
-          { label: "„Sprawdźmy naciąg sprężyn w peemach i ruszajmy w mrok!”", node: "corridor_ambush_lysy", badge: "OPCJA B", icon: "fa-solid fa-gun" }
-        ]
-      },
-
-      // ==================== AKT II: KORYTARZ BUNKRA & PATROL ŁYSEGO I PRZEMA (SEKTOR 01) ====================
-      corridor_ambush_lysy: {
-        sectorId: 1,
-        speaker: "lysy",
-        audio: "Lysy1.mp3",
-        header: "KORYTARZ TECHNICZNY BUNKRA • PATROL DWÓCH OFICERÓW NKWD",
-        footer: "Wyjście ewakuacyjne • Zasadzka w ciemności",
-        text: "A dokąd to, polaczku? Wychodzisz z nory? Masz dwie opcje: albo na kolana i opierdalasz pałę, albo tłuczemy cię na kwaśne jabłko!",
-        choices: [
-          { label: "WYBÓR A: [POKORNE PONIŻENIE] Uklęknij pokornie przed oficerami i zrób to, byle ratować misję!", node: "corridor_choice_compliance", badge: "POKORNE PODDANIE", icon: "fa-solid fa-person-praying" },
-          { label: "WYBÓR B: [TWARDY SPRZECIW] Spluń pod nogi: 'Niedoczekanie wasze!' i przyjmij brutalne pobicie!", node: "corridor_choice_beating", badge: "TWARDY SPRZECIW", icon: "fa-solid fa-hand-fist" }
-        ]
-      },
-      corridor_choice_compliance: {
-        sectorId: 1,
-        speaker: "przemo",
-        audio: "Przemo1.mp3",
-        header: "OFICEROWIE ŁYSY I PRZEMO • SZYDERCZY RECHOT",
-        footer: "Korytarz bunkra • Poniżenie dowódcy dywersji",
-        text: "Dokładnie, gnoju! Pociągniesz z połykiem dla krasnej armii albo połamiemy ci żebra! Hahaha, patrz Łysy, klęczy posłusznie jak zbity pies! Pociągnął z połykiem aż miło! A teraz spierdalaj do kanału, polska ściero, zanim zmienimy zdanie!",
-        choices: [
-          { label: "Wstań z kolan z dławioną wściekłością w gardle...", node: "corridor_carlo_compliance_reflection", badge: "OPCJA A", icon: "fa-solid fa-person-walking" },
-          { label: "Uciekaj w mrok korytarza, przysięgając krwawy odwet...", node: "corridor_carlo_compliance_reflection", badge: "OPCJA B", icon: "fa-solid fa-forward" }
-        ],
-        onEnter: () => { gameState.humiliated = true; }
-      },
-      corridor_carlo_compliance_reflection: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: "Carlo14.mp3",
-        header: "KAROL MARCINIAK • GORYCZ PONIŻENIA",
-        footer: "Właz kanalizacyjny • Przysięga krwawego odwetu",
-        text: "Musiałem to zrobić... Ukląkłem i ojebałem im tę pałę pokornie na betonie. Rechotali jak zarzynane świnie. Upokorzyli mnie do cna, ale żyję... Przysięgam na Boga, że odbiorę im to z nawiązką z ich własnej krwi.",
-        choices: [
-          { label: "Przeszukaj porzuconą szafkę warty NKWD w ciemnej wnęce korytarza!", node: "corridor_loot_officers", badge: "SZABER", icon: "fa-solid fa-box-open" },
-          { label: "Zauważ leżącą na betonie teczkę służbową oficera i przejrzyj ją!", node: "corridor_sneak_officers", badge: "DOKUMENTY", icon: "fa-solid fa-folder-open" }
-        ]
-      },
-      corridor_sneak_officers: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: null,
-        header: "KORYTARZ BUNKRA • MELDUNEK WARTY",
-        footer: "Znaleziona teczka polowa NKWD",
-        text: "W teczce oficerskiej leży przepustka do śluz rzecznych oraz potwierdzenie dostawy amunicji do Arsenału. Zabezpieczamy dokumenty i sprawdzamy resztę szafki!",
-        choices: [
-          { label: "Opróżnij do czysta szafkę warty z mundurów, uszanki i zegarka!", node: "corridor_loot_officers", badge: "ŁUPY", icon: "fa-solid fa-box-open" },
-          { label: "Ruszaj natychmiast dalej, nie marnując ani sekundy!", node: "corridor_exit_branch", badge: "DALEJ", icon: "fa-solid fa-arrow-right" }
-        ]
-      },
-      corridor_choice_beating: {
-        sectorId: 1,
-        speaker: "lysy",
-        audio: "Lysy2.mp3",
-        header: "OFICER ŁYSY & PRZEMO • BRUTALNE SKATOWANIE",
-        footer: "Korytarz bunkra • Trzask kości na betonie",
-        text: "Uważaj, Przemo, bo ten partyzant jeszcze myśli, że jest bohaterem! Ściągaj gacie, bandyto! Nie chcesz?! To masz za swoje! Łup, trzask! Ciosy pałką i ciężkimi buciorami spadają na żebra, brzuch i skroń Marciniaka!",
-        choices: [
-          { label: "Marciniak pada zakrwawiony na beton, oficerowie zostawiają go półżywego...", node: "corridor_carlo_beaten_reflection", badge: "OPCJA A", icon: "fa-solid fa-skull" },
-          { label: "Doczołgaj się resztkami sił do włazu ratunkowego...", node: "corridor_carlo_beaten_reflection", badge: "OPCJA B", icon: "fa-solid fa-person-falling" }
-        ],
-        onEnter: () => {
-          sound.playSfxGunshot();
-          gameState.battered = true;
-          consumeSurvival(15, 20);
-        }
-      },
-      corridor_carlo_beaten_reflection: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: "Carlo15.mp3",
-        header: "KAROL MARCINIAK • SKOPANY NA KWAŚNE JABŁKO",
-        footer: "Właz bunkra • Połamane żebra i krew na twarzy",
-        text: "Skopali mnie na kwaśne jabłko... Żebra połamane, krew zalewa mi oczy i ledwo łapię oddech, ale nie ukląkłem przed tymi bydlakami! Ledwo doczołgałem się do wyjścia.",
-        choices: [
-          { label: "„Wezwij Sanitariuszkę Kalinę przez radio po zastrzyk morfiny i bandaż!”", node: "corridor_kalina_patchup", badge: "OPCJA A", icon: "fa-solid fa-notes-medical" },
-          { label: "Zaciśnij zęby z wściekłości i zrób zasadzkę z cegłą na wracającego Przema!", node: "corridor_brawl_retaliation", badge: "ODWET", icon: "fa-solid fa-hand-fist" }
-        ]
-      },
-      corridor_kalina_patchup: {
-        sectorId: 1,
-        speaker: "kalina",
-        audio: "Kalina1.mp3",
-        header: "SANITARIUSZKA KALINA • RATUNEK PO SKATOWANIU",
-        footer: "Punkt sanitarny • Morfina i opatrunek żeber",
-        text: "Marciniak! Boże, jak oni cię urządzili! Masz pęknięte dwa żebra i rozbitą głowę! Wstrzykuję pełną ampułkę morfiny i zakładam ciasny bandaż gipsowy. Dasz radę iść, ale ból będzie wracał. Trzymaj się!",
-        choices: [
-          { label: "Przeszukaj porzuconą szafkę oficerów w korytarzu przed wyjściem!", node: "corridor_loot_officers", badge: "SZABER", icon: "fa-solid fa-box-open" },
-          { label: "Zbierz siły i ruszaj w stronę wyjścia z bunkra!", node: "corridor_exit_branch", badge: "WYJŚCIE", icon: "fa-solid fa-door-open" }
-        ]
-      },
-      corridor_brawl_retaliation: {
-        sectorId: 1,
-        speaker: "przemo",
-        audio: "Przemo4.mp3",
-        header: "KONTRATAK Z MROKU • ROZBITA CZASZKA PRZEMA",
-        footer: "Ciemny zaułek korytarza • Błyskawiczny cios",
-        text: "Aaa kurwa, dostałem w ramię i łeb! Skąd on wytrzasnął ten pistolet i cegłę?! Zabij tego polskiego psa, Łysy, rozwal mu łeb! Zaskoczony Przemo pada bez przytomności w kałużę!",
-        choices: [
-          { label: "Szybko! Zabierz z pasa Przema pistolet TT, zegarek i uszankę!", node: "corridor_loot_officers", badge: "SZABER", icon: "fa-solid fa-box-open" },
-          { label: "Biegiem ku włazowi ewakuacyjnemu, zanim Łysy podniesie wrzask!", node: "corridor_exit_branch", badge: "UCIECZKA", icon: "fa-solid fa-person-running" }
-        ],
-        onEnter: () => sound.playSfxGunshot()
-      },
-      corridor_loot_officers: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: "Carlo17.mp3",
-        header: "SZABER W KORYTARZU • PRZEJĘCIE EKWIPUNKU OFICERÓW",
-        footer: "Szafka warty NKWD • Łupy bojowe",
-        text: "Patrzcie na te czerwone truchła i szafkę warty! Złoty zegarek szwajcarski 'Doxa', paczka amunicji TT, oficerska uszanka z gwiazdą oraz skórzany pas oficerski! Wasyl na Dnieprze zapłaci za to gruby szmal!",
-        choices: [
-          { label: "Wychodzimy z bunkra: czas wybrać punkt uderzenia w Kijowie!", node: "corridor_exit_branch", badge: "OPCJA A", icon: "fa-solid fa-door-open" },
-          { label: "Upakuj łupy do plecaka i ruszaj do wyjścia ewakuacyjnego!", node: "corridor_exit_branch", badge: "OPCJA B", icon: "fa-solid fa-bag-shopping" }
-        ],
-        onEnter: () => {
-          addLoot({ id: "czapka_uszanka", name: "Czapka uszanka NKWD", count: 1, val: 28, icon: "fa-solid fa-hat-cowboy", type: "loot", desc: "Oficerska czapka z czerwoną gwiazdą. Paser Wasyl dobrze za nią płaci." });
-          addLoot({ id: "pas_oficerski", name: "Skórzany pas NKWD", count: 1, val: 22, icon: "fa-solid fa-vest", type: "loot", desc: "Gruby skórzany pas oficerski ze srebrną klamrą." });
-          addLoot({ id: "naboje_tt", name: "Naboje TT 7.62mm", count: 12, val: 2, icon: "fa-solid fa-bullseye", type: "ammo", desc: "Amunicja pistoletowa." });
-          addLoot({ id: "zegarek_zloty", name: "Złoty zegarek 'Doxa'", count: 1, val: 45, icon: "fa-solid fa-stopwatch", type: "loot", desc: "Zrabowany szwajcarski zegarek. Prawdziwa fortuna u pasera!" });
-        }
-      },
-      corridor_exit_branch: {
-        sectorId: 1,
-        speaker: "carlo",
-        audio: null,
-        header: "WŁAZ EWAKUACYJNY BUNKRA • WYBÓR TRASY W MIEŚCIE",
-        footer: "Rozstaje dróg • Nocny chłód Kijowa",
-        text: "Stoimy przy żelaznym włazie. Przed nami dwie drogi wejścia do operacji: możemy przekraść się bezpośrednio na nabrzeże rzeki Dniepr do krypy Pasera Wasyla, by spieniężyć łupy i kupić zaopatrzenie, ALBO wejść wprost do Kolektora Burzowego pod miasto!",
-        choices: [
-          { label: "TRASA A: Zbiegamy pod krypę Pasera Wasyla na Dnieprze pohandlować!", node: "bazar_dniepr_wasyl", badge: "PASER WASYL", icon: "fa-solid fa-coins" },
-          { label: "TRASA B: Schodzimy w głąb Kolektora Burzowego (Sektor 02) pod Dniepr!", node: "sewers_start", badge: "KOLEKTOR", icon: "fa-solid fa-water" }
-        ]
-      },
-
-      // ==================== AKT III: KRYPA PASERA WASYLA & KOLEKTOR BURZOWY (SEKTOR 02/03) ====================
-      bazar_dniepr_wasyl: {
-        sectorId: 3,
-        speaker: "wasyl",
-        audio: "Wasyl1.mp3",
-        header: "CZARNY RYNEK NAD DNIEPREM • KRYPA PASERA WASYLA",
-        footer: "Lewy brzeg Dniepru • Ciemne zaułki przy barkach",
-        text: "Marciniak, kurwa twoja mać! Ciszej w tej krypie, bo czerwone sukinsyny z patrolu rzecznego tylko węszą! Co tam przytargałeś ze sztabu? Mundury, czapki, złote zegarki enkawudzistów? Kładź wszystko na stół, a rzucę ci za to tyle rubli, że wykupisz pół Podola!",
-        choices: [
-          { 
-            label: "🎒 OTWÓRZ HANDEL: Sprzedaj łupy za ruble i kup prowiant / naboje / granaty!", 
-            action: () => openInventoryModal(), 
-            badge: "SKLEP & PLECAK", 
-            icon: "fa-solid fa-coins" 
-          },
-          { 
-            label: "„Wasyl, nalej szklanę samogonu i powiedz, co się dzieje na mieście!”", 
-            node: "bazar_wasyl_drink_talk", 
-            badge: "GĘSTY BIMBER", 
-            icon: "fa-solid fa-wine-bottle" 
-          }
-        ]
-      },
-      bazar_wasyl_drink_talk: {
-        sectorId: 3,
-        speaker: "wasyl",
-        audio: "Wasyl2.mp3",
-        header: "PASER WASYL • RADY WOJENNE I MOCNY SAMOGON",
-        footer: "Krypa rybacka • Szklanka 70% bimbru",
-        text: "Bierz tę tuszonkę i samogon pędzony na życie, bo z głodu i pragnienia zaraz wyciągniesz kopyta na tych ruinach. U mnie nie ma darmowych obiadów, ale jak masz szmal i łupy, to i granaty F-1 ci skombinuję, żebyś rozjebał tych skurwysynów!",
-        choices: [
-          { 
-            label: "Wychyl duszkiem samogon Wasyla, zjedz pajdę słoniny (+35% Woda, +25% Głód)!", 
-            node: "bazar_wasyl_parting", 
-            badge: "POSIŁEK", 
-            icon: "fa-solid fa-utensils",
-            action: () => {
-              gameState.hunger = Math.min(100, gameState.hunger + 25);
-              gameState.thirst = Math.min(100, gameState.thirst + 35);
-              gainCharisma(1, "Kontakty z półświatkiem Pasera Wasyla");
-              updateHudState();
-            }
-          },
-          { label: "🎒 Przejdź do kramu i zrób zakupy amunicji i granatów!", action: () => openInventoryModal(), badge: "SKLEP", icon: "fa-solid fa-cart-shopping" }
-        ]
-      },
-      bazar_wasyl_parting: {
-        sectorId: 3,
-        speaker: "wasyl",
-        audio: "Wasyl3.mp3",
-        header: "PASER WASYL • POŻEGNANIE PRZED AKCJĄ",
-        footer: "Brzeg rzeki Dniepr • Mgła nad wodą",
-        text: "Interes ubity, polski diable. Chowaj żarcie i naboje do wora i spierdalaj kanałami, zanim Morozow puści szperacze po Dnieprze. Powodzenia, nie daj się powiesić!",
-        choices: [
-          { label: "Przejdź przez śluzę techniczną pod filary Mostu Darnickiego!", node: "sewers_sluice_junction", badge: "ŚLUZA", icon: "fa-solid fa-water" },
-          { label: "Przekradnij się skarpą rzeczną wprost ku wieży Mostu Darnickiego!", node: "bridge_embankment_approach", badge: "SKARPA", icon: "fa-solid fa-bridge" }
-        ],
-        onEnter: () => consumeSurvival(5, 5)
-      },
-
-      sewers_start: {
-        sectorId: 2,
-        speaker: "carlo",
-        audio: "Carlo2.mp3",
-        header: "KOLEKTOR BURZOWY POD DNIEPREM",
-        footer: "Podziemia Kijowa • Smród ścieków i szum rzeki",
-        text: "Cicho... W ciemnej wnęce kanału ktoś cicho szlocha. To stary bezdomny powstaniec Taras, uciekinier z transportu NKWD, trzęsący się z chłodu i głodu.",
-        choices: [
-          { 
-            label: "Podziel się sucharami, spirytusem i daj mu 15 rubli na ucieczkę z miasta!", 
-            node: "sewers_taras_mercy", 
-            badge: "MISJA JAŁMUŻNY", 
-            icon: "fa-solid fa-hand-holding-heart",
-            action: () => {
-              gainCharisma(1, "Jałmużna dla powstańca Tarasa");
-              gameState.money = Math.max(0, gameState.money - 15);
-              updateHudState();
-            }
-          },
-          { label: "Zignoruj włóczęgę i idź prosto w stronę zaworu głównego!", node: "sewers_guard_approach", badge: "OPCJA B", icon: "fa-solid fa-forward" }
-        ],
-        onEnter: () => consumeSurvival(8, 10)
-      },
-      sewers_taras_mercy: {
-        sectorId: 2,
-        speaker: "carlo",
-        audio: null,
-        header: "BEZDOMNY POWSTANIEC TARAS • WDZIĘCZNOŚĆ I TAJNE HASŁO",
-        footer: "Zakole kolektora • Błogosławieństwo starca",
-        text: "Taras ze łzami w oczach chwyta chleb i całuje twoją dłoń: 'Niech ci Bóg błogosławi, panie oficerze! Ostrzegam was: przy głównym zaworze stoi radziecki wartownik Grigorij. Prawdziwe hasło dzisiejszej warty to 'Czerwony Świt'. Podajcie je, a was nie zatrzyma!'",
-        choices: [
-          { label: "Podejdź do zaworu i użyj zdobytego hasła lub perswazji!", node: "sewers_guard_approach", badge: "OPCJA A", icon: "fa-solid fa-key" },
-          { label: "Omiń śluzę bocznym tunelem ze snajperem Krukiem!", node: "sewers_takedown", badge: "OPCJA B", icon: "fa-solid fa-crosshairs" }
-        ]
-      },
-      sewers_guard_approach: {
-        sectorId: 2,
-        speaker: "rusek",
-        audio: "Rusek1.mp3",
-        header: "WARTOWNIK NKWD GRIGORIJ [RU] • POSTERUNEK ŚLUZY",
-        footer: "Zawór główny • Wycelowany automat PPSz",
-        text: "Стой! Кто идет? Пропуск предъяви, быстро! В каналы никому вход не разрешен!",
-        choices: [
-          { 
-            label: "„Hasło 'Czerwony Świt'! Brygada specjalna komisarza, otwierać natychmiast!”", 
-            node: "sewers_sluice_junction", 
-            badge: "PERSWAZJA", 
-            icon: "fa-solid fa-comment-dots",
-            reqCharisma: 1 
-          },
-          { 
-            label: "Rzuć wartownikowi paczkę biełomorów: 'Masz, Sasza, zapal i spierdalaj stąd!'", 
-            node: "sewers_guard_bribed", 
-            badge: "ŁAPÓWKA PETAMI", 
-            icon: "fa-solid fa-smoking" 
-          }
-        ]
-      },
-      sewers_guard_bribed: {
-        sectorId: 2,
-        speaker: "carlo",
-        audio: "Carlo18.mp3",
-        header: "KAROL MARCINIAK • PRZEKUPIONY WARTOWNIK",
-        footer: "Główny zawór ściekowy • Dym biełomorów",
-        text: "Cicho, kurwa! Wartownik złapał paczkę biełomorów w locie, wyszczerzył złote zęby i odwrócił wzrok w stronę ścieków. Przeszliśmy za kratę bez ani jednego wystrzału!",
-        choices: [
-          { label: "Przejdź przez śluzę pod filary Mostu Darnickiego!", node: "sewers_sluice_junction", badge: "ŚLUZA", icon: "fa-solid fa-water" },
-          { label: "Wskocz na chwilę na nabrzeże sprzedać zdobyte fanty Wasylowi!", node: "bazar_dniepr_wasyl", badge: "PASER", icon: "fa-solid fa-coins" }
-        ],
-        onEnter: () => {
-          const p = gameState.inventory.find(i => i.id === 'pety');
-          if (p && p.count > 0) p.count--;
-          gainCharisma(1, "Sprytne przekupienie wartownika machorką");
-          updateHudState();
-        }
-      },
-      sewers_takedown: {
-        sectorId: 2,
-        speaker: "kruk",
-        audio: "Kruk4.mp3",
-        header: "PORUCZNIK KRUK • BEZGŁOŚNA NEUTRALIZACJA",
-        footer: "Śluza ściekowa • Posterunek zlikwidowany",
-        text: "Dwa cele zdjęte. Czyste trafienia w łeb, bez piśnięcia. Reflektor zgaszony, droga pod barki czysta. Czołgajcie się, ubezpieczam waszą flankę.",
-        choices: [
-          { label: "Przeszukaj kieszenie zabitego oficera (Zegarek i amunicja)!", node: "sewers_guard_looted", badge: "SZABER", icon: "fa-solid fa-hand-holding-dollar" },
-          { label: "Otwórz masywną kratę magistrali i ruszaj dalej!", node: "sewers_sluice_junction", badge: "ŚLUZA", icon: "fa-solid fa-water" }
-        ],
-        onEnter: () => unlockAchievement("medal_sewers")
-      },
-      sewers_guard_looted: {
-        sectorId: 2,
-        speaker: "carlo",
-        audio: null,
-        header: "SZABER PRZY ŚLUZIE • ŁUPY WOJENNE",
-        footer: "Korytarz ściekowy • Skarb enkawudzisty",
-        text: "Z kieszeni trupa wyciągasz paczkę nabojów TT, srebrną papierośnicę oraz butelkę samogonu. Wasyl weźmie to z pocałowaniem ręki!",
-        choices: [
-          { label: "Wychodzimy magistralą prosto pod przęsła Mostu Darnickiego!", node: "sewers_sluice_junction", badge: "DALEJ", icon: "fa-solid fa-water" },
-          { label: "Wyskocz na brzeg do Pasera Wasyla sprzedać fanty przed wejściem na most!", node: "bazar_dniepr_wasyl", badge: "PASER", icon: "fa-solid fa-coins" }
-        ],
-        onEnter: () => {
-          addLoot({ id: "samogon", name: "Butelka samogonu", count: 1, val: 20, icon: "fa-solid fa-wine-bottle", type: "drink", thirst: 60, desc: "Mocny bimber. Gasi pragnienie i dodaje sił." });
-          addLoot({ id: "naboje_tt", name: "Naboje TT 7.62mm", count: 15, val: 2, icon: "fa-solid fa-bullseye", type: "ammo" });
-          addLoot({ id: "pety", name: "Paczka Machorki", count: 1, val: 15, icon: "fa-solid fa-smoking", type: "loot" });
-        }
-      },
-      sewers_sluice_junction: {
-        sectorId: 2,
-        speaker: "carlo",
-        audio: null,
-        header: "ŚLUZA GŁÓWNA MAGISTRALI • ROZWIDLENIE PRZY DNIEPRZE",
-        footer: "Wyjście pod rzeką • Wilgoć i echo fal",
-        text: "Żelazna zasuwa śluzy skrzypi na zardzewiałych zawiasach. Jesteśmy tuż przy podstawie mostu kolejowego. Mgła nad wodą tłumi dźwięki kroków wrogich patroli na górnych kratownicach.",
-        choices: [
-          { label: "Wspinamy się po stalowych klamrach prosto na pomost techniczny Mostu!", node: "bridge_start", badge: "POMOST MOSTU", icon: "fa-solid fa-bridge" },
-          { label: "Czołgamy się skarpą nasypu w stronę wieży z reflektorem!", node: "bridge_embankment_approach", badge: "SKARPA NASYPU", icon: "fa-solid fa-mountain" }
-        ],
-        onEnter: () => consumeSurvival(6, 8)
-      },
-
-      // ==================== AKT IV: MOST DARNICKI & KLUCZOWA DECYZJA (SEKTOR 03) ====================
-      bridge_embankment_approach: {
-        sectorId: 3,
-        speaker: "kruk",
-        audio: null,
-        header: "SKARPA NASYPU KOLEJOWEGO • ZWIAD",
-        footer: "Filar brzegowy • Nocny wiatr znad rzeki",
-        text: "Kruk daje znak dłonią. Na wieży wartowniczej obok budki numer 3 radziecki żołnierz manipuluje szperaczem. Promień światła przecina fale Dniepru.",
-        choices: [
-          { label: "„Kruk, zdejmij operatora reflektora zanim nas oświetli!”", node: "bridge_sniper_shot", badge: "SNAJPER", icon: "fa-solid fa-crosshairs" },
-          { label: "„Stalowy, przekradnijmy się do budki strażniczej i weźmy zapasy!”", node: "bridge_guardhouse_loot", badge: "SZABER", icon: "fa-solid fa-box-archive" }
-        ]
-      },
-      bridge_start: {
-        sectorId: 3,
-        speaker: "carlo",
-        audio: "Carlo7.mp3",
-        header: "MOST KOLEJOWY DARNICKI NAD DNIEPREM",
-        footer: "Przęsła mostu • Nocna mgła nad rzeką",
-        text: "Most Darnicki nad Dnieprem. Mgła utrudnia widoczność, ale patrol chodzi po przęsłach co trzy minuty. Znamy ich rytm. Stalowy ma skrzynie z trotylem.",
-        choices: [
-          { label: "„Kruk, zdejmij operatora reflektora na wieży obserwacyjnej!”", node: "bridge_sniper_shot", badge: "OPCJA A", icon: "fa-solid fa-crosshairs" },
-          { label: "„Stalowy, przeszukajmy posterunek straży przy filarze nr 3!”", node: "bridge_guardhouse_loot", badge: "SZABER", icon: "fa-solid fa-box-archive" }
-        ],
-        onEnter: () => consumeSurvival(8, 10)
-      },
-      bridge_guardhouse_loot: {
-        sectorId: 3,
-        speaker: "saper",
-        audio: "Saper4.mp3",
-        header: "SAPER STALOWY • ZDOBYCZ PRZY FILARZE",
-        footer: "Budka strażnicza mostu • Radziecki arsenał",
-        text: "Wasyl podrzucił nam zajebisty towar, a w tej budce strażniczej leżą radzieckie granaty odłamkowe F-1! Zmiotą radziecką wartownię w trzy sekundy! Odbezpieczam zawleczkę!",
-        choices: [
-          { label: "Zabierz granaty F-1 i podejdź do filaru nr 3 podłożyć ładunki!", node: "bridge_decision_node", badge: "TROTYL", icon: "fa-solid fa-bomb" },
-          { label: "Przetnij kable dalekopisów NKWD i ocal most dla ewakuacji!", node: "bridge_spare_result", badge: "OSZCZĘDŹ MOST", icon: "fa-solid fa-shield-halved" }
-        ],
-        onEnter: () => {
-          addLoot({ id: "granat_f1", name: "Granat F-1 'Cytrynka'", count: 2, val: 35, icon: "fa-solid fa-bomb", type: "weapon", desc: "Zabójczy granat odłamkowy." });
-          addLoot({ id: "tuszonka", name: "Konserwa 'Tuszonka'", count: 1, val: 25, icon: "fa-solid fa-drumstick-bite", type: "food", hunger: 65, desc: "Wojskowa konserwa mięsna." });
-        }
-      },
-      bridge_sniper_shot: {
-        sectorId: 3,
-        speaker: "kruk",
-        audio: "Kruk1.mp3",
-        header: "PORUCZNIK „KRUK” [PL] • PRECYZYJNY STRZAŁ",
-        footer: "Wieża obserwacyjna • Reflektor zgaszony",
-        text: "Cel zdjęty. Żarówka reflektora stłuczona, strażnik wyeliminowany bez echa. Przęsła toną w mroku. Filar numer 3 jest w naszym pełnym zasięgu.",
-        choices: [
-          { label: "„Stalowy, do filarów! Czas podjąć decyzję o wysadzeniu mostu!”", node: "bridge_decision_node", badge: "OPCJA A", icon: "fa-solid fa-bomb" },
-          { label: "„Przetnijmy tylko wojskowe kable łączności i ocalmy most do ucieczki!”", node: "bridge_spare_result", badge: "OPCJA B", icon: "fa-solid fa-shield-halved" }
-        ]
-      },
-      bridge_decision_node: {
-        sectorId: 3,
-        speaker: "saper",
-        audio: "Saper2.mp3",
-        header: "SAPER „STALOWY” [PL] • KLUCZOWA DECYZJA OPERACYJNA",
-        footer: "Filar 3 mostu Darnickiego • Zegar tyka",
-        text: "Ładunki na filarach mostu uzbrojone. Jeśli WYSADZIMY MOST – sowiecki pociąg pancerny i czołgi nie wjadą do Kijowa (BĘDZIE ŁATWIEJ W MIEŚCIE!), ale odetniemy sobie drogę ucieczki pojazdami! Jeśli NIE WYSADZIMY – wjadą czołgi Morozowa (BĘDZIE DUŻO TRUDNIEJ!), ale zachowamy most do ewakuacji więźniów! Decyduj, Marciniak!",
-        choices: [
-          { label: "WYBÓR A: [WYSADZIĆ MOST DARNICKI] „Odpalamy! Zablokujmy sowieckie pociągi pancerne i czołgi!”", node: "bridge_blow_result", badge: "WYSADŹ MOST", icon: "fa-solid fa-fire" },
-          { label: "WYBÓR B: [NIE WYSADZAĆ MOSTU] „Zostaw most nienaruszony! Będziemy go potrzebować do ewakuacji więźniów!”", node: "bridge_spare_result", badge: "OSZCZĘDŹ MOST", icon: "fa-solid fa-shield-halved" }
-        ]
-      },
-      bridge_blow_result: {
-        sectorId: 3,
-        speaker: "saper",
-        audio: "Saper3.mp3",
-        header: "DETONACJA: MOST DARNICKI ROZERWANY!",
-        footer: "Huk wybuchu nad rzeką Dniepr • Tory odcięte",
-        text: "BUM! Środkowe przęsło runęło do wody z potężnym gejzerem iskier i stali! Żaden radziecki eszelon pancerny ani czołg nie przekroczy rzeki. Garnizon w Kijowie został odcięty od zaopatrzenia!",
-        choices: [
-          { label: "Ruszajmy nasypem w stronę Węzła Kolejowego Darnica!", node: "bridge_scout_toward_depot", badge: "WĘZEŁ DARNICA", icon: "fa-solid fa-train" },
-          { label: "Obejrzyj dymiące zgliszcza i wycofaj oddział ku peronom!", node: "bridge_scout_toward_depot", badge: "ODWRÓT", icon: "fa-solid fa-person-walking" }
-        ],
-        onEnter: () => {
-          sound.playSfxGunshot();
-          gameState.bridgeBlown = true;
-          updateHudState();
-          unlockAchievement("medal_sapper");
-        }
-      },
-      bridge_spare_result: {
-        sectorId: 3,
-        speaker: "carlo",
-        audio: null,
-        header: "DECYZJA: MOST OCALONY DLA EWAKUACJI",
-        footer: "Przecięte kable telegrafu • Most przejezdny",
-        text: "Przecięliśmy kable dalekopisów NKWD. Most stoi nienaruszony. Jeśli uwolnimy więźniów z aresztu, przerzucimy ich tędy zdobytymi ciężarówkami! Ale uważajcie: radziecki pociąg pancerny i czołgi Morozowa mogą w każdej chwili wjechać na stację!",
-        choices: [
-          { label: "Ruszajmy natychmiast na Stację do Kolejarza Andrija, zanim nadjedzie pociąg pancerny!", node: "bridge_scout_toward_depot", badge: "STACJA DARNICA", icon: "fa-solid fa-train" },
-          { label: "Przyspieszmy kroku w stronę peronów towarowych!", node: "bridge_scout_toward_depot", badge: "BIEG", icon: "fa-solid fa-forward" }
-        ],
-        onEnter: () => {
-          gameState.bridgeBlown = false;
-          updateHudState();
-        }
-      },
-      bridge_scout_toward_depot: {
-        sectorId: 3,
-        speaker: "carlo",
-        audio: null,
-        header: "PRZEDPOLE WĘZŁA KOLEJOWEGO • MELDUNEK ZWIADU",
-        footer: "Tory dojazdowe • Dym parowozów",
-        text: "Docieramy do rozjazdów stacji Darnica. W ciemnościach majaczy sylwetka wieży ciśnień i budka zwrotniczego numer 7. W oknie budki pali się naftowa lampa Andrija.",
-        choices: [
-          { label: "Podejdź cicho do budki zwrotniczego i zapukaj umówionym kodem!", node: "rail_andrij_meet", badge: "BUDKA ZWROTNICY", icon: "fa-solid fa-door-closed" },
-          { label: "Zajrzyj przez szparę w deskach do szopy lamp obok torów!", node: "rail_family_rescue", badge: "SZOPA LAMP", icon: "fa-solid fa-eye" }
-        ],
-        onEnter: () => consumeSurvival(6, 8)
-      },
-
-      // ==================== AKT V: WĘZEŁ KOLEJOWY & POCIĄG PANCERNY MOROZOWA (SEKTOR 05) ====================
-      rail_andrij_meet: {
-        sectorId: 5,
-        speaker: "andrij",
-        audio: () => gameState.bridgeBlown ? "Andrij1.mp3" : "Andrij2.mp3",
-        header: "KOLEJARZ ANDRIJ [PL/UA] • WĘZEŁ KOLEJOWY DARNICA",
-        footer: "Tor 3 • Budka zwrotniczego nr 7",
-        text: () => {
-          if (gameState.bridgeBlown) {
-            return "Marciniak! Słyszeliśmy potężny wybuch na Dnieprze! Przęsło leży w wodzie, pociąg pancerny NKWD utknął na lewym brzegu! Na peronach jest tylko garstka spanikowanych wartowników. Ale w szopie lamp ukrywa się moja ranna żona i córka, pomóżcie im!";
-          } else {
-            return "Marciniak, zła wiadomość! Most jest cały! Pociąg pancerny 'Dzierżyński' pod komendą bezwzględnego Kapitana Morozowa właśnie wjechał na stację! Wieże czołgowe i cekaemy prują po peronach! Kryć się!";
-          }
-        },
-        choices: [
-          { 
-            label: "„Kalina, opatrz córkę Andrija, bierzemy ich pod opiekę i dajemy bezpieczny adres!”", 
-            node: "rail_family_rescue", 
-            badge: "MISJA RODZINY", 
-            icon: "fa-solid fa-heart",
-            action: () => gainCharisma(1, "Ocalenie rodziny kolejarza Andrija")
-          },
-          { 
-            label: "„Andrij, czas zająć się eszelonem i uwolnić uwięzionych kurierów!”", 
-            node: "depot_combat_branch", 
-            badge: "AKCJA NA TORACH", 
-            icon: "fa-solid fa-code-branch" 
-          }
-        ],
-        onEnter: () => consumeSurvival(10, 12)
-      },
-      rail_family_rescue: {
-        sectorId: 5,
-        speaker: "kalina",
-        audio: "Kalina1.mp3",
-        header: "SANITARIUSZKA KALINA • RATUNEK DLA RODZINY ANDRIJA",
-        footer: "Szopa lamp naftowych • Bezpieczny kąt",
-        text: "Kula drasnęła ramię dziewczynki, ale kość jest cała! Założyłam jałowy opatrunek i podałam krople przeciwbólowe. Andrij płacze ze szczęścia i wręcza nam klucz uniwersalny do radzieckich wagonów więziennych!",
-        choices: [
-          { label: "Z kluczem w ręku ruszamy na tory rozstrzygnąć sprawę pociągu!", node: "depot_combat_branch", badge: "NA TORY", icon: "fa-solid fa-key" },
-          { label: "Ubezpiecz szopę i skieruj oddział w stronę wagonu numer 4!", node: "depot_combat_branch", badge: "OSŁONA", icon: "fa-solid fa-shield" }
-        ],
-        onEnter: () => {
-          gainCharisma(1, "Wdzięczność rodziny kolejarza");
-          addLoot({ id: "naboje_tt", name: "Amunicja od Andrija", count: 10, val: 2, icon: "fa-solid fa-bullseye", type: "ammo" });
-        }
-      },
-      depot_combat_branch: {
-        sectorId: 5,
-        speaker: "carlo",
-        audio: null,
-        header: "WĘZEŁ KOLEJOWY • SYTUACJA OPERACYJNA NA PERONACH",
-        footer: "Tory rozrządowe • Mgła i para z kotłów",
-        text: () => {
-          if (gameState.bridgeBlown) {
-            return "Dzięki wysadzeniu mostu na stacji nie ma pociągu pancernego! Kilku zdezorientowanych strażników NKWD biega po peronie 2, nie wiedząc skąd padną strzały.";
-          } else {
-            return "Pancerny potwór 'Dzierżyński' stoi na głównym torze! Kapitan Morozow osobiście lustruje przedpole z wieży czołgowej, a reflektor omiata tory.";
-          }
-        },
-        choices: [
-          { 
-            label: () => gameState.bridgeBlown 
-              ? "Cichy szturm na wartowników i natychmiastowe otwarcie wagonu nr 4!" 
-              : "„Morozow nie odpuści! Trzeba podstępem wykoleić pociąg albo sparaliżować załogę!”", 
-            node: () => gameState.bridgeBlown ? "depot_stealth_sabotage" : "depot_derail_train", 
-            badge: "OPCJA A", 
-            icon: "fa-solid fa-train" 
-          },
-          { 
-            label: () => gameState.bridgeBlown 
-              ? "Stalowy kładzie ładunek odcinający lokomotywę od składu!" 
-              : "Spróbujmy przemówić do maszynistów lub użyć bimbru od Wasyla!", 
-            node: () => gameState.bridgeBlown ? "depot_stealth_sabotage" : "depot_derail_bribe_option", 
-            badge: "OPCJA B", 
-            icon: "fa-solid fa-code-branch" 
-          }
-        ]
-      },
-      depot_derail_train: {
-        sectorId: 5,
-        speaker: "morozow",
-        audio: "Morozow1.mp3",
-        header: "KPT. MOROZOW (DOWÓDCA PANCERNY NKWD) [RU]",
-        footer: "Wieża pociągu pancernego 'Dzierżyński'",
-        text: "Внимание экипаж! Смести бандитов с путей огнем крупнокалиберного пулемета! Танки, вперед!",
-        choices: [
-          { 
-            label: "Przemów przez megafon do maszynistów: 'Kolejarze, zaciągnijcie hamulce awaryjne!'", 
-            node: "depot_derail_bribe_option", 
-            badge: "PERSWAZJA", 
-            icon: "fa-solid fa-bullhorn",
-            reqCharisma: 2 
-          },
-          { label: "Andrij przestawia rozjazd pod gradem kul! Parowóz wpada na ślepy tor i wykoleja się!", node: "depot_derail_blast", badge: "WYKOLEJENIE", icon: "fa-solid fa-triangle-exclamation" }
-        ],
-        onEnter: () => sound.playSfxGunshot()
-      },
-      depot_derail_bribe_option: {
-        sectorId: 5,
-        speaker: "andrij",
-        audio: "Andrij3.mp3",
-        header: "KOLEJARZ ANDRIJ • SABOTAŻ PAROWOZU",
-        footer: "Zwrotnica węzłowa nr 9 • Para buchająca z zaworów",
-        text: "Chłopaki, załatwiłem klucze do semaforów! Ten bimber od Wasyla rozwiązał język dyżurnemu ruchu. Przestawimy wajchę i radziecki eszelon wpierdoli się w ślepy tor z pełną prędkością!",
-        choices: [
-          { label: "Wskakuj na tender parowozu i odetnij wagon więźniów!", node: "depot_assault_wagon", badge: "SZTŪRM", icon: "fa-solid fa-gun" },
-          { label: "„Andrij, dawaj maszynistom butlę bimbru i niech uciekają!”", node: "depot_assault_wagon", badge: "BIMBER", icon: "fa-solid fa-wine-bottle" }
-        ]
-      },
-      depot_derail_blast: {
-        sectorId: 5,
-        speaker: "andrij",
-        audio: "Andrij4.mp3",
-        header: "WRAK POCIĄGU PANCERNEGO • HUK ZDERZENIA",
-        footer: "Ślepy tor nr 9 • Dymiąca stal",
-        text: "Szybko, wskakujcie na tender parowozu! Morozow wali z dział po wagonach, ale mamy pełną parę w kotłach! Wykolejony pociąg zablokował całą magistralę!",
-        choices: [
-          { label: "Wyważamy drzwi wagonu numer 4 i uwalniamy więźniów!", node: "depot_assault_wagon", badge: "WAGON #4", icon: "fa-solid fa-unlock" },
-          { label: "Stalowy rzuca granat dymny pod wieżę Morozowa i ruszamy do więźniów!", node: "depot_assault_wagon", badge: "GRANAT DYMNY", icon: "fa-solid fa-smog" }
-        ],
-        onEnter: () => sound.playSfxGunshot()
-      },
-      depot_stealth_sabotage: {
-        sectorId: 5,
-        speaker: "kruk",
-        audio: "Kruk3.mp3",
-        header: "PORUCZNIK KRUK • CZYSTY PERON",
-        footer: "Peron towarowy • Brak alarmu garnizonowego",
-        text: "Trzech strażników przy parowozie zneutralizowanych bez ani jednego wystrzału. Droga do wagonu aresztanckiego stoi otworem!",
-        choices: [
-          { label: "Użyj klucza uniwersalnego od Andrija i zerwij rygle!", node: "depot_assault_wagon", badge: "OTWÓRZ", icon: "fa-solid fa-key" },
-          { label: "Rozetnij kłódkę brzeszczotem sapera Stalowego!", node: "depot_assault_wagon", badge: "BRZESZCZOT", icon: "fa-solid fa-wrench" }
-        ]
-      },
-      depot_assault_wagon: {
-        sectorId: 5,
-        speaker: "carlo",
-        audio: null,
-        header: "WAGON WIĘZIENNY NR 4 • ZERWANIE RYGLI",
-        footer: "Wagon bydlęcy NKWD • Blacha obita drutem kolczastym",
-        text: "Rygle ustępują z metalicznym zgrzytem! Ze środka dusznego wagonu bucha smród potu i strachu. W ciemnościach rozbrzmiewają głosy uwięzionych: 'Nasi! To Marciniak!'",
-        choices: [
-          { label: "Wyprowadź ocalałych kurierów na wolność pod osłonę nocy!", node: "depot_prisoners_freed", badge: "WOLNOŚĆ", icon: "fa-solid fa-person-walking-arrow-right" },
-          { label: "Rozdaj uwolnionym zdobyczne rewolwery i suchary z plecaka!", node: "depot_prisoners_freed", badge: "BROŃ", icon: "fa-solid fa-gun" }
-        ]
-      },
-      depot_prisoners_freed: {
-        sectorId: 5,
-        speaker: "carlo",
-        audio: "Carlo5.mp3",
-        header: "KAROL MARCINIAK • WIĘŹNIOWIE UWOLNIENI!",
-        footer: "Peron towarowy • Ośmiu kurierów ocalonych",
-        text: "Dotarliśmy na dworzec Kijów-Pasażerski. Wagon więzienny otwarty! Ośmiu naszych ludzi ocalonych przed wywózką do łagrów. Przekazujemy ich Helenie i Kalinie!",
-        choices: [
-          { label: "Sprawdź stan zapasów: Marciniak opada z sił, kiszki grają marsza!", node: "depot_survival_hunger_check", badge: "GŁÓD & PRAGNIENIE", icon: "fa-solid fa-utensils" },
-          { label: "Zabezpiecz aprowizację i ruszaj natychmiast na Zakłady Arsenał!", node: "depot_survival_hunger_check", badge: "ZAPASY", icon: "fa-solid fa-bread-slice" }
-        ],
-        onEnter: () => {
-          gameState.prisonersRescued = true;
-          updateHudState();
-          addLoot({ id: "naboje_tt", name: "Paczka amunicji z wagonu", count: 20, val: 2, icon: "fa-solid fa-bullseye", type: "ammo" });
-          addLoot({ id: "tuszonka", name: "Konserwa wieprzowa", count: 1, val: 30, icon: "fa-solid fa-drumstick-bite", type: "food", hunger: 70 });
-        }
-      },
-      depot_survival_hunger_check: {
-        sectorId: 5,
-        speaker: "carlo",
-        audio: "Carlo16.mp3",
-        header: "KAROL MARCINIAK • KRYZYS WYCIEŃCZENIA",
-        footer: "Peron stacyjny • Drżące dłonie z głodu",
-        text: "Ja pierdolę... kiszki mi marsza grają, a w gardle sucho jak na pustyni. Jak zaraz czegoś nie zjem i nie chlapnę wody, to padnę zanim dotrę do Arsenału.",
-        choices: [
-          { 
-            label: "🎒 Otwórz plecak: zjedz chleb / tuszonkę i napij się z manierki!", 
-            action: () => openInventoryModal(), 
-            badge: "PLECAK", 
-            icon: "fa-solid fa-backpack" 
-          },
-          { label: "Zaciśnij zęby, weź łyk od Kaliny i ruszaj pod mury Arsenału (Sektor 04)!", node: "factory_approach", badge: "ARSENAŁ", icon: "fa-solid fa-industry" }
-        ],
-        onEnter: () => consumeSurvival(12, 15)
-      },
-
-      // ==================== AKT VI: ZAKŁADY ZBROJENIOWE ARSENAŁ (SEKTOR 04) ====================
-      factory_approach: {
-        sectorId: 4,
-        speaker: "carlo",
-        audio: null,
-        header: "MURY ZAKŁADÓW ARSENAŁ • ZWIAD OBRONNY",
-        footer: "Dzielnica Peczersk • Ceglane mury fabryki",
-        text: "Czerwone cegły Arsenału górują nad ulicą. W oknach hali montażowej błyskają iskry spawarek, a na dachu chodzi radziecki wartownik z reflektorem.",
-        choices: [
-          { label: "Przekradamy się przez rampę wyładunkową węgla ku kotłowni!", node: "factory_start", badge: "KOTŁOWNIA", icon: "fa-solid fa-fire" },
-          { label: "Wchodzimy przez wybite okno biura kreślarskiego na parterze!", node: "factory_start", badge: "BIURO", icon: "fa-solid fa-door-open" }
-        ]
-      },
-      factory_start: {
-        sectorId: 4,
-        speaker: "carlo",
-        audio: "Carlo6.mp3",
-        header: "FABRYKA ZBROJENIOWA 'ARSENAŁ'",
-        footer: "Dzielnica Peczersk • Hala montażowa",
-        text: "Przed nami zakłady Arsenał. Główne magazyny amunicji wroga. W biurze kreślarskim nakrywa nas nocny majster Petro. Trzyma w ręku klucz francuski i waha się.",
-        choices: [
-          { 
-            label: "„Petro, pamiętasz Wielki Głód? Nie broń ich fabryki, pomóż nam zniszczyć zapasy oprawców!”", 
-            node: "factory_stealth_blueprints", 
-            badge: "PERSWAZJA", 
-            icon: "fa-solid fa-comment-dots",
-            reqCharisma: 1 
-          },
-          { label: "Wysadźmy główną linię generatorów ładunkami trotylu (paraliż fabryki i alarm)!", node: "factory_sabotage_blow", badge: "OPCJA B", icon: "fa-solid fa-bomb" }
-        ],
-        onEnter: () => consumeSurvival(8, 10)
-      },
-      factory_sabotage_blow: {
-        sectorId: 4,
-        speaker: "rusek",
-        audio: "Rusek4.mp3",
-        header: "STRAŻ ZAKŁADOWA NKWD [RU]",
-        footer: "Magazyn generatorów • Sektor 4",
-        text: "Стой, стрелять буду! Бросай сумку на землю и отойди от генератора!",
-        choices: [
-          { label: "Saper Stalowy odpala lont wybuchowy pod stosem skrzyń amunicji!", node: "factory_blown_success", badge: "DETONACJA", icon: "fa-solid fa-fire" },
-          { label: "Rzut granatu obronnego F-1 i likwidacja warty!", node: "factory_blown_success", badge: "GRANAT F-1", icon: "fa-solid fa-burst" }
-        ]
-      },
-      factory_blown_success: {
-        sectorId: 4,
-        speaker: "saper",
-        audio: "Saper3.mp3",
-        header: "ARSENAŁ: HALA MONTAŻOWA W PŁOMIENIACH!",
-        footer: "Zniszczona linia produkcyjna wroga",
-        text: "Marciniak, trotyl jest podłożony pod fundamentami! Podpaliłem trzyipółminutowy lont. Jak to pierdolnie, to z tego magazynu zostanie tylko lej na pięć metrów!",
-        choices: [
-          { label: "Przeszukaj magazyn oficerski przed wybuchem (Mundury i amunicja)!", node: "factory_loot_vault", badge: "SZABER", icon: "fa-solid fa-box-open" },
-          { label: "Uciekamy przez wyłom w murze w stronę traktu do Puszczy Wodnej!", node: "forest_trail_advance", badge: "PUSZCZA", icon: "fa-solid fa-tree" }
-        ],
-        onEnter: () => {
-          sound.playSfxGunshot();
-          gameState.arsenalBlown = true;
-          updateHudState();
-        }
-      },
-      factory_stealth_blueprints: {
-        sectorId: 4,
-        speaker: "carlo",
-        audio: null,
-        header: "KAROL MARCINIAK • KRADZIEŻ DOKUMENTÓW",
-        footer: "Biuro Konstrukcyjne Arsenału",
-        text: "Majster Petro ze zrozumieniem wyłączył syrenę i otworzył sejf techniczny! Mamy mikrofilmy planów radzieckiej broni pancernej i wykaz agentów ochrony bez ani jednego wystrzału!",
-        choices: [
-          { label: "Przejrzyj zbrojownię zakładową po cichu i weź amunicję!", node: "factory_loot_vault", badge: "ZBROJOWNIA", icon: "fa-solid fa-box-archive" },
-          { label: "Wychodzimy z dokumentami ku Puszczy Wodnej przekazać je kurierom!", node: "forest_trail_advance", badge: "PUSZCZA", icon: "fa-solid fa-tree" }
-        ],
-        onEnter: () => {
-          gameState.blueprintsStolen = true;
-          updateHudState();
-        }
-      },
-      factory_loot_vault: {
-        sectorId: 4,
-        speaker: "carlo",
-        audio: null,
-        header: "MAGAZYN ZBROJOWNI ARSENAŁU",
-        footer: "Zdobyte zapasy radzieckie",
-        text: "Przejęliśmy dwie skrzynki z amunicją TT, galowy mundur oficera NKWD oraz paczkę sucharów żołnierskich!",
-        choices: [
-          { label: "Ruszamy leśnym traktem w stronę punktu zbornego w Puszczy Wodnej!", node: "forest_trail_advance", badge: "PUSZCZA", icon: "fa-solid fa-tree" },
-          { label: "Spakuj prowiant do plecaka i zorganizuj odwrót oddziału!", node: "forest_trail_advance", badge: "MARSZ", icon: "fa-solid fa-person-walking" }
-        ],
-        onEnter: () => {
-          addLoot({ id: "mundur_nkwd", name: "Galowy mundur NKWD", count: 1, val: 40, icon: "fa-solid fa-shirt", type: "loot", desc: "Cenny mundur oficerski. Wasyl zapłaci za niego krocie." });
-          addLoot({ id: "suchary", name: "Suchary wojskowe", count: 2, val: 8, icon: "fa-solid fa-cookie", type: "food", hunger: 25 });
-          addLoot({ id: "naboje_tt", name: "Amunicja TT", count: 25, val: 2, icon: "fa-solid fa-bullseye", type: "ammo" });
-        }
-      },
-
-      // ==================== AKT VII: PUSZCZA WODNA & ZASADZKA NA KONWÓJ (SEKTOR 06) ====================
-      forest_trail_advance: {
-        sectorId: 6,
-        speaker: "carlo",
-        audio: null,
-        header: "LEŚNY TRAKT PUSZCZY-WODYCI • MARSZ W DESZCZU",
-        footer: "Obrzeża lasu • Błoto i ciemność",
-        text: "Gęste korony sosen osłaniają nas przed deszczem. W oddali przez zarośla widać słabe światło leśniczówki. To punkt zborny sanitariuszki Kaliny.",
-        choices: [
-          { label: "Wchodzimy do leśniczówki sprawdzić stan rannych!", node: "forest_start", badge: "LEŚNICZÓWKA", icon: "fa-solid fa-house-medical" },
-          { label: "Ubezpiecz tyły z Krukiem przed wejściem do chaty!", node: "forest_start", badge: "UBEZPIECZENIE", icon: "fa-solid fa-crosshairs" }
-        ],
-        onEnter: () => consumeSurvival(8, 10)
-      },
-      forest_start: {
-        sectorId: 6,
-        speaker: "carlo",
-        audio: "Carlo8.mp3",
-        header: "PUSZCZA WODNA (PUSZCZA-WODYCIA)",
-        footer: "Leśny Trakt • Nocny punkt zborny",
-        text: "Puszcza Wodna, nocny punkt zborny. Sowieckie ciężarówki utknęły na bagnistej drodze. W leśniczówce na podłodze leży ciężko ranny 17-letni kurier Jędrek, krew wsiąka w deski.",
-        choices: [
-          { 
-            label: "„Kalina, zużyj ostatnią plazmę i morfinę – ratujemy życie tego chłopca!”", 
-            node: "forest_medic_choice", 
-            badge: "RATOWANIE ŻYCIA", 
-            icon: "fa-solid fa-notes-medical",
-            action: () => gainCharisma(1, "Ocalenie młodego kuriera Jędrka")
-          },
-          { label: "Zabezpiecz tylko meldunek z jego chlebaka i ruszaj na zasadzkę!", node: "forest_ambush_attack", badge: "OPCJA B", icon: "fa-solid fa-crosshairs" }
-        ]
-      },
-      forest_medic_choice: {
-        sectorId: 6,
-        speaker: "kalina",
-        audio: "Kalina4.mp3",
-        header: "SANITARIUSZKA KALINA • RATOWANIE RANNYCH",
-        footer: "Punkt medyczny • Leśna kryjówka",
-        text: "Zatamowałam krwotok u kolejnego partyzanta! Mamy pełną pakę rannych. Musimy przedrzeć się za Dniepr, inaczej bez krwi i leków ci ludzie umrą do rana! Jędrek wskazuje utknięty konwój ciężarówek ZiS!",
-        choices: [
-          { label: "Uderzmy na utkniętą kolumnę ciężarówek ZiS, by zdobyć pojazdy dla rannych!", node: "forest_ambush_attack", badge: "ZASADZKA", icon: "fa-solid fa-truck" },
-          { label: "Przygotuj ładunki przeciwpancerne pod wiodący wóz kolumny!", node: "forest_ambush_attack", badge: "ŁADUNKI", icon: "fa-solid fa-bomb" }
-        ]
-      },
-      forest_ambush_attack: {
-        sectorId: 6,
-        speaker: "rusek",
-        audio: "Rusek6.mp3",
-        header: "DOWÓDCA KOLUMNY NKWD [RU] • ZASADZKA W LESIE",
-        footer: "Bagnisty trakt • Ostrzał w ciemności",
-        text: "Засада! Огонь по кустам из всех пулеметов! Не дайте им подойти к колонне!",
-        choices: [
-          { label: "Kruk likwiduje strzelca na wieży cerkwi celnym strzałem wyborowym!", node: "forest_kruk_shot", badge: "SNAJPER KRUK", icon: "fa-solid fa-crosshairs" },
-          { label: "Marciniak rzuca granat F-1 pod szoferkę ciężarówki dowódcy!", node: "forest_victory_scene", badge: "GRANAT", icon: "fa-solid fa-bomb" }
-        ],
-        onEnter: () => sound.playSfxGunshot()
-      },
-      forest_kruk_shot: {
-        sectorId: 6,
-        speaker: "kruk",
-        audio: "Kruk5.mp3",
-        header: "PORUCZNIK KRUK • ELIMINACJA RADZIECKIEGO STRZELCA",
-        footer: "Korony sosen • Karabin Mosin z celownikiem",
-        text: "Jebany radziecki snajper siedział na wieży cerkwi! Zauważyłem błysk optyki. Dajcie mi dwie sekundy... Dostał prosto między oczy, gnojek leci w dół!",
-        choices: [
-          { label: "Przeszukaj ciężarówki ZiS i przejmij zapasy żywności oraz transport!", node: "forest_victory_scene", badge: "ŁUPY", icon: "fa-solid fa-truck-ramp-box" },
-          { label: "Wskakuj za kółko pierwszego ZiS-a i uruchom silnik!", node: "forest_victory_scene", badge: "ZAPŁON", icon: "fa-solid fa-key" }
-        ]
-      },
-      forest_victory_scene: {
-        sectorId: 6,
-        speaker: "helena",
-        audio: "Wisla2.mp3",
-        header: "ŁĄCZNICZKA HELENA • OSTRZEŻENIE O ZDRAJCY",
-        footer: "Zdobyczna ciężarówka ZiS • Przejęte meldunki",
-        text: "Marciniak, uważaj! W naszym sztabie na Podolu jest podwójny agent! W papierach zdobytej ciężarówki znalazłam raport z naszymi kryptonimami. Prawdziwe hasło to 'Jesion-49'. Jeśli ktoś poda inne – to człowiek Woronowa!",
-        choices: [
-          { label: "Ruszamy kolumną ciężarówek ZiS prosto na Podole rozliczyć zdrajcę!", node: "podil_inbound_route", badge: "PODOLE", icon: "fa-solid fa-city" },
-          { label: "Spakuj skrzynie z prowiantem na pakę i ruszaj w drogę!", node: "podil_inbound_route", badge: "PROWIANT", icon: "fa-solid fa-truck" }
-        ],
-        onEnter: () => {
-          addLoot({ id: "tuszonka", name: "Konserwa z ciężarówki ZiS", count: 2, val: 30, icon: "fa-solid fa-drumstick-bite", type: "food", hunger: 70 });
-          addLoot({ id: "manierka_woda", name: "Manierka radziecka", count: 1, val: 10, icon: "fa-solid fa-bottle-water", type: "drink", thirst: 45 });
-          addLoot({ id: "samogon", name: "Bimber kierowcy", count: 1, val: 20, icon: "fa-solid fa-wine-bottle", type: "drink", thirst: 60 });
-        }
-      },
-
-      // ==================== AKT VIII: PODOLE – ZDRAJCA & KATOWNIA BEZPIEKI (SEKTOR 07) ====================
-      podil_inbound_route: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: null,
-        header: "BRAMA WJAZDOWA NA PODOLE • ULICA POKROWSKA",
-        footer: "Zaułki Podola • Bruk oświetlony blaskiem pożarów",
-        text: "Wjeżdżamy w wąskie brukowane uliczki Podola. Z oddali dobiegają krzyki i ujadanie psów policyjnych. NKWD otoczyło kwartał kamienic.",
-        choices: [
-          { label: "Zatrzymaj wozy w bocznej uliczce i wejdź pieszo na Pokrowską!", node: "podil_start", badge: "POKROWSKA", icon: "fa-solid fa-person-walking" },
-          { label: "Ubezpiecz zaułek ze Saperem Stalowym i ruszaj na zwiad!", node: "podil_start", badge: "ZWIAD", icon: "fa-solid fa-eye" }
-        ],
-        onEnter: () => consumeSurvival(6, 8)
-      },
-      podil_start: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: "Carlo9.mp3",
-        header: "HISTORYCZNA DZIELNICA PODOLE",
-        footer: "Ulica Pokrowska • Piwnice kamienicy bezpieki",
-        text: "Historyczna dzielnica Podole. W piwnicach tej kamienicy NKWD urządziło nielegalną katownię. Na rogu ulicy patrol milicji brutalnie katuje bezbronną staruszkę, która niosła chleb dla dzieci.",
-        choices: [
-          { 
-            label: "Obezwładnij milicjantów po cichu, pomóż staruszce wstać i daj jej schronienie!", 
-            node: "podil_elderly_rescued", 
-            badge: "OBRONA BEZBRONNYCH", 
-            icon: "fa-solid fa-shield",
-            action: () => gainCharisma(1, "Obrona bezbronnej staruszki na Podolu")
-          },
-          { label: "Przejdź na drugą stronę ulicy prosto pod melinę łączności!", node: "podil_investigate_traitor", badge: "OPCJA B", icon: "fa-solid fa-forward" }
-        ],
-        onEnter: () => consumeSurvival(8, 10)
-      },
-      podil_elderly_rescued: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: null,
-        header: "WDZIĘCZNOŚĆ STARUSZKI • KLUCZ DO PIWNIC",
-        footer: "Sień kamienicy • Ciche błogosławieństwo",
-        text: "Staruszka ze łzami w oczach chowa się w sieni i wręcza Marciniakowi żelazny klucz: 'Dziękuję, synku! Pod tą kamienicą jest przejście do cel, w których oprawcy Woronowa przetrzymują waszych ludzi!'",
-        choices: [
-          { label: "Wkrocz do meliny łączności zdemaskować kreta!", node: "podil_investigate_traitor", badge: "MELINA", icon: "fa-solid fa-door-open" },
-          { label: "Ubezpieczaj schody i wejdź do pokoju radiowego!", node: "podil_investigate_traitor", badge: "RADIO", icon: "fa-solid fa-tower-broadcast" }
-        ]
-      },
-      podil_investigate_traitor: {
-        sectorId: 7,
-        speaker: "helena",
-        audio: "Wisla4.mp3",
-        header: "ŁĄCZNICZKA HELENA • ALARM NA PODOLE",
-        footer: "Tajna melina na Podolu • Przesłuchanie",
-        text: "Marciniak, kurwa, pośpieszcie się! Na Podolu NKWD wywleka ludzi z domów i pakuje do bud! Mamy mało czasu, za chwilę zamkną cały kwartał! Telegrafista w pokoju obok podał fałszywe hasło!",
-        choices: [
-          { 
-            label: "„Spokojnie, synu. Jeśli oddasz kody do sejfu Woronowa, twoja rodzina dostanie azyl w Polsce!”", 
-            node: "podil_traitor_persuade", 
-            badge: "PERSWAZJA", 
-            icon: "fa-solid fa-handshake",
-            reqCharisma: 2 
-          },
-          { label: "Przyłóż pistolet do skroni i wymuś oddanie kluczy i szyfrów siłą!", node: "podil_traitor_force", badge: "GROŹBA TT", icon: "fa-solid fa-gun" }
-        ]
-      },
-      podil_traitor_persuade: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: null,
-        header: "ZŁAMANIE ZDRAJCY • PERSWAZJA I OBIETNICA AZYLU",
-        footer: "Pokój telegrafisty • Skrucha agenta",
-        text: "Kret pęka ze łzami w oczach: 'Woronow groził, że wywiezie moją matkę na Kołymę! Bierzcie wszystko! Oto szyfry garnizonu i kody do prywatnego pancernego sejfu komisarza!'",
-        choices: [
-          { label: "Zabezpiecz kody sejfu i uwolnij aresztowanych z piwnic!", node: "podil_traitor_cooperation", badge: "KODY SEJFU", icon: "fa-solid fa-key" },
-          { label: "Zwiąż telegrafistę i zbiegnij z oddziałem do lochów!", node: "podil_traitor_cooperation", badge: "DALEJ", icon: "fa-solid fa-forward" }
-        ]
-      },
-      podil_traitor_force: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: null,
-        header: "PRZYPARCIE DO MURU • TWARDA RĘKA",
-        footer: "Lufa pistoletu TT przy skroni",
-        text: "Zimna stal pistoletu ucisza bełkot zdrajcy. Drżącymi dłońmi wyciąga zza obluzowanej cegły notes z szyframi i kodem do sejfu Woronowa: 'Tylko mnie nie zabijajcie!'",
-        choices: [
-          { label: "Przejmij szyfry i ruszaj do piwnic odbić uwięzionych!", node: "podil_traitor_cooperation", badge: "KODY SEJFU", icon: "fa-solid fa-key" },
-          { label: "Ogłusz kreta kolbą peemu i ruszaj do cel!", node: "podil_traitor_cooperation", badge: "OGŁUSZENIE", icon: "fa-solid fa-hand-fist" }
-        ]
-      },
-      podil_traitor_cooperation: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: "Carlo19.mp3",
-        header: "KAROL MARCINIAK • PRZYSIĘGA ODWETU",
-        footer: "Melina na Podolu • Kody sejfu Woronowa przejęte",
-        text: "Za każdego zakatowanego kuriera, za każdą krew na padole! Dzisiaj zapłacicie za wszystko, wy bolszewickie kurwy! Mamy kody do sejfu komisarza Woronowa i wykaz agentury!",
-        choices: [
-          { label: "Włamujemy się do piwnic katowni odbić pozostałych kurierów!", node: "podil_dungeon_breakout", badge: "PIWNICE", icon: "fa-solid fa-unlock" },
-          { label: "Wyprowadź ocalałych na pakę zdobytych ciężarówek ZiS!", node: "podil_dungeon_breakout", badge: "EWAKUACJA", icon: "fa-solid fa-truck" }
-        ],
-        onEnter: () => {
-          gameState.traitorExposed = true;
-          gameState.safeCodesAcquired = true;
-          updateHudState();
-          unlockAchievement("ending_4");
-        }
-      },
-      podil_dungeon_breakout: {
-        sectorId: 7,
-        speaker: "helena",
-        audio: null,
-        header: "KATOWNIA BEZPIEKI NA PODOLE • WIĘŹNIOWIE NA WLEWIE",
-        footer: "Wilgotne lochy • Szczęk łańcuchów",
-        text: "Kraty wyłamane! Dziesięciu zakatowanych łączników podziemia zostało wyprowadzonych na świeże powietrze i załadowanych pod brezent ciężarówek. Przed nami droga do ostatecznego zwycięstwa!",
-        choices: [
-          { label: "Kierujemy się ku Centrali Radioliniowej, by sparaliżować łączność wroga!", node: "radio_hub_approach", badge: "CENTRALA RADIO", icon: "fa-solid fa-tower-broadcast" },
-          { label: "Zróbmy szybki wypad pod barki Wasyla na dozbrojenie przed finałem!", node: "podil_wasyl_rearm_trip", badge: "DOZBROJENIE", icon: "fa-solid fa-coins" }
-        ]
-      },
-      podil_wasyl_rearm_trip: {
-        sectorId: 3,
-        speaker: "carlo",
-        audio: "Carlo20.mp3",
-        header: "WYPAD POD BARKĘ WASYLA • OSTATNIE PRZYGOTOWANIA",
-        footer: "Zaułki nadrzeczne • Dniepr we mgle",
-        text: "Stalowy, Kruk! Zbiegamy pod barki Wasyla na lewym brzegu. Trzeba sprzedać te mundury i zaopatrzyć się w prowiant przed szturmem na Komendę Główną!",
-        choices: [
-          { label: "Wejdź na krypę Wasyla i zaopatrz się przed szturmem!", node: "bazar_dniepr_wasyl_act8", badge: "KRAM WASYLA", icon: "fa-solid fa-store" },
-          { label: "Ruszajmy prosto na Wzgórza Peczerskie pod maszt radioliniowy!", node: "radio_hub_approach", badge: "MASZT UKF", icon: "fa-solid fa-tower-broadcast" }
-        ]
-      },
-      bazar_dniepr_wasyl_act8: {
-        sectorId: 3,
-        speaker: "wasyl",
-        audio: "Wasyl2.mp3",
-        header: "PASER WASYL • OSTATNIE ZAPASY PRZED SZTURMEM",
-        footer: "Krypa rybacka • Ostatni meldunek przed finałem",
-        text: "Marciniak, widzę w twoich oczach, że idziecie na całość! Bierz te granaty F-1 i prowiant, a ja pakuję manatki i odpływam na dół Dniepru. Rozpieprzcie ten sztab Woronowa!",
-        choices: [
-          { label: "🎒 Otwórz kram Wasyla i dokup granaty F-1 na szturm!", action: () => openInventoryModal(), badge: "SKLEP", icon: "fa-solid fa-cart-shopping" },
-          { label: "Ruszajmy ze zdobytym zapasem ku Centrali Radioliniowej!", node: "radio_hub_approach", badge: "MASZT UKF", icon: "fa-solid fa-tower-broadcast" }
-        ]
-      },
-
-      // ==================== AKT IX: CENTRALA RADIOLINIOWA & ROGATKA DNIEPR (SEKTOR 09/10) ====================
-      radio_hub_approach: {
-        sectorId: 9,
-        speaker: "carlo",
-        audio: null,
-        header: "WZGÓRZA PECZERSKIE • PODEJŚCIE POD MASZT RADIOLINIOWY",
-        footer: "Główny maszt UKF Kijowa • Wiatr nad urwiskiem",
-        text: "Stalowa iglica masztu radioliniowego bije w nocne niebo. To stąd idą wszystkie rozkazy dyslokacyjne dla garnizonu NKWD. W dyżurce świecą się lampy radiostacji.",
-        choices: [
-          { label: "Wkraczamy do stacji nadawczej podłożyć ładunki termitowe!", node: "radio_hub_start", badge: "DYŻURKA", icon: "fa-solid fa-tower-broadcast" },
-          { label: "Kruk zdejmuje wartownika przy kablach zasilających!", node: "radio_hub_start", badge: "SNAJPER", icon: "fa-solid fa-crosshairs" }
-        ],
-        onEnter: () => consumeSurvival(6, 8)
-      },
-      radio_hub_start: {
-        sectorId: 9,
-        speaker: "carlo",
-        audio: "Carlo11.mp3",
-        header: "CENTRALA RADIOLINIOWA DNIEPR",
-        footer: "Wzgórza Peczerskie • Maszt nadawczy UKF",
-        text: "Ładunki podłożone! Za trzy minuty wyleci w powietrze cały węzeł łączności. Wycofujemy się kanałami ku Dnieprowi! Możemy też nadać fałszywy komunikat radiowy!",
-        choices: [
-          { label: "Nadaj fałszywy rozkaz: 'Bataliony NKWD skierować na północne rogatki!'", node: "radio_deception_success", badge: "DEZINFORMACJA", icon: "fa-solid fa-tower-broadcast" },
-          { label: "Wysadź maszt ładunkiem termitowym Stalowego!", node: "radio_deception_success", badge: "WYBUCH", icon: "fa-solid fa-bomb" }
-        ]
-      },
-      radio_deception_success: {
-        sectorId: 9,
-        speaker: "morozow",
-        audio: "Morozow3.mp3",
-        header: "KPT. MOROZOW • SOWIECKA PANIKA NA FALACH",
-        footer: "Przechwycony kanał radiowy NKWD",
-        text: "Сукины сыны! Окружить набережную и расстреливать всех без предупреждения! Загнать польских бандитов прямо в Днепр!",
-        choices: [
-          { label: "Zbiegamy ku zachodniemu szlabanowi – Posterunek Rogatka!", node: "outpost_approach", badge: "ROGATKA", icon: "fa-solid fa-road" },
-          { label: "Kolumna ciężarówek ZiS rusza za nami na pełnym gazie!", node: "outpost_approach", badge: "KOLUMNA", icon: "fa-solid fa-truck" }
-        ]
-      },
-      outpost_approach: {
-        sectorId: 10,
-        speaker: "carlo",
-        audio: null,
-        header: "ZACHODNIE PRZEDMIEŚCIA • PODEJŚCIE POD ROGATKĘ",
-        footer: "Szosa wylotowa • Zapory z szyn kolejowych",
-        text: "Przed nami ostatni radziecki posterunek blokadowy przed wolnymi lasami. Drogę zagradza masywny szlaban z kolczastym drutem i budka celna.",
-        choices: [
-          { label: "Podchodzimy pod szlaban – czas sforsować posterunek!", node: "outpost_start", badge: "SZLABAN", icon: "fa-solid fa-shield-halved" },
-          { label: "Kruk bierze na muszkę operatora reflektora przy szlabanie!", node: "outpost_start", badge: "CELOWNIK", icon: "fa-solid fa-crosshairs" }
-        ],
-        onEnter: () => consumeSurvival(6, 6)
-      },
-      outpost_start: {
-        sectorId: 10,
-        speaker: "rusek",
-        audio: "Rusek9.mp3",
-        header: "POSTERUNEK ROGATKA & DROGA LEWOBRZEŻNA",
-        footer: "Przedmieścia Kijowa • Szlaban graniczny",
-        text: "Эй, парень, что в мешке?! Стой, сука, стрелять буду на поражение!",
-        choices: [
-          { 
-            label: "„Żołnierzu, rzuć broń! Miasto płonie, nie giń za Woronowa, bierz te ruble i uciekaj!”", 
-            node: "outpost_clear", 
-            badge: "PERSWAZJA", 
-            icon: "fa-solid fa-comment-dots",
-            reqCharisma: 2 
-          },
-          { label: "Marciniak i Kruk otwierają ogień z peemów – likwidacja posterunku!", node: "outpost_clear", badge: "OGIEŃ CIĄGŁY", icon: "fa-solid fa-gun" }
-        ]
-      },
-      outpost_clear: {
-        sectorId: 10,
-        speaker: "carlo",
-        audio: "Carlo22.mp3",
-        header: "KAROL MARCINIAK • PRZEBICIE PRZEZ ROGATKĘ",
-        footer: "Rogatka zdobyta • Kolumna pojazdów gotowa",
-        text: "Wszyscy do wozów! Helena, trzymaj rannych, Kalina podaj morfinę! Kruk, osłaniaj tyły! Przebijamy się przez rogatkę, ognia z cekaemów!",
-        choices: [
-          { 
-            label: () => !gameState.bridgeBlown 
-              ? "„Most Darnicki jest nienaruszony! Przebijamy się konwojem przez most ku wolności! (ZAKOŃCZENIE III)”" 
-              : "„Uderzamy z pełną siłą na Komendę Główną NKWD (Sektor 08)!”", 
-            node: () => !gameState.bridgeBlown ? "outpost_decision_bridge" : "headquarters_start", 
-            badge: "OPCJA A", 
-            icon: () => !gameState.bridgeBlown ? "fa-solid fa-bridge" : "fa-solid fa-building-shield" 
-          },
-          { label: "„Uderzmy na Komendę Główną, by rozbić sztab Woronowa raz na zawsze!”", node: "headquarters_start", badge: "SZTURM SZTABU", icon: "fa-solid fa-skull" }
-        ]
-      },
-      outpost_decision_bridge: {
-        sectorId: 10,
-        speaker: "helena",
-        audio: null,
-        header: "SZANSA NA RAJD PRZEZ MOST DARNICKI",
-        footer: "Szosa nadbrzeżna • Ryk silników ciężarówek ZiS",
-        text: "Most Darnicki stoi nienaruszony, a droga na drugi brzeg stoi otworem! Możemy osłonić konwój i wyprowadzić rannych z Kijowa, albo zawrócić z uderzeniową grupą Marciniaka na Komendę Główną!",
-        choices: [
-          { label: "WYBÓR A: [ZAKOŃCZENIE III: ŻELAZNA OSŁONA] Przebijamy się przez most pod osłoną ognia!", node: "ending_3_scene", badge: "EWAKUACJA MOST", icon: "fa-solid fa-shield-halved" },
-          { label: "WYBÓR B: [SZTURM KOMENDY GŁÓWNEJ] Nie uciekamy! Jedziemy dokończyć sprawę z Woronowem!", node: "headquarters_start", badge: "SZTURM", icon: "fa-solid fa-fire" }
-        ]
-      },
-
-      // ==================== AKT X: KOMENDA GŁÓWNA NKWD & 4 WIELKIE FINAŁY (SEKTOR 08) ====================
-      headquarters_start: {
-        sectorId: 8,
-        speaker: "carlo",
-        audio: "Carlo10.mp3",
-        header: "KOMENDA GŁÓWNA NKWD W KIJOWIE",
-        footer: "Ulica Włodzimierska • Centrala Bezpieki",
-        text: "Jesteśmy w samym gnieździe żmij – Komenda Główna NKWD. Cel to tajny sejf komisarza i kody łączności garnizonowej. Straż Woronowa zabarykadowała schody na piętrze.",
-        choices: [
-          { label: "Wdzieramy się po marmurowych schodach pod osłoną granatów F-1!", node: "hq_staircase_battle", badge: "GRANATY F-1", icon: "fa-solid fa-bomb" },
-          { label: "Kruk zdejmuje wartowników w sieni z tłumika, wchodzimy po cichu!", node: "hq_staircase_battle", badge: "CICHY SZTURM", icon: "fa-solid fa-crosshairs" }
-        ],
-        onEnter: () => consumeSurvival(10, 12)
-      },
-      hq_staircase_battle: {
-        sectorId: 8,
-        speaker: "carlo",
-        audio: "Carlo24.mp3",
-        header: "MARMUROWE SCHODY KOMENDY • WALKA WRECZ",
-        footer: "Drugie piętro • Dym gryzący w gardle",
-        text: "Nie ma odwrotu, bracia! Jeśli dziś zginiemy, to zabierzemy ze sobą do piachu cały ten czerwony sztab! Za wolną Polskę, ognia! Barykada na piętrze pęka!",
-        choices: [
-          { label: "Wyważamy drzwi gabinetu Komisarza Iwana Woronowa!", node: "hq_confront_woronow", badge: "GABINET WORONOWA", icon: "fa-solid fa-door-open" },
-          { label: "Stalowy rzuca granat dymny przez świetlik i wkraczamy do gabinetu!", node: "hq_confront_woronow", badge: "GRANAT DYMNY", icon: "fa-solid fa-smog" }
-        ],
-        onEnter: () => sound.playSfxGunshot()
-      },
-      hq_confront_woronow: {
-        sectorId: 8,
-        speaker: "woronow",
-        audio: "Woronow3.mp3",
-        header: "KOMISARZ IWAN WORONOW [RU] • FINAŁOWE STARCIE",
-        footer: "Gabinet Komisarza NKWD • Ulica Włodzimierska",
-        text: "Вы все подохнете в этой комендатуре! Никто не выйдет отсюда живым! Гранаты к бою, уничтожить их!",
-        choices: [
-          { 
-            label: "„Woronow, Moskwa już cię skreśliła za błędy. Otwórz sejf, a pozwolimy ci żyć!”", 
-            node: "hq_voronov_safe_heist", 
-            badge: "MISTRZ PERSWAZJI", 
-            icon: "fa-solid fa-crown",
-            reqCharisma: 3 
-          },
-          { label: "Ogień z pepesz i pistoletów TT! Woronow pada ranny na dywan!", node: "hq_voronov_firefight_win", badge: "STRZAŁ", icon: "fa-solid fa-gun" }
-        ],
-        onEnter: () => sound.playSfxGunshot()
-      },
-      hq_voronov_firefight_win: {
-        sectorId: 8,
-        speaker: "carlo",
-        audio: null,
-        header: "GABINET KOMISARZA • ZWYCIĘSTWO W POJEDYNKU",
-        footer: "Ulica Włodzimierska • Woronow rozbrojony",
-        text: "Woronow leży ranny i bezsilny za swoim dębowym biurkiem. Za portretem Stalina widnieją pancerne rygle osobistego sejfu komisarza. Czas użyć zdobytych szyfrów!",
-        choices: [
-          { label: "Wprowadź szyfry zdobyte od zdrajcy i otwórz pancerny skarbiec!", node: "hq_voronov_safe_heist", badge: "SZYFRY", icon: "fa-solid fa-key" },
-          { label: "Stalowy podkłada palnik i wyważa zamek pancernego sejfu!", node: "hq_voronov_safe_heist", badge: "PALNIK", icon: "fa-solid fa-fire" }
-        ]
-      },
-      hq_voronov_safe_heist: {
-        sectorId: 8,
-        speaker: "carlo",
-        audio: "Carlo23.mp3",
-        header: "KAROL MARCINIAK • PANCERNY SEJF WORONOWA OTWARTY!",
-        footer: "Tajna Kancelaria NKWD • Złamanie szyfrów",
-        text: "Mamy ich tajne kartoteki, mamy kody bezpieki i czyste złoto z sejfu Woronowa! Rozpieprzyliśmy ich całą siatkę w drobny mak! Zdrajca na Podolu został zneutralizowany!",
-        choices: [
-          { label: "WYBÓR A: [ZAKOŃCZENIE IV: CZYSTE SZEREGI] Zabezpiecz akta – ocaliliśmy setki ludzi przed aresztowaniem!", node: "ending_4_scene", badge: "CZYSTE SZEREGI", icon: "fa-solid fa-masks-theater" },
-          { label: "Decydujemy o losie budynku: czy wysadzamy komendę, czy znikamy jak cienie?", node: "hq_final_demolition_choice", badge: "LOS SZTABU", icon: "fa-solid fa-bomb" }
-        ]
-      },
-      hq_final_demolition_choice: {
-        sectorId: 8,
-        speaker: "saper",
-        audio: "Saper3.mp3",
-        header: "SAPER STALOWY • ZAPALNIKI TERMITOWE GOTOWE",
-        footer: "Komenda Główna NKWD • Ostateczna decyzja",
-        text: "Ładunki termitowe założone pod kolumnami nośnymi! Możemy zrównać to piekło z ziemią wywołując trzęsienie ziemi w Kijowie, albo wynieść mikrofilmy i zniknąć bez śladu we mgle nad Dnieprem!",
-        choices: [
-          { label: "WYBÓR A: [ZAKOŃCZENIE I: TRIUMF DYWERSJI] „Odpalamy! Zniszczmy ten zbrodniczy sztab na zawsze!”", node: "ending_1_scene", badge: "TRIUMF DYWERSJI", icon: "fa-solid fa-fire" },
-          { label: "WYBÓR B: [ZAKOŃCZENIE II: CICHY ZMIERZCH] „Wycofujemy się bez huku niczym duchy podziemia!”", node: "ending_2_scene", badge: "CICHY ZMIERZCH", icon: "fa-solid fa-user-secret" }
-        ]
-      },
-
-      // ==================== 4 WIELKIE EPILOGI I OSIĄGNIĘCIA ====================
-      ending_1_scene: {
-        sectorId: 8,
-        speaker: "carlo",
-        audio: "Carlo12.mp3",
-        header: "ZAKOŃCZENIE I: TRIUMF DYWERSJI (WOLNY KIJÓW)",
-        footer: "Kijów • Świt 15 października 1949 r.",
-        text: "Huk wybuchów wstrząsnął Kijowem! Most Darnicki runął do Dniepru, Fabryka Arsenał stoi w ogniu, a Komenda Główna NKWD została zrównana z ziemią. Sowiecki garnizon pogrążył się w chaosie, a radzieckie czołgi nie zdołały dotrzeć do centrum. Cześć i chwała bohaterom wolnego Kijowa!",
-        choices: [
-          { label: "🏆 ZOBACZ SWÓJ PUCHAR W GABLOCIE OSIĄGNIĘĆ", action: () => openAchievementsModal(), badge: "PUCHAR", icon: "fa-solid fa-trophy" },
-          { label: "Wróć do Menu Głównego", action: () => openMainMenu(), badge: "MENU", icon: "fa-solid fa-home" }
-        ],
-        onEnter: () => unlockAchievement("ending_1")
-      },
-      ending_2_scene: {
-        sectorId: 8,
-        speaker: "carlo",
-        audio: null,
-        header: "ZAKOŃCZENIE II: CICHY ZMIERZCH (DUCH PODZIEMIA)",
-        footer: "Kijów • Zniknięcie w cieniu nocy",
-        text: "Ani jednego niepotrzebnego wystrzału, ani jednego dymiącego zgliszcza. Mikrofilmy nowej broni i tajne kartoteki bezpieki zostały bezszelestnie wyniesione. Bezpieka do rana nie dowie się, skąd zniknęły ich najcenniejsze tajemnice. Oddział Marciniaka odpłynął w porannej mgle nad Dnieprem niczym duchy.",
-        choices: [
-          { label: "🏆 ZOBACZ ODZNAKĘ W GABLOCIE OSIĄGNIĘĆ", action: () => openAchievementsModal(), badge: "ODZNAKA", icon: "fa-solid fa-trophy" },
-          { label: "Wróć do Menu Głównego", action: () => openMainMenu(), badge: "MENU", icon: "fa-solid fa-home" }
-        ],
-        onEnter: () => unlockAchievement("ending_2")
-      },
-      ending_3_scene: {
-        sectorId: 3,
-        speaker: "helena",
-        audio: null,
-        header: "ZAKOŃCZENIE III: ŻELAZNA OSŁONA (BOHATERSKA EWAKUACJA)",
-        footer: "Most Darnicki / Granica • Ocaleni kurierzy",
-        text: "Most Darnicki ocalony przed zniszczeniem stał się drogą życia! Mimo huraganowego ognia czołgów Kapitana Morozowa, Marciniak, Kruk i Stalowy utrzymali przeprawę do ostatniego naboju. Wszystkie ciężarówki z odbitymi więźniami i rannymi przekroczyły rzekę i dotarły w bezpieczne lasy. Byliśmy ich niezłomną tarczą!",
-        choices: [
-          { label: "🏆 ZOBACZ MEDAL W GABLOCIE OSIĄGNIĘĆ", action: () => openAchievementsModal(), badge: "MEDAL", icon: "fa-solid fa-trophy" },
-          { label: "Wróć do Menu Głównego", action: () => openMainMenu(), badge: "MENU", icon: "fa-solid fa-home" }
-        ],
-        onEnter: () => unlockAchievement("ending_3")
-      },
-      ending_4_scene: {
-        sectorId: 7,
-        speaker: "carlo",
-        audio: "Carlo12.mp3",
-        header: "ZAKOŃCZENIE IV: CZYSTE SZEREGI (ZDEMASKOWANY ZDRAJCA I SEJF WORONOWA)",
-        footer: "Kijów • Bezpieczna melina • Świt 15 października 1949 r.",
-        text: "Kret w strukturach podziemia został bezbłędnie zdemaskowany, a jego fałszywe meldunki wciągnęły NKWD w pułapkę! W prywatnym sejfie Woronowa przejęliśmy kompletne listy agentów, prowokatorów i szyfry operacyjne. Setki ludzi ocalono przed aresztowaniem i zsyłką na Sybir. Podziemie jest czyste, zwarte i niezwyciężone!",
-        choices: [
-          { label: "🏆 ZOBACZ ORDER W GABLOCIE OSIĄGNIĘĆ", action: () => openAchievementsModal(), badge: "ORDER", icon: "fa-solid fa-trophy" },
-          { label: "Wróć do Menu Głównego", action: () => openMainMenu(), badge: "MENU", icon: "fa-solid fa-home" }
-        ],
-        onEnter: () => unlockAchievement("ending_4")
+  office_intro_1: {
+    sectorId: 1,
+    speaker: "carlo",
+    audio: "Carlo1.mp3",
+    header: "NADAJNIK UKF • BUNKIER PECZERSK",
+    footer: "Kwatera Główna AK/WiN • 14 października 1949 r.",
+    text: "Tu Marciniak. Nadaję z bunkra w Kijowie. Zbieram zespół do natychmiastowej dywersji. Kaczki ruszyły w dół rzeki. Gotowość bojowa pełna. Odbiór.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Heleno, jaki jest aktualny meldunek z Podola?”",
+        node: "office_intro_2",
+        badge: "ŁĄCZNOŚĆ",
+        icon: "fa-solid fa-tower-broadcast",
+      },
+      {
+        label: "„Stalowy, zamelduj stan przygotowania ładunków minerskich!”",
+        node: "office_intro_3",
+        badge: "MINERZY",
+        icon: "fa-solid fa-bomb",
       }
-    };
+    ]
+  },
+  office_intro_2: {
+    sectorId: 1,
+    speaker: "helena",
+    audio: "Wisla1.mp3",
+    header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • MELDUNEK Z MIASTA",
+    footer: "Kwatera Sztabu • Biuro Marciniaka",
+    text: "Tu Helena. Melduję gotowość siatki na Podolu. Komisarz Woronow zarządził obławę. Wiem, gdzie trzymają naszych ludzi!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Poruczniku Kruk, bierz wyborowego mosina i ubezpieczaj nas z góry!”",
+        node: "office_intro_kruk",
+        badge: "SNAJPER",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "„Stalowy, dołącz do nas – bierzemy zapalniki i ruszamy!”",
+        node: "office_intro_3",
+        badge: "MINERZY",
+        icon: "fa-solid fa-arrow-right",
+      }
+    ]
+  },
+  office_intro_kruk: {
+    sectorId: 1,
+    speaker: "kruk",
+    audio: "Kruk1.mp3",
+    header: "PORUCZNIK „KRUK” (SNAJPER) [PL] • ODPRAWA",
+    footer: "Kwatera Sztabu • Stanowisko zwiadu",
+    text: "Cel w celowniku optycznym. Mogę zdjąć operatora reflektora jednym strzałem bez echa.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Sanitariuszko Kalina, przygotuj opatrunki i morfinę dla rannych!”",
+        node: "office_intro_kalina",
+        badge: "SANITARKA",
+        icon: "fa-solid fa-notes-medical",
+      },
+      {
+        label: "„Stalowy, melduj gotowość trotylu – czas uciekać!”",
+        node: "office_intro_3",
+        badge: "MINERZY",
+        icon: "fa-solid fa-bomb",
+      }
+    ]
+  },
+  office_intro_kalina: {
+    sectorId: 1,
+    speaker: "kalina",
+    audio: "Kalina1.mp3",
+    header: "SANITARIUSZKA „KALINA” [PL] • PUNKT SANITARNY",
+    footer: "Kwatera Sztabu • Apteczka polowa",
+    text: "Opatrzyłam rannych kurierów. Morfina podana, krwotoki zatamowane. Są gotowi do transportu!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Doskonale. Stalowy, melduj stan ładunków wybuchowych!”",
+        node: "office_intro_3",
+        badge: "MINERZY",
+        icon: "fa-solid fa-bomb",
+      },
+      {
+        label: "„Wszyscy gotowi. Wychodzimy korytarzem technicznym!”",
+        node: "corridor_ambush_lysy",
+        badge: "WYMARSZ",
+        icon: "fa-solid fa-door-open",
+      }
+    ]
+  },
+  office_intro_3: {
+    sectorId: 1,
+    speaker: "saper",
+    audio: "Saper1.mp3",
+    header: "SAPER „STALOWY” [PL] • RAPORT MINERSKI",
+    footer: "Kwatera Sztabu • Biuro Marciniaka",
+    text: "Spokojnie, Marciniak. Znam te tory jak własną kieszeń. Zwrotnica przestawiona, pociąg nie ruszy.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Koniec odprawy. Zamykamy biuro i wychodzimy korytarzem technicznym!”",
+        node: "corridor_ambush_lysy",
+        badge: "KORYTARZ",
+        icon: "fa-solid fa-door-open",
+      },
+      {
+        label: "„Trzymajcie broń w pogotowiu. Czerwone suki mogą czekać za progiem!”",
+        node: "corridor_ambush_lysy",
+        badge: "BROŃ W DŁOŃ",
+        icon: "fa-solid fa-gun",
+      }
+    ]
+  },
+  corridor_ambush_lysy: {
+    sectorId: 1,
+    speaker: "lysy",
+    audio: "Lysy1.mp3",
+    header: "KORYTARZ TECHNICZNY • DWÓCH OFICERÓW RADZIECKICH",
+    footer: "Zasadzka w mroku • Przejście zablokowane",
+    text: "A dokąd to, polaczku? Wychodzisz z nory? Masz dwie opcje: albo na kolana i opierdalasz pałę, albo tłuczemy cię na kwaśne jabłko!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "„Oficerze Przemo, co wy na to? Będziecie się przyglądać?”",
+        node: "corridor_choice_compliance",
+        badge: "PRZEMO DOŁĄCZA",
+        icon: "fa-solid fa-skull",
+      },
+      {
+        label: "„Co wy pierdolicie, czerwone ścierwa?! Przed wami nie uklęknę!”",
+        node: "corridor_confront_carlo",
+        badge: "TWARDY BUNT",
+        icon: "fa-solid fa-hand-fist",
+      }
+    ]
+  },
+  corridor_choice_compliance: {
+    sectorId: 1,
+    speaker: "przemo",
+    audio: "Przemo1.mp3",
+    header: "OFICER PRZEMO • GROŹBA I SZYDERSTWO",
+    footer: "Betonowy korytarz • Brutalny szantaż",
+    text: "Dokładnie, gnoju! Albo pociągniesz z połykiem dla krasnej armii, albo połamiemy ci żebra i wrzucimy do ścieków Dniepru!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "WYBÓR A: [UKLĘKNIJ POKORNIE] Poświęć dumę, byle ocalić życie i misję dywersji!",
+        node: "corridor_carlo_compliance_reflection",
+        badge: "POKORNE PODDANIE",
+        icon: "fa-solid fa-person-praying",
+        action: () => { gameState.morale = Math.max(0, gameState.morale - 25); gameState.addInventory('zegarek', 1); },
+      },
+      {
+        label: "WYBÓR B: [TWARDY SPRZECIW] Spluń mu pod buty: 'Niedoczekanie wasze, komuchy!'",
+        node: "corridor_choice_beating",
+        badge: "ODRZUCENIE",
+        icon: "fa-solid fa-shield-halved",
+      }
+    ]
+  },
+  corridor_carlo_compliance_reflection: {
+    sectorId: 1,
+    speaker: "carlo",
+    audio: "Carlo14.mp3",
+    header: "KAROL MARCINIAK • GORZKA PRAWDA PRZETRWANIA",
+    footer: "Mokry beton • Przysięga krwawej zemsty",
+    text: "Musiałem to zrobić... Ukląkłem i ojebałem im tę pałę pokornie na betonie. Rechotali jak zarzynane świnie. Upokorzyli mnie do cna, ale żyję... Przysięgam na Boga, że odbiorę im to z nawiązką z ich własnej krwi.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Łysy drwi z ciebie na pożegnanie, gdy zbierasz się z kolan...",
+        node: "corridor_lysy_taunt_exit",
+        badge: "DRWINA",
+        icon: "fa-solid fa-face-angry",
+      },
+      {
+        label: "Uciekaj resztkami sił pod krypę Wasyla nad Dnieprem!",
+        node: "bazar_dniepr_wasyl",
+        badge: "UCIECZKA",
+        icon: "fa-solid fa-person-running",
+      }
+    ]
+  },
+  corridor_lysy_taunt_exit: {
+    sectorId: 1,
+    speaker: "lysy",
+    audio: "Lysy2.mp3",
+    header: "OFICER ŁYSY • OSTATNIA SZYDERA",
+    footer: "Korytarz bunkra • Poniżenie wroga",
+    text: "Uważaj, Przemo, bo ten partyzant jeszcze myśli, że jest bohaterem! Ściągaj gacie, bandyto!",
+    onEnter: () => sound.playSfxPunch(),
+    choices: [
+      {
+        label: "Zbiegaj w ciemność nocy ku krypie Wasyla nad brzegiem rzeki!",
+        node: "bazar_dniepr_wasyl",
+        badge: "KRYPA WASYLA",
+        icon: "fa-solid fa-anchor",
+      },
+      {
+        label: "Zejdź bocznym włazem prosto w smród kijowskich kanałów!",
+        node: "sewers_start",
+        badge: "KANAŁY",
+        icon: "fa-solid fa-water",
+      }
+    ]
+  },
+  corridor_confront_carlo: {
+    sectorId: 1,
+    speaker: "carlo",
+    audio: "Carlo13.mp3",
+    header: "KAROL MARCINIAK • WŚCIEKŁY SPRZECIW",
+    footer: "Ciemny korytarz • Palec na spuście",
+    text: "Co wy pierdolicie, czerwone ścierwa?! Szukacie guza czy myślicie, że przed wami uklęknę?",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "WYCIĄGNIJ UKRYTY PISTOLET TT I WYPAL PROSTO W PRZEMA!",
+        node: "corridor_przemo_shot",
+        badge: "STRZAŁ Z TT",
+        icon: "fa-solid fa-gun",
+        action: () => { sound.playSfxGunshot(); gameState.addInventory('naboje', 2); },
+      },
+      {
+        label: "Rzuć się na nich z gołymi pięściami bez broni!",
+        node: "corridor_choice_beating",
+        badge: "WALKA WRĘCZ",
+        icon: "fa-solid fa-hand-fist",
+      }
+    ]
+  },
+  corridor_przemo_shot: {
+    sectorId: 1,
+    speaker: "przemo",
+    audio: "Przemo4.mp3",
+    header: "OFICER PRZEMO • POSTRZELONY W RĘKĘ",
+    footer: "Korytarz bunkra • Huk wystrzału",
+    text: "Aaa kurwa, dostałem w ramię! Skąd on wytrzasnął ten pistolet?! Zabij tego polskiego psa, Łysy, rozwal mu łeb!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Wyceluj w osłupiałego Łysego, nim zdąży odbezpieczyć kaburę!",
+        node: "corridor_lysy_panics",
+        badge: "ŁYSY W SZOKU",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "Dobij obu bydlaków kolbą i przeszukaj ich truchła!",
+        node: "corridor_loot_officers",
+        badge: "SZABER",
+        icon: "fa-solid fa-box-open",
+        action: () => { gameState.addInventory('zegarek', 1); gameState.addInventory('mundur', 1); gameState.addInventory('czapka', 1); },
+      }
+    ]
+  },
+  corridor_lysy_panics: {
+    sectorId: 1,
+    speaker: "lysy",
+    audio: "Lysy4.mp3",
+    header: "OFICER ŁYSY • PANIKA W OCZACH",
+    footer: "Ściana korytarza • Rozsypane naboje",
+    text: "O kurwa, ma broń! Przemo, uważaj, ten skurwiel do nas strzela! Nie daj mu podejść do wyjścia!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wypal serią w pierś Łysego i przeszukaj mundury obu oficerów!",
+        node: "corridor_loot_officers",
+        badge: "LIKWIDACJA",
+        icon: "fa-solid fa-skull-crossbones",
+        action: () => { sound.playSfxGunshot(); gameState.addInventory('naboje', 2); },
+      },
+      {
+        label: "Uciekaj natychmiast z korytarza pod barki Wasyla!",
+        node: "bazar_dniepr_wasyl",
+        badge: "KRYPA WASYLA",
+        icon: "fa-solid fa-person-running",
+      }
+    ]
+  },
+  corridor_choice_beating: {
+    sectorId: 1,
+    speaker: "lysy",
+    audio: "Lysy3.mp3",
+    header: "OFICER ŁYSY • FURIA I BUTY",
+    footer: "Zaułek korytarza • Krwawa jatka",
+    text: "Ty mały, zawszy polski skurwysynu! Myślałeś, że uciekniesz z naszego korytarza?! Zaraz ci zrobimy z mordy krwawą miazgę, bierz go Przemo!",
+    onEnter: () => sound.playSfxPunch(),
+    choices: [
+      {
+        label: "Przemo rzuca się na ciebie od tyłu z żelazną pałką!",
+        node: "corridor_przemo_grab",
+        badge: "CHWYT PRZEMA",
+        icon: "fa-solid fa-hand-holding",
+      },
+      {
+        label: "Przyjmij grad ciosów i kopniaków na żebra!",
+        node: "corridor_przemo_taunts",
+        badge: "POBICIE",
+        icon: "fa-solid fa-bone",
+      }
+    ]
+  },
+  corridor_przemo_grab: {
+    sectorId: 1,
+    speaker: "przemo",
+    audio: "Przemo2.mp3",
+    header: "OFICER PRZEMO • BRUTALNY CHWYT",
+    footer: "Mokry tynk • Przyduszanie",
+    text: "Nie ma gadania! Łap go za łeb, niech wie, gdzie jego miejsce w tym mieście!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Obaj oficerowie kopią cię bezlitośnie po żebrach na betonie!",
+        node: "corridor_przemo_taunts",
+        badge: "KATOWANIE",
+        icon: "fa-solid fa-hand-fist",
+      },
+      {
+        label: "Wyrwij się resztkami sił i upadnij w kałużę!",
+        node: "corridor_carlo_beaten_reflection",
+        badge: "UPADEK",
+        icon: "fa-solid fa-person-falling",
+      }
+    ]
+  },
+  corridor_przemo_taunts: {
+    sectorId: 1,
+    speaker: "przemo",
+    audio: "Przemo3.mp3",
+    header: "OFICER PRZEMO • SADYSTYCZNY ŚMIECH",
+    footer: "Betonowe podłoże • Kałuża krwi",
+    text: "Hahaha! Patrz na tego robaka, Łysy! Dostał buciorem w żebra i jeszcze próbuje pełzać! Dawaj ten zegarek i portfel, a potem wrzucimy go do gówna w kolektorze!",
+    onEnter: () => sound.playSfxPunch(),
+    choices: [
+      {
+        label: "Marciniak zbiera połamane kości i przysięga w duchu zemstę...",
+        node: "corridor_carlo_beaten_reflection",
+        badge: "WSTAŃ Z BŁOTA",
+        icon: "fa-solid fa-heart-pulse",
+      },
+      {
+        label: "Sanitariuszka Kalina dobiega do korytarza z apteczką!",
+        node: "corridor_kalina_patchup",
+        badge: "POMOC KALINY",
+        icon: "fa-solid fa-notes-medical",
+      }
+    ]
+  },
+  corridor_carlo_beaten_reflection: {
+    sectorId: 1,
+    speaker: "carlo",
+    audio: "Carlo15.mp3",
+    header: "KAROL MARCINIAK • ZŁAMANE ŻEBRA, NIEZŁOMNA DUSZA",
+    footer: "Wyjście awaryjne • Krew na twarzy",
+    text: "Skopali mnie na kwaśne jabłko... Żebra połamane, krew zalewa mi oczy i ledwo łapię oddech, ale nie ukląkłem przed tymi bydlakami! Ledwo doczołgałem się do wyjścia.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kalina opatruje cię morfiną i daje suchy prowiant na drogę!",
+        node: "corridor_kalina_patchup",
+        badge: "OPATRUNEK",
+        icon: "fa-solid fa-kit-medical",
+      },
+      {
+        label: "Doczołgaj się resztkami sił do krypy Pasera Wasyla nad Dnieprem!",
+        node: "bazar_dniepr_wasyl",
+        badge: "KRYPA WASYLA",
+        icon: "fa-solid fa-anchor",
+      }
+    ]
+  },
+  corridor_kalina_patchup: {
+    sectorId: 1,
+    speaker: "kalina",
+    audio: "Kalina3.mp3",
+    header: "SANITARIUSZKA KALINA [PL] • PIERWSZA POMOC",
+    footer: "Właz ewakuacyjny • Opatrywanie ran",
+    text: "Cholera jasna, Marciniak, ledwo trzymasz się na nogach! Odwodnienie i wyczerpanie zaraz cię zabiją! Masz tu manierkę i kawał słoniny od Wasyla, zjedz to natychmiast!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Dzięki, Kalina. Teraz zbiegam pod barki Wasyla zaopatrzyć oddział!”",
+        node: "bazar_dniepr_wasyl",
+        badge: "DO WASYLA",
+        icon: "fa-solid fa-coins",
+      },
+      {
+        label: "„Zejdźmy od razu do ścieków – czas uderzyć na most!”",
+        node: "sewers_start",
+        badge: "KANAŁY",
+        icon: "fa-solid fa-water",
+      }
+    ]
+  },
+  corridor_loot_officers: {
+    sectorId: 1,
+    speaker: "carlo",
+    audio: "Carlo17.mp3",
+    header: "KAROL MARCINIAK • ŁUPY WOJENNE Z OFICERÓW",
+    footer: "Truchła Łysego i Przema • Zdobyczny ekwipunek",
+    text: "Patrzcie na te czerwone truchła. Przeszukajmy kieszenie Łysego i Przema! Złoty zegarek, naboje TT, paczka machorki i pas oficerski... Wasyl nad Dnieprem zapłaci za to gruby szmal!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Zbiegaj z mundurami i zegarkami do krypy Wasyla, by zamienić je na ruble!",
+        node: "bazar_dniepr_wasyl",
+        badge: "KRYPA WASYLA",
+        icon: "fa-solid fa-coins",
+        action: () => { gameState.addInventory('zegarek', 1); gameState.addInventory('mundur', 1); gameState.addInventory('czapka', 1); },
+      },
+      {
+        label: "Zabierz łupy i zejdź prosto w głębiny kijowskich kanałów!",
+        node: "sewers_start",
+        badge: "KANAŁY",
+        icon: "fa-solid fa-water",
+      }
+    ]
+  },
+  bazar_dniepr_wasyl: {
+    sectorId: 2,
+    speaker: "wasyl",
+    audio: "Wasyl1.mp3",
+    header: "CZARNY RYNEK NAD DNIEPREM • KRYPA PASERA WASYLA",
+    footer: "Lewy brzeg Dniepru • Ciemne zaułki przy barkach",
+    text: "Marciniak, kurwa twoja mać! Ciszej w tej krypie, bo czerwone sukinsyny z patrolu rzecznego tylko węszą! Co tam przytargałeś ze sztabu? Mundury, czapki, złote zegarki enkawudzistów? Kładź wszystko na stół, a rzucę ci za to tyle rubli, że wykupisz pół Podola!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "🎒 OTWÓRZ KRAM: Sprzedaj mundury, czapki i zegarki za ruble, kup chleb i samogon!",
+        badge: "HANDEL U WASYLA",
+        icon: "fa-solid fa-coins",
+        action: () => openInventoryModal(),
+      },
+      {
+        label: "„Wasyl, nalej kwaterkę bimbru i daj kawał słoniny na drogę!”",
+        node: "bazar_wasyl_drink_talk",
+        badge: "ROZMOWA & BIMBER",
+        icon: "fa-solid fa-wine-bottle",
+      }
+    ]
+  },
+  bazar_wasyl_drink_talk: {
+    sectorId: 2,
+    speaker: "wasyl",
+    audio: "Wasyl2.mp3",
+    header: "PASER WASYL • TUSZONKA I SAMOGON",
+    footer: "Kajuta barki • Zapach prochu i spirytusu",
+    text: "Bierz tę tuszonkę i samogon pędzony na życie, bo z głodu i pragnienia zaraz wyciągniesz kopyta na tych ruinach. U mnie nie ma darmowych obiadów, ale jak masz szmal i łupy, to i granaty F-1 ci skombinuję, żebyś rozjebał tych skurwysynów!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "WYPIJ SZKLANICĘ SAMOGONU I WEŹ KĘS SŁONINY NA MIEJSCU!",
+        node: "bazar_carlo_recharged",
+        badge: "REGENERACJA",
+        icon: "fa-solid fa-fire-burner",
+        action: () => { gameState.hunger = 100; gameState.thirst = 100; gameState.morale = Math.min(100, gameState.morale + 20); },
+      },
+      {
+        label: "„Schowajmy zapasy do wora, czas ruszać do akcji dywersyjnej!”",
+        node: "bazar_wasyl_parting",
+        badge: "WYMARSZ",
+        icon: "fa-solid fa-arrow-right",
+      }
+    ]
+  },
+  bazar_carlo_recharged: {
+    sectorId: 2,
+    speaker: "carlo",
+    audio: "Carlo25.mp3",
+    header: "KAROL MARCINIAK • WZMOCNIONY SAMOGONEM",
+    footer: "Pokład barki Wasyla • Pełna gotowość bojowa",
+    text: "Ten samogon pali w gardle jak cholera, ale stawia na nogi lepiej niż lekarstwa Kaliny. Głód zaspokojony, naboje w magazynkach. Ruszamy dokończyć to piekło!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wysłuchaj ostatnich wskazówek Wasyla przed zejściem do kanałów!",
+        node: "bazar_wasyl_parting",
+        badge: "POŻEGNANIE",
+        icon: "fa-solid fa-comment",
+      },
+      {
+        label: "Zejdź żelaznym włazem prosto w kolektor ściekowy!",
+        node: "sewers_start",
+        badge: "KANAŁY",
+        icon: "fa-solid fa-water",
+      }
+    ]
+  },
+  bazar_wasyl_parting: {
+    sectorId: 2,
+    speaker: "wasyl",
+    audio: "Wasyl3.mp3",
+    header: "PASER WASYL • POŻEGNANIE DIABŁA",
+    footer: "Barka nad Dnieprem • Mgła nad wodą",
+    text: "Interes ubity, polski diable. Chowaj żarcie i naboje do wora i spierdalaj kanałami, zanim Morozow puści szperacze po Dnieprze. Powodzenia, nie daj się powiesić!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Zejdź w dół do cuchnących kanałów pod miastem!",
+        node: "sewers_start",
+        badge: "KANAŁY",
+        icon: "fa-solid fa-water",
+      },
+      {
+        label: "Skradaj się nabrzeżem ku przęsłom Mostu Darnickiego!",
+        node: "bridge_start",
+        badge: "MOST DARNICKI",
+        icon: "fa-solid fa-bridge",
+      }
+    ]
+  },
+  sewers_start: {
+    sectorId: 3,
+    speaker: "carlo",
+    audio: "Carlo2.mp3",
+    header: "GŁÓWNY ZAWÓR ŚCIEKOWY • KANAŁY KIJOWA",
+    footer: "Mrok i ścieki • Sowiecki wartownik na zaworze",
+    text: "Cicho... Radziecki wartownik przy głównym zaworze ściekowym. Muszę go wyminąć albo zdjąć bez hałasu.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Podejdę i ściemnię mu, że przysyła mnie sam komisarz Woronow!”",
+        node: "sewers_guard_approach",
+        badge: "BLUF OPERACYJNY",
+        icon: "fa-solid fa-user-secret",
+      },
+      {
+        label: "„Rzucę mu paczkę biełomorów, niech kopci szluga i patrzy w bok!”",
+        node: "sewers_guard_bribed",
+        badge: "PRZEKUPIENIE",
+        icon: "fa-solid fa-smoking",
+      }
+    ]
+  },
+  sewers_guard_approach: {
+    sectorId: 3,
+    speaker: "carlo",
+    audio: "Carlo3.mp3",
+    header: "KAROL MARCINIAK • MISTYFIKACJA W KANAŁACH",
+    footer: "Główny zawór ściekowy • W świetle karbidówki",
+    text: "Spokojnie, towariszcz. Zmiana trzeciej brygady naprawczej. Przysłał mnie komisarz Woronow.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wartownik mruży oczy i podejrzliwie mierzy cię wzrokiem...",
+        node: "sewers_guard_suspicion",
+        badge: "REAKCJA WARTOWNIKA",
+        icon: "fa-solid fa-eye",
+      },
+      {
+        label: "Kruk trzyma go na muszce wyborowego karabinu z cienia!",
+        node: "sewers_takedown",
+        badge: "OSŁONA KRUKA",
+        icon: "fa-solid fa-crosshairs",
+      }
+    ]
+  },
+  sewers_guard_suspicion: {
+    sectorId: 3,
+    speaker: "rusek",
+    audio: "Rusek2.mp3",
+    header: "WARTOWNIK NKWD [RU] • PODEJRZENIE",
+    footer: "Śluza kanałowa • Karabin PPSz wycelowany w pierś",
+    text: "Woronow? Jaki Woronow... Poczekaj, coś mi tu nie pasuje! Ręce do góry!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "KRZYKNIJ BOJOWE HASŁO I ZAATAKUJ BEZPOŚREDNIO!",
+        node: "sewers_carlo_attack",
+        badge: "SZARŻA BOJOWA",
+        icon: "fa-solid fa-bolt",
+      },
+      {
+        label: "Znak dłonią dla Kruka – strzał w łeb wartownika!",
+        node: "sewers_takedown",
+        badge: "SNAJPER KRUK",
+        icon: "fa-solid fa-crosshairs",
+      }
+    ]
+  },
+  sewers_carlo_attack: {
+    sectorId: 3,
+    speaker: "carlo",
+    audio: "Carlo4.mp3",
+    header: "KAROL MARCINIAK • BOJOWY OKRZYK",
+    footer: "Kolektor ściekowy • Cios kolbą w gardło",
+    text: "Nie ma czasu na gadanie! Za Polskę i wolny Kijów!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kruk dobija drugiego wartownika stłumionym strzałem!",
+        node: "sewers_takedown",
+        badge: "STRZAŁ KRUKA",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "Wyłamcie kratę śluzy i ruszajcie prosto pod filary Mostu Darnickiego!",
+        node: "bridge_start",
+        badge: "WYJŚCIE NA MOST",
+        icon: "fa-solid fa-bridge",
+      }
+    ]
+  },
+  sewers_guard_bribed: {
+    sectorId: 3,
+    speaker: "carlo",
+    audio: "Carlo18.mp3",
+    header: "KAROL MARCINIAK • PRZEKUPIENIE WARTOWNIKA",
+    footer: "Róg kolektora • Dym machorki",
+    text: "Cicho, kurwa! Wartownik NKWD pali szluga na rogu. Jeśli rzucę mu paczkę biełomorów, to odwróci wzrok i przejdziemy bez ani jednego strzału.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wartownik bierze papierosy i rzuca leniwe ostrzeżenie...",
+        node: "sewers_rusek_smokes",
+        badge: "ODPOWIEDŹ RUŚKA",
+        icon: "fa-solid fa-smoking",
+      },
+      {
+        label: "Przemknij za jego plecami i wyjdź pod most kolejowy!",
+        node: "bridge_start",
+        badge: "WYJŚCIE",
+        icon: "fa-solid fa-person-walking",
+      }
+    ]
+  },
+  sewers_rusek_smokes: {
+    sectorId: 3,
+    speaker: "rusek",
+    audio: "Rusek1.mp3",
+    header: "WARTOWNIK NKWD [RU] • KONTROLA POSTERUNKU",
+    footer: "Zasuwa śluzy • Odwrócona uwaga",
+    text: "Стой! Кто идет? Пропуск предъяви, быстро! В каналы никому вход не разрешен!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Rzuć mu drugą paczkę biełomorów i wślizgnij się pod filary mostu!",
+        node: "bridge_start",
+        badge: "PRZEJŚCIE",
+        icon: "fa-solid fa-arrow-right",
+      },
+      {
+        label: "Kruk likwiduje go z cienia bez wywołania alarmu w garnizonie!",
+        node: "sewers_takedown",
+        badge: "CIĘCIE KRUKA",
+        icon: "fa-solid fa-crosshairs",
+      }
+    ]
+  },
+  sewers_takedown: {
+    sectorId: 3,
+    speaker: "kruk",
+    audio: "Kruk4.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • PERFEKCYJNY STRZAŁ",
+    footer: "Wylot kolektora ku Dnieprowi • Zlikwidowany posterunek",
+    text: "Dwa cele zdjęte. Czyste trafienia w łeb, bez piśnięcia. Reflektor zgaszony, droga pod barki czysta. Czołgajcie się, ubezpieczam waszą flankę.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Czołgajcie się pod metalowe przęsła Mostu Darnickiego!",
+        node: "bridge_start",
+        badge: "MOST DARNICKI",
+        icon: "fa-solid fa-bridge",
+      },
+      {
+        label: "Szybko zbadajcie posterunek mostowy przed nadejściem zmiany!",
+        node: "bridge_guardhouse_loot",
+        badge: "SZABER POSTERUNKU",
+        icon: "fa-solid fa-box-archive",
+      }
+    ]
+  },
+  bridge_start: {
+    sectorId: 4,
+    speaker: "carlo",
+    audio: "Carlo7.mp3",
+    header: "MOST DARNICKI NAD DNIEPREM • MGŁA I SZPERACZE",
+    footer: "Dniepr • 15 października 1949 r. • Godzina 01:15",
+    text: "Most Darnicki nad Dnieprem. Mgła utrudnia widoczność, ale patrol chodzi po przęsłach co trzy minuty. Znamy ich rytm.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Poruczniku Kruk, co widać przez lunetę na drugim brzegu?”",
+        node: "bridge_kruk_eval",
+        badge: "OCENA ZAGROŻENIA",
+        icon: "fa-solid fa-binoculars",
+      },
+      {
+        label: "Uważajcie! Radziecki szperacz z wieży omiata filary rzeki!",
+        node: "bridge_searchlight_alarm",
+        badge: "ALARM SZPERACZA",
+        icon: "fa-solid fa-sun",
+      }
+    ]
+  },
+  bridge_kruk_eval: {
+    sectorId: 4,
+    speaker: "kruk",
+    audio: "Kruk2.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • OSTRZEŻENIE TAKTYCZNE",
+    footer: "Filar Mostu Darnickiego • Luneta snajperska",
+    text: "Kijów jest zablokowany. Jeśli nie wysadzimy torów, kolumna pancerna zgniecie nas na Podolu.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Kruk, zdejmij operatora reflektora na wieży!”",
+        node: "bridge_sniper_shot",
+        badge: "STRZAŁ W REFLEKTOR",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "„Stalowy, użyj granatów F-1 od Wasyla w wartowni na przyczółku!”",
+        node: "bridge_guardhouse_loot",
+        badge: "GRANATY F-1",
+        icon: "fa-solid fa-bomb",
+        action: () => { gameState.addInventory('granat', 2); sound.playSfxGunshot(); },
+      }
+    ]
+  },
+  bridge_searchlight_alarm: {
+    sectorId: 4,
+    speaker: "rusek",
+    audio: "Rusek5.mp3",
+    header: "WARTOWNIK NKWD [RU] • ŚWIECE I REFLEKTORY",
+    footer: "Wieża mostowa • Promień światła bije w filary",
+    text: "Внимание постам! Осветить опоры моста прожекторами! Мне показалось, там кто-то ползет!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kruk natychmiast rozbija szklany klosz reflektora i zdejmuje strzelca!",
+        node: "bridge_sniper_shot",
+        badge: "STRZAŁ KRUKA",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "Stalowy rzuca granat odłamkowy w wieżę wartowniczą!",
+        node: "bridge_guardhouse_loot",
+        badge: "WYBUCH GRANATU",
+        icon: "fa-solid fa-explosion",
+      }
+    ]
+  },
+  bridge_sniper_shot: {
+    sectorId: 4,
+    speaker: "kruk",
+    audio: "Kruk1.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • PEWNA RĘKA",
+    footer: "Konstrukcja stalowa mostu • Zgaszony reflektor",
+    text: "Cel w celowniku optycznym. Mogę zdjąć operatora reflektora jednym strzałem bez echa.",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "„Droga wolna! Stalowy, zakładać ładunki na filarach mostu!”",
+        node: "bridge_decision_node",
+        badge: "DECYZJA MINERSKA",
+        icon: "fa-solid fa-bomb",
+      },
+      {
+        label: "Przeszukajcie wartownię po cichu przed decyzją o detonacji!",
+        node: "bridge_guardhouse_loot",
+        badge: "WARTOWNIA",
+        icon: "fa-solid fa-box-open",
+      }
+    ]
+  },
+  bridge_guardhouse_loot: {
+    sectorId: 4,
+    speaker: "saper",
+    audio: "Saper4.mp3",
+    header: "SAPER „STALOWY” [PL] • GRANATY F-1 OD WASYLA",
+    footer: "Budka wartownicza • Zapas amunicji wroga",
+    text: "Wasyl podrzucił nam zajebisty towar – te granaty odłamkowe F-1 zmiotą radziecką wartownię w trzy sekundy! Odbezpieczam zawleczkę!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Wartownia zneutralizowana. Stalowy, melduj stan trotylu na filarach!”",
+        node: "bridge_decision_node",
+        badge: "DO FILARÓW",
+        icon: "fa-solid fa-bomb",
+      },
+      {
+        label: "Ustawcie zegary zapalników – nadszedł czas kluczowego wyboru!",
+        node: "bridge_decision_node",
+        badge: "KLUCZOWY WYBÓR",
+        icon: "fa-solid fa-clock",
+      }
+    ]
+  },
+  bridge_decision_node: {
+    sectorId: 4,
+    speaker: "saper",
+    audio: "Saper2.mp3",
+    header: "SAPER „STALOWY” [PL] • WIELKA DECYZJA OPERACYJNA",
+    footer: "Filar numer 3 • Zegar tyka: 5 minut do wybuchu",
+    text: "Ładunki na filarach mostu uzbrojone. Pięć minut do detonacji. Odpalamy lont i w nogi!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "WYBÓR A: [WYSADŹ MOST DARNICKI] Odpal lont! Odetnij pociągi pancerne i czołgi Morozowa!",
+        node: "bridge_blow_result",
+        badge: "WYSADŹ MOST",
+        icon: "fa-solid fa-fire",
+        action: () => { gameState.bridgeBlown = true; gameState.morale += 15; sound.playSfxVictory(); },
+      },
+      {
+        label: "WYBÓR B: [OCAL MOST] Odetnij kable dalekopisów, ale zachowaj most do ewakuacji więźniów!",
+        node: "bridge_spare_morozow",
+        badge: "OCAL MOST",
+        icon: "fa-solid fa-shield-halved",
+        action: () => { gameState.bridgeBlown = false; gameState.morale += 10; },
+      }
+    ]
+  },
+  bridge_blow_result: {
+    sectorId: 4,
+    speaker: "saper",
+    audio: "Saper3.mp3",
+    header: "SAPER „STALOWY” [PL] • DETONACJA DNIEPRZAŃSKA",
+    footer: "Trzęsienie ziemi • Stal leci do rzeki",
+    text: "Marciniak, trotyl jest podłożony pod fundamentami! Podpaliłem trzyipółminutowy lont. Jak to pierdolnie, to z tego magazynu zostanie tylko lej na pięć metrów!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Huk detonacji rozdziera noc! Kolejarz Andrij nadaje meldunek ze stacji!",
+        node: "rail_andrij_bridge_blown",
+        badge: "MELDUNEK ANDRIJA",
+        icon: "fa-solid fa-train",
+      },
+      {
+        label: "Pędźcie na stację Darnica – pociąg wroga utknął po drugiej stronie rzeki!",
+        node: "rail_andrij_bridge_blown",
+        badge: "NA STACJĘ",
+        icon: "fa-solid fa-person-running",
+      }
+    ]
+  },
+  bridge_spare_morozow: {
+    sectorId: 4,
+    speaker: "morozow",
+    audio: "Morozow2.mp3",
+    header: "KAPITAN MOROZOW [RU] • BLOKADA PRZEPRAWY",
+    footer: "Kolumna pancerna rusza na most • Syreny alarmowe",
+    text: "Перекрыть мост и выезды из города! Ни одна машина с пленными не уйдет за кордон!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Most stoi cały! Kolejarz Andrij ostrzega przed wjazdem eszelonu!",
+        node: "rail_andrij_bridge_intact",
+        badge: "OSTRZEŻENIE ANDRIJA",
+        icon: "fa-solid fa-triangle-exclamation",
+      },
+      {
+        label: "Biegiem na stację, zanim pociąg pancerny 'Dzierżyński' rozładuje piechotę!",
+        node: "rail_andrij_bridge_intact",
+        badge: "BIEG NA STACJĘ",
+        icon: "fa-solid fa-person-running",
+      }
+    ]
+  },
+  rail_andrij_bridge_blown: {
+    sectorId: 5,
+    speaker: "andrij",
+    audio: "Andrij1.mp3",
+    header: "KOLEJARZ ANDRIJ [UA/PL] • SUKCES DETONACJI",
+    footer: "Stacja Kijów-Pasażerski • Most leży w wodzie!",
+    text: "Marciniak! Słyszeliśmy potężny wybuch na Dnieprze! Przęsło leży w wodzie, pociąg pancerny utknął na tamtym brzegu! Droga wolna!",
+    onEnter: () => sound.playSfxVictory(),
+    choices: [
+      {
+        label: "„Andrij, prowadź natychmiast do wagonu z naszymi aresztowanymi!”",
+        node: "depot_prisoners_freed",
+        badge: "UWOLNIENIE WIĘŹNIÓW",
+        icon: "fa-solid fa-lock-open",
+      },
+      {
+        label: "Helena odbiera wściekłe radzieckie meldunki radiowe!",
+        node: "depot_radio_warning",
+        badge: "PODSŁUCH RADIOWY",
+        icon: "fa-solid fa-radio",
+      }
+    ]
+  },
+  rail_andrij_bridge_intact: {
+    sectorId: 5,
+    speaker: "andrij",
+    audio: "Andrij2.mp3",
+    header: "KOLEJARZ ANDRIJ [UA/PL] • ALARM NA STACJI",
+    footer: "Rozjazdy kolejowe • Nadjeżdża pociąg pancerny!",
+    text: "Marciniak, zła wiadomość! Most jest cały! Pociąg pancerny 'Dzierżyński' pod dowództwem Morozowa wjechał na stację! Kryć się!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wartownicy kolejowi NKWD wszczynają ogłuszający alarm na bocznicach!",
+        node: "depot_alarm_rusek",
+        badge: "ALARM NKWD",
+        icon: "fa-solid fa-bell",
+      },
+      {
+        label: "Morozow rozkazuje załodze otworzyć morderczy ogień z wieżyczek!",
+        node: "depot_tank_clash",
+        badge: "OGIEŃ MOROZOWA",
+        icon: "fa-solid fa-gun",
+      }
+    ]
+  },
+  depot_alarm_rusek: {
+    sectorId: 5,
+    speaker: "rusek",
+    audio: "Rusek3.mp3",
+    header: "OFICER NKWD NA TORACH [RU] • ALARM BOJOWY",
+    footer: "Bocznica numer 4 • Czerwone race na niebie",
+    text: "Тревога! На путях чужие! Перекрыть стрелочные переводы, живыми их не брать!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Helena melduje, że Morozow rzucił całą siłę pancerną na tory!",
+        node: "depot_radio_warning",
+        badge: "MELDUNEK HELENY",
+        icon: "fa-solid fa-tower-broadcast",
+      },
+      {
+        label: "Kruk bierze operatora cekaemu na muszkę ze szczytu wieży ciśnień!",
+        node: "depot_kruk_cover",
+        badge: "OSŁONA KRUKA",
+        icon: "fa-solid fa-crosshairs",
+      }
+    ]
+  },
+  depot_tank_clash: {
+    sectorId: 5,
+    speaker: "morozow",
+    audio: "Morozow1.mp3",
+    header: "KAPITAN MOROZOW [RU] • ATAK PANCERNY",
+    footer: "Pociąg pancerny 'Dzierżyński' • Ogień cekaemów",
+    text: "Внимание экипаж! Смести бандитов с путей огнем крупнокалиберного пулемета! Танки, вперед!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "WYBÓR A: Przekup maszynistę butlą bimbru Wasyla i skieruj pociąg na taran barykady!",
+        node: "depot_derail_bribe_option",
+        badge: "BIMBER WASYLA",
+        icon: "fa-solid fa-wine-bottle",
+      },
+      {
+        label: "WYBÓR B: Andrij załatwia klucze i przestawia zwrotnicę na ślepy tor!",
+        node: "depot_andrij_switch",
+        badge: "KLUCZE DO ZWROTNICY",
+        icon: "fa-solid fa-wrench",
+      }
+    ]
+  },
+  depot_derail_bribe_option: {
+    sectorId: 5,
+    speaker: "carlo",
+    audio: "Carlo21.mp3",
+    header: "KAROL MARCINIAK • PRZEKUPIENIE MASZYNISTY",
+    footer: "Budka parowozu • Butla samogonu i ruble",
+    text: "Maszynisto, bierz butlę bimbru i te ruble, i spierdalaj stąd! Otwórz zawór pary i wyskakuj, pociąg ma wjechać prosto w radziecką barykadę!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Maszynista wyskakuje w nasyp! Wskakujcie z Andrijem na tender parowozu!",
+        node: "depot_andrij_escape_tender",
+        badge: "TENDER PAROWOZU",
+        icon: "fa-solid fa-train",
+      },
+      {
+        label: "Parowóz taranuje posterunek Morozowa! Odbijcie więźniów z wagonu!",
+        node: "depot_prisoners_freed",
+        badge: "SZT託RM WAGONU",
+        icon: "fa-solid fa-lock-open",
+      }
+    ]
+  },
+  depot_andrij_switch: {
+    sectorId: 5,
+    speaker: "andrij",
+    audio: "Andrij3.mp3",
+    header: "KOLEJARZ ANDRIJ [UA/PL] • MANEWR NA ROZJAZDACH",
+    footer: "Nastawnia kolejowa • Przełożona wajcha",
+    text: "Chłopaki, załatwiłem klucze do semaforów! Ten bimber od Wasyla rozwiązał język dyżurnemu ruchu. Przestawimy wajchę i radziecki eszelon wpierdoli się w ślepy tor z pełną prędkością!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Eszelon wykoleja się z potwornym hukiem! Kruk osłania wasz odwrót!",
+        node: "depot_kruk_cover",
+        badge: "WYKOLEJENIE",
+        icon: "fa-solid fa-train-subway",
+      },
+      {
+        label: "Dopadnijcie do wagonu z uwięzionymi kurierami WiN!",
+        node: "depot_prisoners_freed",
+        badge: "UWOLNIENIE LUDZI",
+        icon: "fa-solid fa-door-open",
+      }
+    ]
+  },
+  depot_kruk_cover: {
+    sectorId: 5,
+    speaker: "kruk",
+    audio: "Kruk3.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • OSŁONA ZE SKRAJNI",
+    footer: "Dach magazynu towarowego • Ogień zaporowy",
+    text: "Mam wrogi pociąg na muszce! Osłaniam wasz odwrót do ostatniego naboju!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Otwórzcie ciężkie rygle wagonu i uwolnijcie więźniów!",
+        node: "depot_prisoners_freed",
+        badge: "UWOLNIENIE WIĘŹNIÓW",
+        icon: "fa-solid fa-lock-open",
+      },
+      {
+        label: "Wskakujcie na tender parowozu z Andrijem!",
+        node: "depot_andrij_escape_tender",
+        badge: "PAROWÓZ",
+        icon: "fa-solid fa-train",
+      }
+    ]
+  },
+  depot_andrij_escape_tender: {
+    sectorId: 5,
+    speaker: "andrij",
+    audio: "Andrij4.mp3",
+    header: "KOLEJARZ ANDRIJ [UA/PL] • PEŁNA PARA W KOTŁACH",
+    footer: "Budka maszynisty • Kłęby pary i ognia",
+    text: "Szybko, wskakujcie na tender parowozu! Morozow wali z dział po wagonach, ale mamy pełną parę w kotłach! Ruszamy, trzymajcie się mocno!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Zabierzcie uwolnionych ludzi na tender i przebijcie blokadę stacji!",
+        node: "depot_prisoners_freed",
+        badge: "PRZEŁAMANIE",
+        icon: "fa-solid fa-truck-fast",
+      },
+      {
+        label: "Ruszajcie na pełnej parze w kierunku Zakładów Arsenał!",
+        node: "factory_start",
+        badge: "ZAKŁADY ARSENAŁ",
+        icon: "fa-solid fa-industry",
+      }
+    ]
+  },
+  depot_radio_warning: {
+    sectorId: 5,
+    speaker: "helena",
+    audio: "Wisla5.mp3",
+    header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • RADIOTELEGRAM",
+    footer: "Kanał podsłuchowy NKWD • Czołgi w natarciu",
+    text: "Przechwyciłam meldunek radiowy! Morozow wpadł w furię, rzucił wszystkie czołgi na dworzec! Jeśli nie odetniecie torów, rozjadą nas na miazgę!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wyważcie rygle wagonu pancernego i zabierzcie rannych!",
+        node: "depot_prisoners_freed",
+        badge: "EWAKUACJA",
+        icon: "fa-solid fa-truck-medical",
+      },
+      {
+        label: "Andrij przestawia zwrotnice semaforem, odcinając drogę czołgom!",
+        node: "depot_andrij_switch",
+        badge: "ODCIĘCIE CZOŁGÓW",
+        icon: "fa-solid fa-wrench",
+      }
+    ]
+  },
+  depot_prisoners_freed: {
+    sectorId: 5,
+    speaker: "carlo",
+    audio: "Carlo5.mp3",
+    header: "KAROL MARCINIAK • WAGON PANCERNY ZDOBYTY",
+    footer: "Tor 3 • Oswobodzeni więźniowie podziemia",
+    text: "Dotarliśmy na dworzec Kijów-Pasażerski. Wagon pancerny NKWD stoi na trzecim torze. Trzeba działać szybko, zanim odjedzie do Lwowa.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kalina pakuje rannych kurierów do szoferki zdobytej ciężarówki!",
+        node: "depot_kalina_truck",
+        badge: "SZOFERKA KALINY",
+        icon: "fa-solid fa-truck-medical",
+      },
+      {
+        label: "Marciniak słania się na nogach – wycieńczenie i głód biorą górę!",
+        node: "depot_survival_hunger_check",
+        badge: "GŁÓD & PRAGNIENIE",
+        icon: "fa-solid fa-person-falling",
+      }
+    ]
+  },
+  depot_kalina_truck: {
+    sectorId: 5,
+    speaker: "kalina",
+    audio: "Kalina2.mp3",
+    header: "SANITARIUSZKA KALINA [PL] • TRANSPORT RANNYCH",
+    footer: "Ciężarówka ZiS • Ranni załadowani na pakę",
+    text: "Marciniak, bierzemy rannych do szoferki ciężarówki! Każda sekunda decyduje o ich życiu!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Ruszamy na Zakłady Arsenał – wysadzimy ich główny magazyn amunicji!”",
+        node: "factory_start",
+        badge: "ZAKŁADY ARSENAŁ",
+        icon: "fa-solid fa-industry",
+      },
+      {
+        label: "Marciniak pije samogon Wasyla, by utrzymać siły przed atakiem!",
+        node: "depot_carlo_drinks",
+        badge: "SAMOGON NA DROGĘ",
+        icon: "fa-solid fa-wine-bottle",
+      }
+    ]
+  },
+  depot_survival_hunger_check: {
+    sectorId: 5,
+    speaker: "carlo",
+    audio: "Carlo16.mp3",
+    header: "KAROL MARCINIAK • OSTATNIE SIŁY ORGANIZMU",
+    footer: "Rampa kolejowa • Pragnienie i głód",
+    text: "Ja pierdolę... kiszki mi marsza grają, a w gardle sucho jak na pustyni. Jak zaraz czegoś nie zjem i nie chlapnę wody, to padnę zanim dotrę do Arsenału.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kalina podaje ci manierkę z wodą i kawał słoniny od Wasyla!",
+        node: "depot_kalina_ration",
+        badge: "SŁONINA & WODA",
+        icon: "fa-solid fa-bread-slice",
+      },
+      {
+        label: "Pociągnij głęboki łyk samogonu Wasyla z piersiówki!",
+        node: "depot_carlo_drinks",
+        badge: "GŁYK SAMOGONU",
+        icon: "fa-solid fa-wine-bottle",
+      }
+    ]
+  },
+  depot_kalina_ration: {
+    sectorId: 5,
+    speaker: "kalina",
+    audio: "Kalina3.mp3",
+    header: "SANITARIUSZKA KALINA [PL] • MANIERKA I SŁONINA",
+    footer: "Szoferka ciężarówki • Ratunek przed omdleniem",
+    text: "Cholera jasna, Marciniak, ledwo trzymasz się na nogach! Odwodnienie i wyczerpanie zaraz cię zabiją! Masz tu manierkę i kawał słoniny od Wasyla, zjedz to natychmiast!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Zjedz słoninę, wypij wodę i daj rozkaz ataku na Arsenał!",
+        node: "factory_start",
+        badge: "NA ARSENAŁ",
+        icon: "fa-solid fa-industry",
+      },
+      {
+        label: "Wypij dodatkowo samogon Wasyla dla pewności celnego oka!",
+        node: "depot_carlo_drinks",
+        badge: "SAMOGON",
+        icon: "fa-solid fa-wine-bottle",
+      }
+    ]
+  },
+  depot_carlo_drinks: {
+    sectorId: 5,
+    speaker: "carlo",
+    audio: "Carlo25.mp3",
+    header: "KAROL MARCINIAK • MOC SAMOGONU WASYLA",
+    footer: "Bocznica kolejowa • Przypływ adrenaliny",
+    text: "Ten samogon pali w gardle jak cholera, ale stawia na nogi lepiej niż lekarstwa Kaliny. Głód zaspokojony, naboje w magazynkach. Ruszamy dokończyć to piekło!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Ruszajcie na Zakłady Arsenał podłożyć ładunki pod halę!",
+        node: "factory_start",
+        badge: "ZAKŁADY ARSENAŁ",
+        icon: "fa-solid fa-industry",
+      },
+      {
+        label: "Przemknijcie przez bagniste leśne trakty Puszczy Wodnej!",
+        node: "forest_start",
+        badge: "PUSZCZA WODNA",
+        icon: "fa-solid fa-tree",
+      }
+    ]
+  },
+  factory_start: {
+    sectorId: 6,
+    speaker: "carlo",
+    audio: "Carlo6.mp3",
+    header: "ZAKŁADY ARSENAŁ • GŁÓWNY MAGAZYN AMUNICJI WROGA",
+    footer: "Dzielnica Peczersk • Hala montażowa pocisków",
+    text: "Przed nami zakłady Arsenał. Główne magazyny amunicji wroga. Podłożymy ładunki z opóźnionym zapłonem pod halę montażową.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wartownik przy generatorze prądu zauważa ruch w cieniu hali!",
+        node: "factory_generator_guard",
+        badge: "WARTOWNIK PRZY SIECI",
+        icon: "fa-solid fa-bolt",
+      },
+      {
+        label: "Stalowy rzuca granaty F-1 Wasyla prosto w budkę wartowniczą!",
+        node: "factory_stalowy_f1",
+        badge: "GRANATY F-1",
+        icon: "fa-solid fa-bomb",
+        action: () => { gameState.addInventory('granat', 2); sound.playSfxGunshot(); },
+      }
+    ]
+  },
+  factory_generator_guard: {
+    sectorId: 6,
+    speaker: "rusek",
+    audio: "Rusek4.mp3",
+    header: "WARTOWNIK NKWD [RU] • GENERATOR ZAKŁADÓW",
+    footer: "Hala produkcyjna • Karabinek wycelowany w Marciniaka",
+    text: "Стой, стрелять буду! Бросай сумку на землю и отойди от генератора!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kruk likwiduje go jednym bezszelestnym strzałem z galerii hali!",
+        node: "factory_kruk_shot",
+        badge: "STRZAŁ KRUKA",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "Stalowy ciska granatem odłamkowym w stanowisko wroga!",
+        node: "factory_stalowy_f1",
+        badge: "GRANAT F-1",
+        icon: "fa-solid fa-explosion",
+      }
+    ]
+  },
+  factory_kruk_shot: {
+    sectorId: 6,
+    speaker: "kruk",
+    audio: "Kruk4.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • GALERIA FABRYCZNA",
+    footer: "Kable zasilania • Wartownicy zlikwidowani",
+    text: "Dwa cele zdjęte. Czyste trafienia w łeb, bez piśnięcia. Reflektor zgaszony, droga pod barki czysta. Czołgajcie się, ubezpieczam waszą flankę.",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Stalowy podpala lont – trotyl pod fundamentami magazynu gotowy!",
+        node: "factory_blown_success",
+        badge: "DETONACJA ARSENAŁU",
+        icon: "fa-solid fa-fire",
+      },
+      {
+        label: "Użyjcie dodatkowego F-1 dla zniszczenia całej linii montażowej!",
+        node: "factory_stalowy_f1",
+        badge: "GRANATY F-1",
+        icon: "fa-solid fa-bomb",
+        action: () => { gameState.addInventory('granat', 2); sound.playSfxGunshot(); },
+      }
+    ]
+  },
+  factory_stalowy_f1: {
+    sectorId: 6,
+    speaker: "saper",
+    audio: "Saper4.mp3",
+    header: "SAPER „STALOWY” [PL] • NISZCZYCIELSKA SIŁA F-1",
+    footer: "Hala amunicyjna • Odłamki szarpią wrogie stanowiska",
+    text: "Wasyl podrzucił nam zajebisty towar – te granaty odłamkowe F-1 zmiotą radziecką wartownię w trzy sekundy! Odbezpieczam zawleczkę!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wartownia i magazyn płoną! Stalowy odpala główny lont trotylu!",
+        node: "factory_blown_success",
+        badge: "ODPALENIE LONTU",
+        icon: "fa-solid fa-fire",
+      },
+      {
+        label: "Wycofajcie się w dymie ku Puszczy Wodnej przed potężnym wybuchem!",
+        node: "forest_start",
+        badge: "PUSZCZA WODNA",
+        icon: "fa-solid fa-tree",
+      }
+    ]
+  },
+  factory_blown_success: {
+    sectorId: 6,
+    speaker: "saper",
+    audio: "Saper3.mp3",
+    header: "SAPER „STALOWY” [PL] • SUKCES MINERSKI",
+    footer: "Zgliszcza Arsenału • Magazyn wyleciał w powietrze!",
+    text: "Marciniak, trotyl jest podłożony pod fundamentami! Podpaliłem trzyipółminutowy lont. Jak to pierdolnie, to z tego magazynu zostanie tylko lej na pięć metrów!",
+    onEnter: () => sound.playSfxVictory(),
+    choices: [
+      {
+        label: "Huk zmiata radzieckie zapasy pocisków! Odwrót przez bagnistą Puszczę Wodną!",
+        node: "forest_start",
+        badge: "PUSZCZA WODNA",
+        icon: "fa-solid fa-tree",
+      },
+      {
+        label: "Zasadźcie się w lesie na sowieckie ciężarówki posiłków!",
+        node: "forest_start",
+        badge: "ZASADZKA W LESIE",
+        icon: "fa-solid fa-crosshairs",
+      }
+    ]
+  },
+  forest_start: {
+    sectorId: 7,
+    speaker: "carlo",
+    audio: "Carlo8.mp3",
+    header: "PUSZCZA WODNA • NOCNY PUNKT ZBORNY",
+    footer: "Bagniste drogi leśne • Zatrzymana kolumna wroga",
+    text: "Puszcza Wodna, nocny punkt zborny. Sowieckie ciężarówki utknęły na bagnistej drodze. To idealny moment na zasadzkę.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Otwórzcie huraganowy ogień z zarośli w kierunku utkniętej kolumny!",
+        node: "forest_ambush_attack",
+        badge: "OGIEŃ ZASADZKI",
+        icon: "fa-solid fa-burst",
+      },
+      {
+        label: "Helena ostrzega przez radio: w sztabie ukrywa się sowiecki zdrajca!",
+        node: "forest_spy_warning",
+        badge: "KRET W SZTABIE",
+        icon: "fa-solid fa-user-secret",
+      }
+    ]
+  },
+  forest_ambush_attack: {
+    sectorId: 7,
+    speaker: "rusek",
+    audio: "Rusek6.mp3",
+    header: "OFICER NKWD W ZASADZCE [RU] • KONTRUDERZENIE",
+    footer: "Mokradła Puszczy • Ciężkie cekaemy rąbią gałęzie",
+    text: "Засада! Огонь по кустам из всех пулеметов! Не дайте им подойти к колонне!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Kruk dostrzega wrogiego snajpera czającego się na wieży cerkwi!",
+        node: "forest_kruk_shot",
+        badge: "SNAJPER NA CERKWI",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "Ostrzał rani naszych ludzi! Kalina czołga się z opatrunkami pod ogniem!",
+        node: "forest_medic_choice",
+        badge: "RATUNEK KALINY",
+        icon: "fa-solid fa-notes-medical",
+      }
+    ]
+  },
+  forest_kruk_shot: {
+    sectorId: 7,
+    speaker: "kruk",
+    audio: "Kruk5.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • POJEDYNEK SNAJPERSKI",
+    footer: "Wieża cerkwi w Puszczy • Strzał w samo czoło",
+    text: "Jebany radziecki snajper siedzi na wieży cerkwi! Zauważyłem błysk optyki. Dajcie mi dwie sekundy... Dostał prosto między oczy, gnojek leci w dół!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Helena nadbiega ze złamanym szyfrem: hasło do katowni to 'Jesion-49'!",
+        node: "forest_spy_warning",
+        badge: "HASŁO 'JESION-49'",
+        icon: "fa-solid fa-key",
+      },
+      {
+        label: "Ciężarówki wroga zdobyte! Ruszajcie na Podole rozbić areszt!",
+        node: "podil_start",
+        badge: "NA PODOLE",
+        icon: "fa-solid fa-arrow-right",
+      }
+    ]
+  },
+  forest_medic_choice: {
+    sectorId: 7,
+    speaker: "kalina",
+    audio: "Kalina4.mp3",
+    header: "SANITARIUSZKA KALINA [PL] • WALKA O ŻYCIE",
+    footer: "Paka sanitarna • Krew i bandaże",
+    text: "Zatamowałam krwotok u kolejnego partyzanta! Mamy pełną pakę rannych. Musimy przedrzeć się za Dniepr, inaczej bez krwi i leków ci ludzie umrą do rana!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Helena podaje hasło 'Jesion-49', by zidentyfikować zdrajcę w areszcie!",
+        node: "forest_spy_warning",
+        badge: "IDENTYFIKACJA ZDRAJCY",
+        icon: "fa-solid fa-shield-halved",
+      },
+      {
+        label: "Wjeżdżajcie ciężarówką z rannymi w wąskie uliczki Podola!",
+        node: "podil_start",
+        badge: "PODOLE",
+        icon: "fa-solid fa-truck",
+      }
+    ]
+  },
+  forest_spy_warning: {
+    sectorId: 7,
+    speaker: "helena",
+    audio: "Wisla2.mp3",
+    header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • KRET W SZTABIE",
+    footer: "Droga leśna ku Podolu • Prawdziwe hasło wywiadu",
+    text: "Marciniak, uważaj! W naszym sztabie jest podwójny agent. Prawdziwe hasło to 'Jesion-49'.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wjeżdżamy na Podole odbić aresztowanych łączników z piwnic katowni!",
+        node: "podil_start",
+        badge: "KATOWNIA PODOLE",
+        icon: "fa-solid fa-dungeon",
+      },
+      {
+        label: "Trzymajcie broń w pogotowiu na wypadek zdrady w kamienicy!",
+        node: "podil_start",
+        badge: "GOTOWOŚĆ BOJOWA",
+        icon: "fa-solid fa-gun",
+      }
+    ]
+  },
+  podil_start: {
+    sectorId: 8,
+    speaker: "carlo",
+    audio: "Carlo9.mp3",
+    header: "DZIELNICA PODOLE • KATOWNIA NKWD",
+    footer: "Brukowane uliczki • Piwnice carskiej kamienicy",
+    text: "Historyczna dzielnica Podole. W piwnicach tej kamienicy NKWD urządziło nielegalną katownię. Odbijemy naszych kurierów.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Helena melduje, że NKWD wywleka cywilów i zaraz zamknie cały kwartał!",
+        node: "podil_helena_raid",
+        badge: "OBŁAWA NKWD",
+        icon: "fa-solid fa-triangle-exclamation",
+      },
+      {
+        label: "Wyważcie żelazne drzwi piwnicy i pomścijcie zakatowanych kurierów!",
+        node: "podil_carlo_revenge",
+        badge: "SZTURM PIWNIC",
+        icon: "fa-solid fa-hand-fist",
+      }
+    ]
+  },
+  podil_helena_raid: {
+    sectorId: 8,
+    speaker: "helena",
+    audio: "Wisla4.mp3",
+    header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • PĘTLA OBŁAWY",
+    footer: "Ulica Pokrowska • Bydlęce budy enkawudzistów",
+    text: "Marciniak, kurwa, pośpieszcie się! Na Podolu NKWD wywleka ludzi z domów i pakuje do bud! Mamy mało czasu, za chwilę zamkną cały kwartał!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Uderzcie z całą wściekłością na konwojentów i katów w piwnicy!",
+        node: "podil_carlo_revenge",
+        badge: "ZEMSTA ZA KURIERÓW",
+        icon: "fa-solid fa-fire",
+      },
+      {
+        label: "Kalina zabezpiecza oswobodzonych więźniów w sieni kamienicy!",
+        node: "podil_kalina_rescued",
+        badge: "POMOC KALINY",
+        icon: "fa-solid fa-notes-medical",
+      }
+    ]
+  },
+  podil_carlo_revenge: {
+    sectorId: 8,
+    speaker: "carlo",
+    audio: "Carlo19.mp3",
+    header: "KAROL MARCINIAK • GNIEW PODZIEMIA",
+    footer: "Piwnice aresztu Podola • Krwawy rozrachunek",
+    text: "Za każdego zakatowanego kuriera, za każdą krew na padole! Dzisiaj zapłacicie za wszystko, wy bolszewickie kurwy!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Kalina opatruje zakatowanych ludzi i przygotowuje transport!",
+        node: "podil_kalina_rescued",
+        badge: "RATUNEK WIĘŹNIÓW",
+        icon: "fa-solid fa-kit-medical",
+      },
+      {
+        label: "Helena prowadzi wszystkich do ukrytej łodzi rybackiej pod mostem!",
+        node: "podil_helena_boat",
+        badge: "ŁÓDŹ HELENY",
+        icon: "fa-solid fa-ship",
+      }
+    ]
+  },
+  podil_kalina_rescued: {
+    sectorId: 8,
+    speaker: "kalina",
+    audio: "Kalina1.mp3",
+    header: "SANITARIUSZKA KALINA [PL] • KURACJA MORFINĄ",
+    footer: "Sień kamienicy • Uratowani łącznicy podziemia",
+    text: "Opatrzyłam rannych kurierów. Morfina podana, krwotoki zatamowane. Są gotowi do transportu!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Zbiegajcie ku Dnieprowi – Helena przygotowała łódź rybacką pod mostem!",
+        node: "podil_helena_boat",
+        badge: "PRZEPRAWA ŁODZIĄ",
+        icon: "fa-solid fa-ship",
+      },
+      {
+        label: "Marciniak zarządza marsz do krypy Wasyla po zapasy przed szturmem na Komendę!",
+        node: "podil_wasyl_rearm_trip",
+        badge: "DO WASYLA",
+        icon: "fa-solid fa-coins",
+      }
+    ]
+  },
+  podil_helena_boat: {
+    sectorId: 8,
+    speaker: "helena",
+    audio: "Wisla3.mp3",
+    header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • EWAKUACJA RZEKĄ",
+    footer: "Brzeg Dniepru pod mostem • Rybacka krypa ratunkowa",
+    text: "Droga do Dniepru czysta. Przygotowałam łódź rybacką pod mostem kolejowym. Wskakujcie!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wskoczcie do krypy Wasyla, by sprzedać mundury i dozbroić się w F-1!",
+        node: "podil_wasyl_rearm_trip",
+        badge: "DOBRO WASYLA",
+        icon: "fa-solid fa-coins",
+      },
+      {
+        label: "Ruszajcie prosto na węzeł radiowy – odetnijcie łączność garnizonu!",
+        node: "radio_hub_start",
+        badge: "WĘZEŁ ŁĄCZNOŚCI",
+        icon: "fa-solid fa-tower-broadcast",
+      }
+    ]
+  },
+  podil_wasyl_rearm_trip: {
+    sectorId: 8,
+    speaker: "carlo",
+    audio: "Carlo20.mp3",
+    header: "KAROL MARCINIAK • PRZYGOTOWANIE DO SZTURMU",
+    footer: "Lewy brzeg Dniepru • Ostatnie dozbrojenie",
+    text: "Stalowy, Kruk! Zbiegamy pod barki Wasyla na lewym brzegu. Trzeba sprzedać te mundury i zaopatrzyć się w prowiant przed szturmem na Komendę Główną!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wasyl wyciąga puszki tuszonki, bimber i granaty F-1 na stół!",
+        node: "bazar_dniepr_wasyl_act8",
+        badge: "ZAPASY WASYLA",
+        icon: "fa-solid fa-store",
+      },
+      {
+        label: "🎒 Otwórz plecak: sprzedaj zdobyczne zegarki i kup zapasy!",
+        badge: "SKLEP",
+        icon: "fa-solid fa-coins",
+        action: () => openInventoryModal(),
+      }
+    ]
+  },
+  bazar_dniepr_wasyl_act8: {
+    sectorId: 2,
+    speaker: "wasyl",
+    audio: "Wasyl2.mp3",
+    header: "PASER WASYL • OSTATNI TOAST PRZED BITWĄ",
+    footer: "Kajuta barki • Tuszonka, samogon i odłamkowe F-1",
+    text: "Bierz tę tuszonkę i samogon pędzony na życie, bo z głodu i pragnienia zaraz wyciągniesz kopyta na tych ruinach. U mnie nie ma darmowych obiadów, ale jak masz szmal i łupy, to i granaty F-1 ci skombinuję, żebyś rozjebał tych skurwysynów!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "WYPIJ SZKLANĘ SAMOGONU I WEŹ GŁĘBOKI ODDECH PRZED SZTURMEM!",
+        node: "bazar_carlo_final_boost",
+        badge: "MOC SAMOGONU",
+        icon: "fa-solid fa-wine-bottle",
+        action: () => { gameState.hunger = 100; gameState.thirst = 100; gameState.morale = Math.min(100, gameState.morale + 20); },
+      },
+      {
+        label: "Wasyl życzy powodzenia polskim dywersantom i zamyka krypę!",
+        node: "bazar_wasyl_final_bye",
+        badge: "POŻEGNANIE WASYLA",
+        icon: "fa-solid fa-hand-fist",
+      }
+    ]
+  },
+  bazar_carlo_final_boost: {
+    sectorId: 2,
+    speaker: "carlo",
+    audio: "Carlo25.mp3",
+    header: "KAROL MARCINIAK • PEŁNIA SIŁ PRZED FINAŁEM",
+    footer: "Brzeg Dniepru • Czysta determinacja w oczach",
+    text: "Ten samogon pali w gardle jak cholera, ale stawia na nogi lepiej niż lekarstwa Kaliny. Głód zaspokojony, naboje w magazynkach. Ruszamy dokończyć to piekło!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Podłóżcie ładunki pod główny węzeł łączności NKWD!",
+        node: "radio_hub_start",
+        badge: "WĘZEŁ RADIOWY",
+        icon: "fa-solid fa-tower-broadcast",
+      },
+      {
+        label: "Przełamcie rogatkę i uderzcie w samo serce Komendy Głównej!",
+        node: "outpost_start",
+        badge: "ROGATKA BLOKADOWA",
+        icon: "fa-solid fa-road-barrier",
+      }
+    ]
+  },
+  bazar_wasyl_final_bye: {
+    sectorId: 2,
+    speaker: "wasyl",
+    audio: "Wasyl3.mp3",
+    header: "PASER WASYL • 'POWODZENIA, NIE DAJ SIĘ POWIESIĆ!'",
+    footer: "Znikająca barka w oparach rzeki",
+    text: "Interes ubity, polski diable. Chowaj żarcie i naboje do wora i spierdalaj kanałami, zanim Morozow puści szperacze po Dnieprze. Powodzenia, nie daj się powiesić!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Zaminujcie węzeł radiowy garnizonu, by odciąć meldunki Morozowa!",
+        node: "radio_hub_start",
+        badge: "WĘZEŁ RADIOWY",
+        icon: "fa-solid fa-tower-broadcast",
+      },
+      {
+        label: "Uderzcie na posterunek rogatki blokadowej!",
+        node: "outpost_start",
+        badge: "POSTERUNEK",
+        icon: "fa-solid fa-shield",
+      }
+    ]
+  },
+  radio_hub_start: {
+    sectorId: 9,
+    speaker: "carlo",
+    audio: "Carlo11.mp3",
+    header: "WĘZEŁ ŁĄCZNOŚCI GARNIZONU • ZEGARY TYKAJĄ",
+    footer: "Maszt nadawczy • 3 minuty do potężnej eksplozji",
+    text: "Ładunki podłożone! Za trzy minuty wyleci w powietrze cały węzeł łączności. Wycofujemy się kanałami ku Dnieprowi!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Morozow szaleje w eterze, wydając histeryczny rozkaz zagłady!",
+        node: "radio_morozow_rage",
+        badge: "SZAŁ MOROZOWA",
+        icon: "fa-solid fa-microphone",
+      },
+      {
+        label: "Wycofajcie się ku posterunkowi blokadowemu przed uderzeniem na sztab!",
+        node: "outpost_start",
+        badge: "ROGATKA NKWD",
+        icon: "fa-solid fa-road-barrier",
+      }
+    ]
+  },
+  radio_morozow_rage: {
+    sectorId: 9,
+    speaker: "morozow",
+    audio: "Morozow3.mp3",
+    header: "KAPITAN MOROZOW [RU] • KRWAWY ROZKAZ",
+    footer: "Kanał łączności garnizonu • Histeryczny wrzask dowódcy",
+    text: "Сукины сыны! Окружить набережную и расстреливать всех без предупреждения! Загнать польских бандитов прямо в Днепр!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Dopadnijcie do posterunku rogatki – wartownik blokuje drogę!",
+        node: "outpost_start",
+        badge: "BLOKADA ROGATKI",
+        icon: "fa-solid fa-triangle-exclamation",
+      },
+      {
+        label: "Otwórzcie huraganowy ogień z wozów na przełamanie kordonu!",
+        node: "outpost_clear",
+        badge: "OGIEŃ CEKAEMÓW",
+        icon: "fa-solid fa-burst",
+      }
+    ]
+  },
+  outpost_start: {
+    sectorId: 9,
+    speaker: "rusek",
+    audio: "Rusek9.mp3",
+    header: "WARTOWNIK POSTERUNKU ROGATKI [RU] • CELOWNIK",
+    footer: "Barykada szosowa • Karabin skierowany na konwój",
+    text: "Эй, парень, что в мешке?! Стой, сука, стрелять буду на поражение!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Marciniak daje rozkaz: ognia z cekaemów, taranujemy rogatkę!",
+        node: "outpost_clear",
+        badge: "PRZEŁAMANIE BLOKADY",
+        icon: "fa-solid fa-truck-fast",
+      },
+      {
+        label: "Kruk bierze posterunek na muszkę i likwiduje obsługę karabinu!",
+        node: "outpost_kruk_cover",
+        badge: "SNAJPER KRUK",
+        icon: "fa-solid fa-crosshairs",
+      }
+    ]
+  },
+  outpost_kruk_cover: {
+    sectorId: 9,
+    speaker: "kruk",
+    audio: "Kruk3.mp3",
+    header: "PORUCZNIK „KRUK” [PL] • OSŁONA ROGATKI",
+    footer: "Barykada drogowa • Zlikwidowane gniazdo wroga",
+    text: "Mam wrogi pociąg na muszce! Osłaniam wasz odwrót do ostatniego naboju!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wszyscy do wozów! Przebijamy się przez rogatkę ku Komendzie Głównej!",
+        node: "outpost_clear",
+        badge: "PRZEBICIE",
+        icon: "fa-solid fa-truck-fast",
+      },
+      {
+        label: "Helena wskazuje drogę do łodzi ewakuacyjnej za Dniepr!",
+        node: "outpost_boat_evac",
+        badge: "EWAKUACJA RZEKĄ",
+        icon: "fa-solid fa-ship",
+      }
+    ]
+  },
+  outpost_clear: {
+    sectorId: 9,
+    speaker: "carlo",
+    audio: "Carlo22.mp3",
+    header: "KAROL MARCINIAK • PRZEŁAMANIE KORDONU",
+    footer: "Płonące barykady rogatki • Droga na sztab otwarta",
+    text: "Wszyscy do wozów! Helena, trzymaj rannych, Kalina podaj morfinę! Kruk, osłaniaj tyły! Przebijamy się przez rogatkę, ognia z cekaemów!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Szturmujemy samą Komendę Główną NKWD po tajny sejf Woronowa!",
+        node: "headquarters_start",
+        badge: "SZTURM KOMENDY",
+        icon: "fa-solid fa-building-shield",
+      },
+      {
+        label: "Skierujcie wozy ku łodziom Heleny i ocalcie rannych za Dniepr!",
+        node: "outpost_boat_evac",
+        badge: "EWAKUACJA ŁODZIĄ",
+        icon: "fa-solid fa-ship",
+      }
+    ]
+  },
+  outpost_boat_evac: {
+    sectorId: 9,
+    speaker: "helena",
+    audio: "Wisla3.mp3",
+    header: "ŁĄCZNICZKA HELENA (WISŁA) [PL] • DROGA NA DRUGI BRZEG",
+    footer: "Przystań rybacka • Łodzie gotowe do odbicia od brzegu",
+    text: "Droga do Dniepru czysta. Przygotowałam łódź rybacką pod mostem kolejowym. Wskakujcie!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "ODPŁYŃCIE POD OSŁONĄ MGŁY: Ciche ocalenie siatki (ZAKOŃCZENIE II)!",
+        node: "ending_2_scene",
+        badge: "ZAKOŃCZENIE II",
+        icon: "fa-solid fa-moon",
+        action: () => gameState.triggerEnding('ending_2'),
+      },
+      {
+        label: "Przetransportujcie rannych przez ocalałą magistralę (ZAKOŃCZENIE III)!",
+        node: "ending_3_scene",
+        badge: "ZAKOŃCZENIE III",
+        icon: "fa-solid fa-shield",
+        action: () => gameState.triggerEnding('ending_3'),
+      }
+    ]
+  },
+  headquarters_start: {
+    sectorId: 10,
+    speaker: "carlo",
+    audio: "Carlo10.mp3",
+    header: "KOMENDA GŁÓWNA NKWD • GNIAZDO ŻMIJ",
+    footer: "Centrum Kijowa • Gmach główny bezpieki",
+    text: "Jesteśmy w samym gnieździe żmij – Komenda Główna NKWD. Cel to tajny sejf komisarza i kody łączności garnizonowej.",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Woronow drwi z balustrady marmurowych schodów!",
+        node: "hq_woronow_confront_1",
+        badge: "GŁOS WORONOWA",
+        icon: "fa-solid fa-skull",
+      },
+      {
+        label: "Śledczy NKWD żądają kapitulacji, celując z cekaemów z antresoli!",
+        node: "hq_rusek_demand",
+        badge: "ŻĄDANIE KAPITULACJI",
+        icon: "fa-solid fa-gun",
+      }
+    ]
+  },
+  hq_rusek_demand: {
+    sectorId: 10,
+    speaker: "rusek",
+    audio: "Rusek7.mp3",
+    header: "ŚLEDCZY NKWD [RU] • WEZWANIE DO PODDANIA",
+    footer: "Hol główny Komendy • Zablokowane wyjścia",
+    text: "Вы окружены! Складывайте оружие, и, возможно, сохраните свои жалкие жизни!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Komisarz Woronow ujawnia się na półpiętrze z pistoletem w dłoni!",
+        node: "hq_woronow_confront_1",
+        badge: "KOMISARZ WORONOW",
+        icon: "fa-solid fa-user-tie",
+      },
+      {
+        label: "Marciniak odpowiada ogniem z pistoletu maszynowego!",
+        node: "hq_staircase_battle",
+        badge: "OGNIA!",
+        icon: "fa-solid fa-burst",
+      }
+    ]
+  },
+  hq_woronow_confront_1: {
+    sectorId: 10,
+    speaker: "woronow",
+    audio: "Woronow1.mp3",
+    header: "KOMISARZ WORONOW [RU] • DRWINA Z DYWERSANTÓW",
+    footer: "Marmurowe schody • Portret Stalina na ścianie",
+    text: "Marciniak! Myślałeś, że uciekniesz z Kijowa? Znam każdy wasz krok od samego bunkra!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Woronow krzyczy do strażników, by zablokowali wszystkie wyjścia!",
+        node: "hq_woronow_lockdown",
+        badge: "BLOKADA WYJŚĆ",
+        icon: "fa-solid fa-lock",
+      },
+      {
+        label: "Marciniak wznosi okrzyk bojowy i prowadzi szturm schodów!",
+        node: "hq_staircase_battle",
+        badge: "SZTURM SCHODÓW",
+        icon: "fa-solid fa-arrow-up",
+      }
+    ]
+  },
+  hq_woronow_lockdown: {
+    sectorId: 10,
+    speaker: "woronow",
+    audio: "Woronow2.mp3",
+    header: "KOMISARZ WORONOW [RU] • ROZKAZ MASAKRY",
+    footer: "Korytarz komendantury • Żelazne kraty opadają",
+    text: "Охрана, заблокировать все выходы! Никакой пощады диверсантам!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "„Za wolną Polskę! Jeśli dziś zginiemy, zabierzemy was ze sobą!”",
+        node: "hq_staircase_battle",
+        badge: "BOJOWY OKRZYK",
+        icon: "fa-solid fa-fire",
+      },
+      {
+        label: "Stalowy rzuca odłamkowe F-1 w stronę stanowisk ochrony!",
+        node: "hq_confront_woronow",
+        badge: "GRANATY SAPERA",
+        icon: "fa-solid fa-bomb",
+      }
+    ]
+  },
+  hq_staircase_battle: {
+    sectorId: 10,
+    speaker: "carlo",
+    audio: "Carlo24.mp3",
+    header: "KAROL MARCINIAK • BITWA NA SCHODACH",
+    footer: "Marmurowe schody • Huk strzałów i zapach kordytu",
+    text: "Nie ma odwrotu, bracia! Jeśli dziś zginiemy, to zabierzemy ze sobą do piachu cały ten czerwony sztab! Za wolną Polskę, ognia!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Woronow ciska granatami zza dębowego biurka w gabinecie!",
+        node: "hq_confront_woronow",
+        badge: "GABINET WORONOWA",
+        icon: "fa-solid fa-skull",
+      },
+      {
+        label: "Woronow w amoku wrzeszczy do strażników o niszczeniu dokumentów!",
+        node: "hq_rusek_desperation",
+        badge: "AMOK WROGA",
+        icon: "fa-solid fa-file-shield",
+      }
+    ]
+  },
+  hq_rusek_desperation: {
+    sectorId: 10,
+    speaker: "rusek",
+    audio: "Rusek8.mp3",
+    header: "OFICER NKWD W AMOKU [RU] • ROZKAZ OGNIA",
+    footer: "Korytarz tajnych archiwów • Płonące kartoteki",
+    text: "Стреляйте в предателей! Ни один документ не должен попасть в руки польских бандитов!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "Wkroczcie do gabinetu i stańcie twarzą w twarz z Woronowem!",
+        node: "hq_confront_woronow",
+        badge: "WORONOW TWARZĄ W TWARZ",
+        icon: "fa-solid fa-crosshairs",
+      },
+      {
+        label: "Obalcie stalowe rygle pancernego sejfu komisarza!",
+        node: "hq_voronov_safe_heist",
+        badge: "SEJF KOMISARZA",
+        icon: "fa-solid fa-vault",
+      }
+    ]
+  },
+  hq_confront_woronow: {
+    sectorId: 10,
+    speaker: "woronow",
+    audio: "Woronow3.mp3",
+    header: "KOMISARZ WORONOW [RU] • OSTATNIE TCHNIENIE DYKTATORA",
+    footer: "Gabinet dowódcy • Ranny Woronow za biurkiem",
+    text: "Вы все подохнете в этой комендатуре! Никто не выйдет отсюда живым! Гранаты к бою, уничтожить их!",
+    onEnter: () => sound.playSfxGunshot(),
+    choices: [
+      {
+        label: "Strzał w serce zbrodniarza! Rozbijcie sejf ze złotem i kartotekami!",
+        node: "hq_voronov_safe_heist",
+        badge: "LIKWIDACJA WORONOWA",
+        icon: "fa-solid fa-skull-crossbones",
+      },
+      {
+        label: "Kruk zdejmuje osłonę Woronowa, Stalowy otwiera pancerny sejf!",
+        node: "hq_voronov_safe_heist",
+        badge: "OTWARCIE SEJFU",
+        icon: "fa-solid fa-vault",
+      }
+    ]
+  },
+  hq_voronov_safe_heist: {
+    sectorId: 10,
+    speaker: "carlo",
+    audio: "Carlo23.mp3",
+    header: "KAROL MARCINIAK • ZDOBYTE ARCHIWUM I SKARBIEC",
+    footer: "Gabinet Komisarza • Kartoteki agentów i kody bezpieki",
+    text: "Mamy ich tajne kartoteki, mamy kody bezpieki i czyste złoto z sejfu Woronowa! Rozpieprzyliśmy ich całą siatkę w drobny mak!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "WYBÓR A: Stalowy podkłada trotyl pod całą Komendę Główną NKWD!",
+        node: "hq_final_demolition_choice",
+        badge: "WYSADŹ KOMENDĘ",
+        icon: "fa-solid fa-bomb",
+      },
+      {
+        label: "WYBÓR B: Cicha ewakuacja ze zdobytym archiwum ku łodziom Heleny!",
+        node: "ending_2_scene",
+        badge: "CICHY ODWRÓT",
+        icon: "fa-solid fa-ship",
+      }
+    ]
+  },
+  hq_final_demolition_choice: {
+    sectorId: 10,
+    speaker: "saper",
+    audio: "Saper3.mp3",
+    header: "SAPER „STALOWY” [PL] • OSTATECZNA MINA POD GMACHEM",
+    footer: "Piwnice Komendy Głównej • 3 i pół minuty do wybuchu!",
+    text: "Marciniak, trotyl jest podłożony pod fundamentami! Podpaliłem trzyipółminutowy lont. Jak to pierdolnie, to z tego magazynu zostanie tylko lej na pięć metrów!",
+    onEnter: () => consumeSurvival(6, 8),
+    choices: [
+      {
+        label: "ZAKOŃCZENIE I: [WOLNY KIJÓW] Wielka detonacja zbrodniczego gmachu bezpieki!",
+        node: "ending_1_scene",
+        badge: "ZAKOŃCZENIE I",
+        icon: "fa-solid fa-trophy",
+        action: () => gameState.triggerEnding('ending_1'),
+      },
+      {
+        label: "ZAKOŃCZENIE IV: [CZYSTE SZEREGI] Oczyszczenie siatki i bezpieczny odwrót!",
+        node: "ending_4_scene",
+        badge: "ZAKOŃCZENIE IV",
+        icon: "fa-solid fa-award",
+        action: () => gameState.triggerEnding('ending_4'),
+      }
+    ]
+  },
+  ending_1_scene: {
+    sectorId: 10,
+    speaker: "carlo",
+    audio: "Carlo12.mp3",
+    header: "ZAKOŃCZENIE I: WOLNY KIJÓW • TRIUMF DYWERSJI AK / WIN",
+    footer: "Poranek nad Dnieprem • 15 października 1949 r.",
+    text: "Kijów jest wolny od ich paraliżującego strachu. Nasza operacja zakończyła się pełnym sukcesem. Cześć i chwała bohaterom!",
+    onEnter: () => sound.playSfxVictory(),
+    choices: [
+      {
+        label: "🏆 Zobacz gablotę osiągnięć i odblokowane puchary kampanii!",
+        badge: "OSIĄGNIĘCIA",
+        icon: "fa-solid fa-trophy",
+        action: () => openAchievementsModal(),
+      },
+      {
+        label: "🔄 Powrót do Głównego Menu Sztabu",
+        badge: "MAIN MENU",
+        icon: "fa-solid fa-house",
+        action: () => openMainMenu(),
+      }
+    ]
+  },
+  ending_2_scene: {
+    sectorId: 8,
+    speaker: "helena",
+    audio: "Wisla3.mp3",
+    header: "ZAKOŃCZENIE II: CICHY ZMIERZCH • NIEWIDZIALNY CIEŃ",
+    footer: "Cicha woda Dniepru • Mgła kryje partyzancką łódź",
+    text: "Droga do Dniepru czysta. Przygotowałam łódź rybacką pod mostem kolejowym. Wskakujcie! Wypływamy bez ani jednego zbędnego wystrzału. Kartoteki NKWD płyną na Zachód!",
+    onEnter: () => sound.playSfxVictory(),
+    choices: [
+      {
+        label: "🏆 Sprawdź zdobyte osiągnięcia i puchar Niewidzialnego Cienia!",
+        badge: "OSIĄGNIĘCIA",
+        icon: "fa-solid fa-trophy",
+        action: () => openAchievementsModal(),
+      },
+      {
+        label: "🔄 Powrót do Głównego Menu",
+        badge: "MAIN MENU",
+        icon: "fa-solid fa-house",
+        action: () => openMainMenu(),
+      }
+    ]
+  },
+  ending_3_scene: {
+    sectorId: 5,
+    speaker: "andrij",
+    audio: "Andrij1.mp3",
+    header: "ZAKOŃCZENIE III: ŻELAZNA OSŁONA • OCALENIE MIASTA",
+    footer: "Magistrala kolejowa • Ocalone mosty i uratowani ludzie",
+    text: "Marciniak! Słyszeliśmy potężny wybuch na Dnieprze! Przęsło leży w wodzie, pociąg pancerny utknął na tamtym brzegu! Droga wolna! Most ocalony stał się drogą życia dla setek uchodźców!",
+    onEnter: () => sound.playSfxVictory(),
+    choices: [
+      {
+        label: "🏆 Zobacz gablotę osiągnięć i puchar Żelaznej Osłony!",
+        badge: "OSIĄGNIĘCIA",
+        icon: "fa-solid fa-trophy",
+        action: () => openAchievementsModal(),
+      },
+      {
+        label: "🔄 Powrót do Głównego Menu",
+        badge: "MAIN MENU",
+        icon: "fa-solid fa-house",
+        action: () => openMainMenu(),
+      }
+    ]
+  },
+  ending_4_scene: {
+    sectorId: 10,
+    speaker: "carlo",
+    audio: "Carlo12.mp3",
+    header: "ZAKOŃCZENIE IV: CZYSTE SZEREGI • OSTATECZNE ROZLICZENIE",
+    footer: "Świt nad Kijowem • Siatka bezpieki rozbita bezlitośnie",
+    text: "Kijów jest wolny od ich paraliżującego strachu. Nasza operacja zakończyła się pełnym sukcesem. Cześć i chwała bohaterom! Wszyscy zdrajcy zostali zdemaskowani, a krew naszych ludzi pomszczona!",
+    onEnter: () => sound.playSfxVictory(),
+    choices: [
+      {
+        label: "🏆 Gablota Osiągnięć: 100% kampanii ukończone!",
+        badge: "OSIĄGNIĘCIA",
+        icon: "fa-solid fa-award",
+        action: () => openAchievementsModal(),
+      },
+      {
+        label: "🔄 Powrót do Menu Głównego",
+        badge: "MAIN MENU",
+        icon: "fa-solid fa-house",
+        action: () => openMainMenu(),
+      }
+    ]
+  }
+};
+
     // --- 7. RUNTIME APPLICATION CONTROLLER ---
     let currentSector = SECTORS[0];
     let currentNodeKey = "office_intro_1";
@@ -3303,7 +4145,8 @@
         crtAudioFilename.textContent = node.audio;
         crtAudioBadge.classList.remove('hidden');
         audioIconStatus.className = "fa-solid fa-volume-high mr-1.5 text-emerald-400 animate-pulse";
-        sound.playVoice(node.audio, rawText, node.speaker === 'rusek' || node.speaker === 'woronow' ? 'ru-RU' : 'pl-PL');
+        const lang = ['rusek', 'woronow', 'morozow'].includes(node.speaker) ? 'ru-RU' : 'pl-PL';
+        sound.playVoice(node.audio, rawText, lang, true);
       } else {
         crtAudioBadge.classList.add('hidden');
         currentAudioFilename = "";
