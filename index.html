@@ -31,12 +31,28 @@
     html, body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      min-height: -webkit-fill-available;
       overflow: hidden;
       background-color: var(--bg-dark);
       color: #e2e8f0;
       font-family: 'Share Tech Mono', monospace;
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    #game-app {
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      max-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
     }
 
     .font-vintage { font-family: 'Special Elite', cursive, serif; }
@@ -151,6 +167,84 @@
       max-height: 68vh;
       transform: translateY(14%) scale(1.36);
       filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.9));
+    }
+
+    /* ==================== ULTRA-RESPONSIVE MOBILE LANDSCAPE CSS (< 520px HEIGHT) ==================== */
+    @media screen and (max-height: 520px) {
+      #hud {
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+        height: 30px !important;
+      }
+      #hud-location {
+        max-width: 110px !important;
+        font-size: 10px !important;
+      }
+      .hud-tag {
+        font-size: 9px !important;
+        padding: 1px 4px !important;
+      }
+
+      /* Scale down character standees so heads are completely visible and not covered */
+      .standee-wrapper {
+        bottom: -16px !important;
+      }
+      .standee-wrapper > div:first-child {
+        font-size: 8px !important;
+        padding: 0.5px 4px !important;
+        margin-bottom: 1px !important;
+      }
+      #img-carlo, #img-kruk, #img-przemo {
+        max-height: 48vh !important;
+        transform: translateY(6%) scale(1.1) !important;
+      }
+      #img-kalina, #img-lysy, #img-morozow, #img-andrij, #img-wasyl {
+        max-height: 54vh !important;
+        transform: translateY(8%) scale(1.22) !important;
+      }
+      #img-helena, #img-saper, #img-rusek, #img-woronow {
+        max-height: 62vh !important;
+        transform: translateY(12%) scale(1.38) !important;
+      }
+
+      /* Compact CRT Console */
+      footer {
+        padding-bottom: 2px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+      }
+      .crt-dialog-box {
+        padding: 5px 8px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 0 12px var(--crt-green-glow), inset 0 0 10px rgba(0, 0, 0, 0.85) !important;
+      }
+      #crt-header-title {
+        font-size: 9.5px !important;
+        letter-spacing: 0.05em !important;
+      }
+      #crt-text-container {
+        min-height: 32px !important;
+        max-height: 52px !important;
+        padding-top: 1px !important;
+        padding-bottom: 1px !important;
+      }
+      #crt-dialogue-text {
+        font-size: 10px !important;
+        line-height: 1.25 !important;
+      }
+      #crt-choices-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 4px !important;
+      }
+      .crt-btn, .crt-btn-charisma-unlocked, .crt-btn-charisma-locked {
+        padding: 3px 6px !important;
+        font-size: 9.5px !important;
+        min-height: 28px !important;
+        line-height: 1.15 !important;
+      }
     }
 
     /* SURVIVAL BARS & INVENTORY CSS */
@@ -274,7 +368,7 @@
     }
   </style>
 </head>
-<body class="flex flex-col h-screen select-none overflow-hidden bg-black text-gray-200">
+<body class="flex flex-col h-full select-none overflow-hidden bg-black text-gray-200">
 
   <!-- ==================== ROTATE DEVICE OVERLAY (FOR VERTICAL MOBILE) ==================== -->
   <div id="rotate-orientation-blocker" class="fixed inset-0 z-[100] bg-neutral-950/98 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center">
@@ -298,74 +392,71 @@
   <div id="game-app" class="relative w-full h-full flex flex-col justify-between overflow-hidden">
 
     <!-- Top Compact HUD (Mobile Landscape Optimized) -->
-    <header id="hud" class="z-30 flex items-center justify-between px-3 py-1.5 bg-neutral-950/90 border-b border-neutral-800 text-xs shadow-lg backdrop-blur-sm shrink-0">
-      <div class="flex items-center space-x-2 md:space-x-3">
-        <span class="px-2 py-0.5 bg-red-950/80 border border-red-700 text-red-300 font-bold rounded text-[10px] md:text-xs">
-          1949: KIJÓW
+    <header id="hud" class="z-30 flex items-center justify-between px-2 sm:px-3 py-1 bg-neutral-950/90 border-b border-neutral-800 text-xs shadow-lg backdrop-blur-sm shrink-0">
+      <div class="flex items-center space-x-1.5 sm:space-x-2">
+        <span class="px-1.5 py-0.5 bg-red-950/80 border border-red-700 text-red-300 font-bold rounded text-[9px] sm:text-[10px] shrink-0">
+          1949
         </span>
-        <span id="hud-location" class="text-emerald-400 font-bold tracking-wider flex items-center text-[11px] md:text-xs truncate max-w-[180px] md:max-w-none">
-          <i class="fa-solid fa-location-dot mr-1.5 text-emerald-500"></i> Bunkier Dowodzenia: Biuro Marciniaka
+        <span id="hud-location" class="text-emerald-400 font-bold tracking-wider flex items-center text-[10px] sm:text-xs truncate max-w-[85px] sm:max-w-[130px] md:max-w-xs">
+          <i class="fa-solid fa-location-dot mr-1 text-emerald-500 shrink-0"></i> Biuro Marciniaka
         </span>
       </div>
 
       <!-- Tactical Decision Status Indicators -->
-      <div class="flex items-center space-x-1.5 md:space-x-2">
+      <div class="flex items-center space-x-1 sm:space-x-1.5">
         <!-- Hunger & Thirst Survival Indicators -->
-        <div class="hidden sm:flex items-center space-x-1 px-1.5 py-0.5 bg-neutral-900/90 border border-neutral-700 rounded text-[10px] font-mono">
-          <i class="fa-solid fa-drumstick-bite text-amber-400" title="Głód"></i>
+        <div class="flex items-center space-x-0.5 sm:space-x-1 px-1 py-0.5 bg-neutral-900/90 border border-neutral-700 rounded text-[9px] sm:text-[10px] font-mono">
+          <i class="fa-solid fa-drumstick-bite text-amber-400 text-[9px]" title="Głód"></i>
           <span id="hud-hunger-text" class="text-amber-300 font-bold">85%</span>
         </div>
 
-        <div class="hidden sm:flex items-center space-x-1 px-1.5 py-0.5 bg-neutral-900/90 border border-neutral-700 rounded text-[10px] font-mono">
-          <i class="fa-solid fa-bottle-water text-sky-400" title="Pragnienie"></i>
+        <div class="flex items-center space-x-0.5 sm:space-x-1 px-1 py-0.5 bg-neutral-900/90 border border-neutral-700 rounded text-[9px] sm:text-[10px] font-mono">
+          <i class="fa-solid fa-bottle-water text-sky-400 text-[9px]" title="Pragnienie"></i>
           <span id="hud-thirst-text" class="text-sky-300 font-bold">80%</span>
         </div>
 
         <!-- Money (Siano) -->
-        <div class="flex items-center space-x-1 px-2 py-0.5 bg-emerald-950/80 border border-emerald-600 rounded text-[10px] font-mono text-emerald-300 shadow">
-          <i class="fa-solid fa-coins text-amber-400"></i>
+        <div class="flex items-center space-x-0.5 sm:space-x-1 px-1 sm:px-1.5 py-0.5 bg-emerald-950/80 border border-emerald-600 rounded text-[9px] sm:text-[10px] font-mono text-emerald-300 shadow">
+          <i class="fa-solid fa-coins text-amber-400 text-[9px]"></i>
           <span id="hud-money-text" class="font-bold">45 rub.</span>
         </div>
 
         <!-- Charisma -->
-        <span id="hud-charisma-status" class="hud-tag text-amber-300 border-amber-800 bg-amber-950/50 hidden md:inline-flex">
-          <i class="fa-solid fa-sparkles mr-1 text-amber-400 animate-pulse"></i> Poz. 0
-        </span>
-
-        <span id="hud-bridge-status" class="hidden lg:inline-flex hud-tag text-emerald-400 border-emerald-800">
-          <i class="fa-solid fa-train mr-1"></i> Most
+        <span id="hud-charisma-status" class="hud-tag text-amber-300 border-amber-800 bg-amber-950/50 text-[9px] sm:text-[10px] px-1 py-0.5">
+          <i class="fa-solid fa-sparkles text-amber-400 text-[8px]"></i> Poz. 0
         </span>
       </div>
 
-      <div class="flex items-center space-x-1.5 md:space-x-2.5">
+      <!-- Compact Action Buttons -->
+      <div class="flex items-center space-x-1 sm:space-x-1.5">
         <!-- Menu Główne Button -->
-        <button onclick="openMainMenu()" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-neutral-200 px-2 py-1 rounded border border-neutral-600 transition flex items-center text-[11px]">
-          <i class="fa-solid fa-bars mr-1"></i> MENU
+        <button onclick="openMainMenu()" title="Menu Główne" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-neutral-200 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-neutral-600 transition flex items-center text-[10px]">
+          <i class="fa-solid fa-bars"></i><span class="hidden sm:inline ml-1 font-bold">MENU</span>
         </button>
 
         <!-- Operational Map Button -->
-        <button id="btn-toggle-map" onclick="openMapModal()" class="bg-amber-800 hover:bg-amber-700 active:scale-95 text-amber-200 font-bold px-2.5 py-1 rounded border border-amber-600 shadow transition flex items-center text-[11px]">
-          <i class="fa-solid fa-map-location-dot mr-1 text-xs"></i> MAPA SZTABOWA
+        <button id="btn-toggle-map" onclick="openMapModal()" title="Mapa Sztabowa" class="bg-amber-800 hover:bg-amber-700 active:scale-95 text-amber-200 font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-amber-600 shadow transition flex items-center text-[10px]">
+          <i class="fa-solid fa-map-location-dot"></i><span class="hidden sm:inline ml-1">MAPA</span>
         </button>
 
         <!-- Backpack & Trade Button -->
-        <button id="btn-hud-inventory" onclick="openInventoryModal()" class="bg-gradient-to-r from-emerald-900 to-neutral-900 hover:from-emerald-800 hover:to-neutral-800 active:scale-95 text-emerald-300 font-bold px-2.5 py-1 rounded border border-emerald-600/80 transition flex items-center text-[11px] shadow">
-          <i class="fa-solid fa-briefcase mr-1 text-xs text-emerald-400"></i> PLECAK
+        <button id="btn-hud-inventory" onclick="openInventoryModal()" title="Ekwipunek i Handel" class="bg-gradient-to-r from-emerald-900 to-neutral-900 hover:from-emerald-800 hover:to-neutral-800 active:scale-95 text-emerald-300 font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-emerald-600/80 transition flex items-center text-[10px] shadow">
+          <i class="fa-solid fa-briefcase"></i><span class="hidden sm:inline ml-1">PLECAK</span>
         </button>
 
         <!-- Achievements Button -->
-        <button onclick="openAchievementsModal()" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-amber-300 px-2 py-1 rounded border border-neutral-700 transition flex items-center text-[11px]">
-          <i class="fa-solid fa-trophy mr-1 text-xs text-amber-400"></i> OSIĄGNIĘCIA
+        <button onclick="openAchievementsModal()" title="Osiągnięcia" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-amber-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-neutral-700 transition flex items-center text-[10px]">
+          <i class="fa-solid fa-trophy"></i><span class="hidden md:inline ml-1">MEDALE</span>
         </button>
 
         <!-- Audio Studio Button -->
-        <button onclick="openAudioStudioModal()" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-emerald-300 px-2 py-1 rounded border border-neutral-700 transition flex items-center text-[11px]">
-          <i class="fa-solid fa-microphone-lines mr-1 text-xs"></i> AUDIO
+        <button onclick="openAudioStudioModal()" title="Studio Audio" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-emerald-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-neutral-700 transition flex items-center text-[10px]">
+          <i class="fa-solid fa-microphone-lines"></i><span class="hidden md:inline ml-1">AUDIO</span>
         </button>
 
         <!-- Fullscreen Button -->
-        <button onclick="toggleFullscreen()" title="Pełny ekran" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-neutral-300 px-2 py-1 rounded border border-neutral-700 transition">
-          <i class="fa-solid fa-expand text-xs"></i>
+        <button onclick="toggleFullscreen()" title="Pełny ekran" class="bg-neutral-800 hover:bg-neutral-700 active:scale-95 text-neutral-300 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded border border-neutral-700 transition flex items-center text-[10px]">
+          <i class="fa-solid fa-expand"></i>
         </button>
       </div>
     </header>
@@ -514,47 +605,46 @@
 
     <!-- ==================== SIGNATURE GREEN CRT DIALOGUE & DECISION CONSOLE ==================== -->
     <!-- Positioned with z-30 at the bottom, overlapping and naturally masking the cut of the sprites -->
-    <footer class="relative z-30 w-full px-2 md:px-6 pb-2 pt-0 shrink-0">
-      <div id="crt-dialogue-panel" class="crt-dialog-box p-3 md:p-3.5 flex flex-col space-y-2">
+    <footer class="relative z-30 w-full px-1.5 sm:px-4 md:px-6 pb-1 sm:pb-2 pt-0 shrink-0">
+      <div id="crt-dialogue-panel" class="crt-dialog-box p-2 sm:p-2.5 md:p-3 flex flex-col space-y-1 sm:space-y-1.5">
         
         <!-- Header Row (Screenshot Style: NADAJNIK UKF - KANAŁ SZYFROWANY ...) -->
-        <div class="flex items-center justify-between border-b border-emerald-900/80 pb-1.5 text-xs font-mono">
-          <div class="flex items-center space-x-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping inline-block"></span>
-            <span id="crt-header-title" class="tracking-widest text-emerald-400 font-bold uppercase text-[11px] md:text-xs">
+        <div class="flex items-center justify-between border-b border-emerald-900/80 pb-1 text-[10px] sm:text-xs font-mono">
+          <div class="flex items-center space-x-1.5 truncate">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block shrink-0"></span>
+            <span id="crt-header-title" class="tracking-wider text-emerald-400 font-bold uppercase truncate text-[10px] sm:text-xs">
               NADAJNIK UKF - KANAŁ SZYFROWANY 'KACZKA-7'
             </span>
           </div>
 
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-1.5 shrink-0 ml-2">
+            <!-- Inline Location Indicator to save vertical space -->
+            <span id="crt-footer-info" class="hidden md:inline-flex text-[10px] text-neutral-400 font-mono items-center mr-1">
+              <i class="fa-solid fa-radio text-emerald-500 mr-1"></i> Bunkier • 1949 r.
+            </span>
+
             <!-- Audio file badge & replay button -->
-            <span id="crt-audio-badge" class="text-[10px] md:text-[11px] px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700/60 font-mono flex items-center">
-              <i id="audio-icon-status" class="fa-solid fa-volume-high mr-1.5 text-emerald-400"></i>
-              <span id="crt-audio-filename">Carlo1.mp3</span>
-              <button onclick="replayCurrentVoice()" title="Odtwórz ponownie" class="ml-2 text-emerald-300 hover:text-white transition">
-                <i class="fa-solid fa-rotate-right"></i>
+            <span id="crt-audio-badge" class="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700/60 font-mono flex items-center">
+              <i id="audio-icon-status" class="fa-solid fa-volume-high mr-1 text-emerald-400 text-[9px]"></i>
+              <span id="crt-audio-filename" class="truncate max-w-[75px] sm:max-w-none">Carlo1.mp3</span>
+              <button onclick="replayCurrentVoice()" title="Odtwórz ponownie" class="ml-1 text-emerald-300 hover:text-white transition">
+                <i class="fa-solid fa-rotate-right text-[9px]"></i>
               </button>
             </span>
           </div>
         </div>
 
         <!-- Dialogue Text Body (Green Phosphor Typewriter Text) -->
-        <div id="crt-text-container" onclick="skipTypewriter()" class="min-h-[50px] md:min-h-[56px] flex items-center py-1 cursor-pointer">
-          <p id="crt-dialogue-text" class="text-xs md:text-sm text-emerald-300 font-mono leading-relaxed typing-cursor">
+        <div id="crt-text-container" onclick="skipTypewriter()" class="min-h-[32px] sm:min-h-[42px] max-h-[64px] sm:max-h-[80px] overflow-y-auto flex items-center py-0.5 cursor-pointer">
+          <p id="crt-dialogue-text" class="text-[10.5px] sm:text-xs md:text-sm text-emerald-300 font-mono leading-snug sm:leading-relaxed typing-cursor">
             <!-- Typed out dynamically -->
           </p>
         </div>
 
-        <!-- Footer Line & Tactical Choices Grid (Exactly TWO Choices A and B) -->
-        <div class="border-t border-emerald-900/80 pt-2 flex flex-col md:flex-row md:items-center justify-between gap-2">
-          <div class="flex items-center space-x-2 text-[10px] md:text-xs text-neutral-400 font-mono">
-            <i class="fa-solid fa-radio text-emerald-500"></i>
-            <span id="crt-footer-info">Bunkier pod Dnieprem • 14 października 1949 r.</span>
-          </div>
-
-          <!-- Dynamic CRT Buttons Container (Always TWO Distinct Choices) -->
-          <div id="crt-choices-container" class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full md:w-auto">
-            <!-- Injected dynamically: Option A and Option B -->
+        <!-- Tactical Choices Grid (Always EXACTLY TWO Choices Side-by-Side in 2 Columns) -->
+        <div class="border-t border-emerald-900/80 pt-1 sm:pt-1.5 w-full">
+          <div id="crt-choices-container" class="grid grid-cols-2 gap-1.5 sm:gap-2 w-full">
+            <!-- Injected dynamically: Option A (left 50%) and Option B (right 50%) -->
           </div>
         </div>
 
@@ -1004,10 +1094,10 @@
       if (invHudBtn) {
         if (isAtWasyl()) {
           invHudBtn.className = "bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 active:scale-95 text-amber-200 font-bold px-2.5 py-1 rounded border border-amber-400 transition flex items-center text-[11px] shadow-[0_0_15px_rgba(245,158,11,0.6)] animate-pulse";
-          invHudBtn.innerHTML = '<i class="fa-solid fa-store mr-1 text-xs text-amber-300"></i> KRAM WASYLA (HANDEL)';
+          invHudBtn.innerHTML = '<i class="fa-solid fa-store mr-1 text-xs text-amber-300"></i><span class="hidden sm:inline">KRAM WASYLA</span>';
         } else {
           invHudBtn.className = "bg-gradient-to-r from-emerald-950 to-neutral-900 hover:from-emerald-900 hover:to-neutral-800 active:scale-95 text-emerald-300 font-bold px-2.5 py-1 rounded border border-emerald-700/80 transition flex items-center text-[11px] shadow";
-          invHudBtn.innerHTML = '<i class="fa-solid fa-briefcase mr-1 text-xs text-emerald-400"></i> PLECAK (W TERENIE)';
+          invHudBtn.innerHTML = '<i class="fa-solid fa-briefcase mr-1 text-xs text-emerald-400"></i><span class="hidden sm:inline">PLECAK</span>';
         }
       }
     }
@@ -3328,15 +3418,15 @@
         const hasCharisma = gameState.charisma >= reqCh;
 
         let badgeText = ch.badge || (index === 0 ? 'OPCJA A' : 'OPCJA B');
-        let btnClasses = "crt-btn px-3 py-2 rounded-lg text-xs md:text-sm font-mono flex items-center justify-between space-x-2 text-left transition";
+        let btnClasses = "crt-btn px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-mono flex items-center justify-between space-x-1 sm:space-x-1.5 text-left transition min-h-[30px] sm:min-h-[34px] leading-tight";
 
         if (reqCh > 0) {
           if (hasCharisma) {
             badgeText = `✨ PERSWAZJA [POZ. ${reqCh}]`;
-            btnClasses = "crt-btn-charisma-unlocked px-3 py-2 rounded-lg text-xs md:text-sm font-mono flex items-center justify-between space-x-2 text-left transition";
+            btnClasses = "crt-btn-charisma-unlocked px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-mono flex items-center justify-between space-x-1 sm:space-x-1.5 text-left transition min-h-[30px] sm:min-h-[34px] leading-tight";
           } else {
             badgeText = `🔒 WYM. CHARYZMA ${reqCh}`;
-            btnClasses = "crt-btn-charisma-locked px-3 py-2 rounded-lg text-xs md:text-sm font-mono flex items-center justify-between space-x-2 text-left";
+            btnClasses = "crt-btn-charisma-locked px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg text-[10px] sm:text-xs font-mono flex items-center justify-between space-x-1 sm:space-x-1.5 text-left min-h-[30px] sm:min-h-[34px] leading-tight";
           }
         }
 
